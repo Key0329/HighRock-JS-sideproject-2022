@@ -1,0 +1,19 @@
+a{
+    text-decoration: none;
+    display: block;
+
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+body {
+    line-height: 1.5;
+    color: $gray-custom;
+    letter-spacing: .04rem;
+}
+
