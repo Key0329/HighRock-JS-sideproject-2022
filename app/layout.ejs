@@ -11,49 +11,80 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
+    
+    <header class="fixed-top py-3 py-lg-6">
+      <div class="container">
+
+        <nav class="nav d-flex justify-content-between">
+          <!-- logo -->
+          <h2 class="mb-0"><a class="nav-logo" href="#">HIGHROCK</a></h2>
+          <!-- menu pc -->
+          <ul class="nav-menu list-unstyled d-lg-flex d-none align-items-center">
+            <li><a class="text-gray hover-decoBorder-bottom position-relative py-2 px-0 ms-8" href="#">場館資訊</a></li>
+            <li><a class="text-gray hover-decoBorder-bottom position-relative py-2 px-0 ms-8" href="#">課程介紹</a></li>
+            <li><a class="text-gray hover-decoBorder-bottom position-relative py-2 px-0 ms-8" href="#">團體課程</a></li>
+            <li><a class="text-gray hover-decoBorder-bottom position-relative py-2 px-0 ms-8" href="#">會員方案</a></li>
+            <li><a class="text-gray hover-decoBorder-bottom position-relative py-2 ms-8 pe-0" href="#">登入</a></li>
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+          <!-- menu mobile ham-->
+          <a class="d-lg-none" data-bs-toggle="collapse" href="#nav-menu-mobile" role="button" aria-expanded="false" aria-controls="nav-menu-mobile">
+            <img class="nav-menu-ham" src="./assets/images/Icon/menu.svg" alt="menu">
+          </a>
+        </nav>
+        <!-- menu mobile show -->
+        <div class="d-lg-none collapse w-50 w-md-25 ms-auto" id="nav-menu-mobile">
+          <ul class="nav-menu-mobile list-unstyled">
+            <li class="pt-4 px-6"><a class="border-bottom nav-menu-mobile-border-color text-end pb-4" href="#">場館資訊</a></li>
+            <li class="pt-4 px-6"><a class="border-bottom nav-menu-mobile-border-color text-end pb-4" href="#">課程介紹</a></li>
+            <li class="pt-4 px-6"><a class="border-bottom nav-menu-mobile-border-color text-end pb-4" href="#">團體課程</a></li>
+            <li class="pt-4 px-6"><a class="border-bottom nav-menu-mobile-border-color text-end pb-4" href="#">會員方案</a></li>
+            <li class="pt-4 px-6"><a class="text-end pb-4" href="#">登入</a></li>
+          </ul>
         </div>
+
       </div>
-    </nav>
+    </header>
+
 
     <%- contents %>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-    <footer class="footer">
-      footer
+
+    <footer class="bg-primary-light py-10 py-lg-15">
+      <div class="container">
+        <div class="d-flex justify-content-between">
+
+          <div>
+            <h2 class="mb-2"><a class="nav-logo" href="#">HIGHROCK</a></h2>
+            <p class="fs-6">Taipei’s ultimate rock climbing<br>
+              experience in 2 locations, 7 days a week</p>
+          </div>
+
+          <div>
+            <p class="fs-5 text-gray-c2 mb-2">關於我們</p>
+            <div class="d-flex mb-6 ">
+              <a href="#" class="me-4">場館資訊</a>
+              <a href="#" class="me-4">門票資訊</a>
+              <a href="#">會員方案</a>
+            </div>
+            <p class="fs-5 text-gray-c2 mb-2">近期活動與課程</p>
+            <div class="d-flex">
+              <a href="#" class="me-4">頂繩攀登</a>
+              <a href="#" class="me-4">先鋒攀登</a>
+              <a href="#">室內抱石</a>
+            </div>
+          </div>
+
+          <div>
+            
+          </div>
+
+        </div>
+      </div>
     </footer>
 
+
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="./assets/js/vendors.js"></script>
     <script src="./assets/js/all.js"></script>
   </body>

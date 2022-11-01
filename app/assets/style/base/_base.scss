@@ -1,17 +1,21 @@
-a{
-    text-decoration: none;
-    display: block;
-
-}
-
-img{
-    display: block;
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
-    line-height: 1.5;
+  line-height: 1.5;
 }
 
+a {
+  text-decoration: none;
+  display: block;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
