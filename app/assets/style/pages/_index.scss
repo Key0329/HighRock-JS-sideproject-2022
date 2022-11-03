@@ -1,0 +1,227 @@
+// --------------------- banner ---------------------
+.index {
+  &-banner {
+    background-image: url(../images/Hero/hero-sm-new.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 324px;
+    @include pad {
+      background-image: url(../images/Hero/hero-lg-new.png);
+    }
+  }
+  &-slogan {
+    width: 295px;
+    height: 196px;
+    @include pc {
+      width: 507px;
+      height: 332px;
+    }
+    background: rgba(255, 255, 255, 0.6);
+    &-btn {
+      width: 120px;
+      @include pc {
+        width: 146px;
+      }
+    }
+  }
+}
+
+// --------------------- experience ---------------------
+.experience {
+  &-img {
+    object-fit: cover;
+    height: 395px !important;
+    width: 100%;
+    @include pc {
+      height: 100% !important;
+    }
+  }
+  &-card {
+    width: calc(100% - 16px);
+    &::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border: 2px solid #d6e5de;
+      border-radius: 8px;
+      top: 8px;
+      left: 12px;
+      @include pc {
+        top: 16px;
+        left: 16px;
+      }
+    }
+    &:hover::after {
+      border-color: $primary;
+    }
+  }
+  &-card-1 {
+    &::before {
+      content: '上攀攻頂';
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      font-size: 24px;
+      color: white;
+    }
+    &:hover::before {
+      color: $primary;
+    }
+  }
+  &-card-2 {
+    &::before {
+      content: '兒童體驗';
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      font-size: 24px;
+      color: white;
+    }
+    &:hover::before {
+      color: $primary;
+    }
+  }
+  &-card-3 {
+    &::before {
+      content: '極限抱石 ';
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      font-size: 24px;
+      color: white;
+    }
+    &:hover::before {
+      color: $primary;
+    }
+  }
+  &-card-4 {
+    &::before {
+      content: '個人挑戰';
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      font-size: 24px;
+      color: white;
+    }
+    &:hover::before {
+      color: $primary;
+    }
+  }
+}
+
+// --------------------- background rock ---------------------
+.bg-rock {
+  &-lg {
+    z-index: -1;
+    &-1 {
+      right: 0;
+      top: 180px;
+    }
+    &-2 {
+      left: 0;
+      top: -48px;
+    }
+    &-3 {
+      right: 0;
+      top: 800px;
+    }
+    &-4 {
+      left: 0;
+      top: -60px;
+      z-index: 0;
+    }
+    &-5 {
+      right: 24%;
+      top: 200px;
+    }
+    &-6 {
+      right: 16%;
+      top: 800px;
+    }
+    &-7 {
+      left: 14%;
+      bottom: 8px;
+    }
+    &-8 {
+      left: 38%;
+      bottom: 120px;
+    }
+  }
+}
+
+// --------------------- training ---------------------
+.training {
+  z-index: 0;
+  &-name {
+    &-tc {
+      &-1 {
+        width: 80px;
+        @include pc {
+          width: 120px;
+        }
+      }
+      &-2,
+      &-3 {
+        width: 180px;
+        @include pc {
+          width: 240px;
+        }
+      }
+    }
+    &-en {
+      bottom: 0;
+      right: 0;
+      z-index: 0;
+    }
+  }
+}
+
+// --------------------- information ---------------------
+
+.feature {
+  &-title {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      background: $primary;
+      width: 32px;
+      height: 4px;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      @include pc {
+        width: 6px;
+        height: 20px;
+        left: -12px;
+        top: 4px;
+      }
+    }
+  }
+}
+
+.location {
+  &-title {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      background: $primary;
+      width: 32px;
+      height: 4px;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      @include pc {
+        width: 6px;
+        height: 20px;
+        left: -12px;
+        top: 4px;
+      }
+    }
+  }
+}
+
+// --------------------- schedule  ---------------------

@@ -64,6 +64,9 @@ $colors: (
   'gray': $gray-900,
   'gray-c1': #4d4d4d,
   'gray-c2': #888888,
+  'gray-c3': #d6e5de,
+  'yellow-c1': #ffe2aa,
+  'blue-c1': #6cd2d9,
 ) !default;
 // scss-docs-end colors-map
 
@@ -96,6 +99,9 @@ $theme-colors: (
   'black': $black,
   'gray-c1': #4d4d4d,
   'gray-c2': #888888,
+  'gray-c3': #d6e5de,
+  'yellow-c1': #ffe2aa,
+  'blue-c1': #6cd2d9,
 ) !default;
 // scss-docs-end theme-colors-map
 
@@ -411,7 +417,7 @@ $border-color: $gray-300 !default;
 // scss-docs-start border-radius-variables
 $border-radius: 0.25rem !default;
 $border-radius-sm: 0.2rem !default;
-$border-radius-lg: 0.3rem !default;
+$border-radius-lg: 0.5rem !default;
 $border-radius-pill: 50rem !default;
 // scss-docs-end border-radius-variables
 
@@ -529,6 +535,7 @@ $display-font-sizes: (
   5: 3rem,
   // 48px
   6: 2.5rem,
+  7: 2rem,
 ) !default;
 
 $display-font-weight: 300 !default;
