@@ -1,24 +1,100 @@
 {
-  "posts": [
+  "member": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "memberId": "ABC120222",
+      "account": "likeclimbing@gmail.com",
+      "password": "12345566",
+      "name": "麥杰倫",
+      "email": "likeclimbing@gmail.com",
+      "contactNumber": "0933-666-888",
+      "startDate": "2022-12-14",
+      "expireDate": "2023-6-13",
+      "isExpired": false
+    }
+  ],
+  "branch": [
+    {
+      "id": 1,
+      "name": "HighRock 大安館",
+      "location": "台北市大安區信義路七段 886 號",
+      "contactNumber": "02-1222-4312",
+      "openTime": {
+        "weekday": "12:00 - 22:00",
+        "weekend": "11:00 - 00:00"
+      }
     },
     {
-      "title": "test",
-      "author": "Key",
-      "id": 2
+      "id": 2,
+      "name": "HighRock 新莊館",
+      "location": "新北市新莊區中正路 1564 號",
+      "contactNumber": "02-1277-2389",
+      "openTime": {
+        "weekday": "12:00 - 22:00",
+        "weekend": "11:00 - 00:00"
+      }
     }
   ],
-  "comments": [
+  "activities": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "courseId": "NUM120222",
+      "name": "成人抱石 (Bouldering)",
+      "price": 4000,
+      "memberPrice": 3600,
+      "branch": "大安館",
+      "batch": "2023 年 1 月 7 日 與 2023 年 1 月 8 日(周末) ",
+      "coach": "史傑克",
+      "status": "尚有名額 ",
+      "image": "activity01.jpg",
+      "maximumSignUp": 8,
+      "nowSignUp": 5,
+      "registeredStudent": [
+        {
+          "id": 1,
+          "isMember": true,
+          "memberId": "ABC120222",
+          "account": "likeclimbing@gmail.com",
+          "password": "12345566",
+          "name": "麥杰倫",
+          "email": "likeclimbing@gmail.com",
+          "contactNumber": "0933-666-888"
+        }
+      ],
+      "introduction": "抱石 (Bouldering) 為一個人也可以進行的攀岩項目，在抱石場攀爬約 4~6 米高左右的石牆，上面會有各種顏色的石塊代表不同難度路線。底下鋪有厚軟墊確保安全，與頂繩攀登不同，不需繩索輔助也不需要確保",
+      "content": "抱石課程將帶學員練習不同的腳法技巧及手點抓法。利用橫向攀爬，練習身體重心的轉移與協調性，再利用直向攀爬，練習雙腳正確踩點及施力方式。練習足夠後將可以嘗試挑戰不同難度路線，適合新手與老手",
+      "information": {
+        "time": "兩次4小時，共計8小時",
+        "location": "HighRock 大安館 (台北市大安區信義路七段 886 號)",
+        "studentLimitNumber": "3 人至 6 人，額滿 3 名學員以上(含 3 名)即開課",
+        "discount": "HighRock 會員報名費用為九折"
+      },
+      "cancellationPolicy": {
+        "company": "若本課程參與人數低於3人（不含），本公司將於報名截止後，通知已報名之學員辦理課程全額退費(需扣除新台幣15元之銀行轉帳手續費)。",
+        "student": {
+          "title": "學員在課程前取消，將依照以下日期酌收費用：",
+          "contents": [
+            "A. 課程開始日前第四日至第十日以內，將扣除代辦費與課程費用之20%後，退回剩餘費用。",
+            "B. 課程開始日前第一日至第三日以內，將扣除代辦費與課程費用之70%後，退回剩餘費用。",
+            "C. 隊員於課程開始日或開始後中途停止或未通知不參加者，將不予退費。"
+          ]
+        }
+      }
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "regularCourse": [
+    {
+      "id": 1,
+      "courseId": "GRP120222 ",
+      "name": "上攀 (初階)",
+      "branch": "新莊館",
+      "date": "2022-1-9 ",
+      "startTime": "19:00",
+      "endTime": "20:00",
+      "coach": "史傑克",
+      "status": "尚有名額",
+      "maximumSignUp": 8,
+      "nowSignUp": 1
+    }
+  ]
 }

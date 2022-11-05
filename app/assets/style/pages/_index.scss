@@ -111,46 +111,6 @@
   }
 }
 
-// --------------------- background rock ---------------------
-.bg-rock {
-  &-lg {
-    z-index: -1;
-    &-1 {
-      right: 0;
-      top: 180px;
-    }
-    &-2 {
-      left: 0;
-      top: -48px;
-    }
-    &-3 {
-      right: 0;
-      top: 800px;
-    }
-    &-4 {
-      left: 0;
-      top: -60px;
-      z-index: 0;
-    }
-    &-5 {
-      right: 24%;
-      top: 200px;
-    }
-    &-6 {
-      right: 16%;
-      top: 800px;
-    }
-    &-7 {
-      left: 14%;
-      bottom: 8px;
-    }
-    &-8 {
-      left: 38%;
-      bottom: 120px;
-    }
-  }
-}
-
 // --------------------- training ---------------------
 .training {
   z-index: 0;
@@ -224,4 +184,95 @@
   }
 }
 
-// --------------------- schedule  ---------------------
+// --------------------- calendar  ---------------------
+
+// --------------------- background rock ---------------------
+.bg-rock {
+  &-lg {
+    z-index: -1;
+    &-1 {
+      right: 0;
+      top: 180px;
+    }
+    &-2 {
+      left: 0;
+      top: -48px;
+    }
+    &-3 {
+      right: 0;
+      top: 800px;
+    }
+    &-4 {
+      left: 0;
+      top: -60px;
+      z-index: 0;
+    }
+    &-5 {
+      right: 24%;
+      top: 200px;
+    }
+    &-6 {
+      right: 16%;
+      top: 800px;
+    }
+    &-7 {
+      left: 14%;
+      bottom: 8px;
+    }
+    &-8 {
+      left: 38%;
+      bottom: 120px;
+    }
+    &-9 {
+      right: 6%;
+      top: 200px;
+      z-index: 0;
+    }
+    &-10 {
+      left: 5%;
+      bottom: 100px;
+      z-index: 0;
+    }
+  }
+  &-sm {
+    z-index: -1;
+    &-1 {
+      top: 90px;
+      right: 0;
+    }
+    &-2 {
+      bottom: 36px;
+      left: 0;
+    }
+    &-3 {
+      bottom: 120px;
+      left: 0;
+    }
+    &-4 {
+      top: 400px;
+      right: 5%;
+    }
+    &-5 {
+      top: 450px;
+      right: 0;
+    }
+    &-6 {
+      bottom: 250px;
+      left: 15%;
+    }
+    &-7 {
+      bottom: 120px;
+      right: 15%;
+    }
+    &-8 {
+      top: 10px;
+      left: 0;
+      z-index: 0;
+    }
+    &-9 {
+      bottom: 50px;
+      right: 0;
+      z-index: 0;
+    }
+  }
+}
