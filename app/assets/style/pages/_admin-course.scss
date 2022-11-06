@@ -1,0 +1,30 @@
+.admin {
+  &-layout {
+    width: 320px;
+    .active {
+      color: orange !important;
+    }
+  }
+  &-logo {
+    background-image: url(../images/LOGO/logo-lg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include logo-link;
+    width: 120px;
+    height: 24px;
+    @include pad {
+      width: 160px;
+      height: 32px;
+    }
+    @include pc {
+      width: 200px;
+      height: 40px;
+    }
+  }
+  &-account {
+    &-avatar {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}

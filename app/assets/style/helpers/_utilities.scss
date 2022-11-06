@@ -126,6 +126,8 @@ $utilities: map-merge(
       values: (
         null: $border-width solid $border-color,
         0: 0,
+        5: 5px solid $border-color,
+        8: 8px solid #ffe2aa,
       ),
     ),
     'border-start': (

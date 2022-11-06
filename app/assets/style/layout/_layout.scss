@@ -7,9 +7,7 @@
     background-image: url(../images/LOGO/logo-lg.png);
     background-size: cover;
     background-repeat: no-repeat;
-    white-space: nowrap;
-    text-indent: 101%;
-    overflow: hidden;
+    @include logo-link;
     width: 120px;
     height: 24px;
     @include pad {

@@ -1,0 +1,13 @@
+.register {
+  &-panel {
+    z-index: 10;
+  }
+
+  &-course {
+    &-text {
+      bottom: 60px;
+      right: 10%;
+      z-index: -1;
+    }
+  }
+}
