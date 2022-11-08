@@ -23,6 +23,10 @@
   letter-spacing: 0.12rem;
 }
 
+.border-top-n1 {
+  border-top: -1px solid $border-color !important;
+}
+
 // style
 .nav-menu-mobile-border-color {
   border-color: #eef8f3 !important;

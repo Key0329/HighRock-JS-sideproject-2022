@@ -36,6 +36,12 @@
   }
 }
 
+.hover-background-blue-c1 {
+  &:hover {
+    background: linear-gradient(top, $blue-c1, $yellow-c1);
+  }
+}
+
 .hover-orange {
   &:hover {
     color: orange;

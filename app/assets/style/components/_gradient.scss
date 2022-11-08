@@ -1,0 +1,9 @@
+.bg-c-gradient {
+  @include gradient-x($yellow-c1, $blue-c1);
+  transition: all 0.1s;
+}
+
+.bg-c-gradient-member {
+  @include gradient-x($blue-c1, $primary);
+  transition: all 0.1s;
+}

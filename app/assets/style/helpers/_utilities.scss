@@ -109,6 +109,7 @@ $utilities: map-merge(
       values: (
         null: $border-width solid $border-color,
         0: 0,
+        1: 1px solid $border-color,
       ),
     ),
     'border-end': (

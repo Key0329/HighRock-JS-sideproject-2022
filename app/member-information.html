@@ -1,0 +1,95 @@
+---
+title: HighRock - member-info
+layout: ./app/layout.ejs
+engine: ejs
+current: member-information
+---
+
+<main class="bg-c-gradient">
+  <section class="py-16 pb-lg-24">
+    <div class="container">
+      <!-- tab -->
+      <ul class="row row-cols-2 g-0 list-unstyled bg-yellow-c1 rounded-top mb-0">
+        <li class="col">
+          <a
+            class="member-tab text-center fs-4 fs-lg-3 letter-12 fw-bold shadow hover-background-blue-c1 rounded-0 py-4 w-100 member-tab-active"
+            href="#"
+            >會員資料</a
+          >
+        </li>
+        <li class="col">
+          <a
+            class="member-tab text-center fs-4 fs-lg-3 letter-12 fw-bold shadow hover-background-blue-c1 rounded-0 py-4 w-100"
+            href="#"
+            >課程管理</a
+          >
+        </li>
+      </ul>
+      <!-- content -->
+      <div class="shadow px-4 py-12 rounded-bottom">
+        <div class="row">
+          <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+            <img
+              class="member-info-img rounded-circle mb-4"
+              src="./assets/images/Avatar/user-1.png"
+              alt="Avatar"
+            />
+            <a href="#" class="btn btn-gray-c1 px-3">設定頭像</a>
+          </div>
+          <div class="col-md-7">
+            <form class="row mb-12">
+              <div class="col-lg-6 d-flex flex-column mb-4">
+                <label for="member-email">信箱</label>
+                <input
+                  class="rounded-2 border-0 p-1 mt-1 mb-4 w-75"
+                  type="email"
+                  name="member-email"
+                  id="member-email"
+                />
+                <label for="member-tel">連絡電話</label>
+                <input
+                  class="rounded-2 border-0 p-1 mt-1 mb-4 w-75"
+                  type="tel"
+                  name="member-tel"
+                  id="member-tel"
+                />
+                <label for="member-name">真實姓名</label>
+                <input
+                  class="rounded-2 border-0 p-1 mt-1 mb-4 w-75"
+                  type="text"
+                  name="member-name"
+                  id="member-name"
+                />
+              </div>
+              <div class="col-lg-6 d-flex flex-column mb-4">
+                <label for="member-account">帳號</label>
+                <input
+                  class="rounded-2 border-0 p-1 mt-1 mb-4 w-75"
+                  type="text"
+                  name="member-account"
+                  id="member-account"
+                />
+                <label for="member-pwd">密碼</label>
+                <input
+                  class="rounded-2 border-0 p-1 mt-1 mb-4 w-75"
+                  type="password"
+                  name="member-pwd"
+                  id="member-pwd"
+                />
+              </div>
+              <div class="col-lg-12 d-flex justify-content-end">
+                <a href="#" class="btn btn-gray-c1 me-4">儲存變更</a>
+                <a href="#" class="btn btn-danger">取消</a>
+              </div>
+            </form>
+            <div class="col-lg-6 d-flex flex-column mb-8 mb-lg-20">
+              <p class="fs-4 fs-lg-3 mb-2">會員編號：<span>ABC120222</span></p>
+              <p class="fs-4 fs-lg-3 mb-2">會員資格：<span>六個月(月付方案)</span></p>
+              <p class="fs-4 fs-lg-3">會員起訖日：<span>2022-12-14 ～ 2023-6-13</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
