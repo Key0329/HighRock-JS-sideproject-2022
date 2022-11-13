@@ -3,6 +3,7 @@
 // ---------------------- 報名課程 彈跳視窗 ----------------------
 
 function courseModelControl() {
+  console.log(123456);
   const registerModelBtnNonMember = document.querySelector('.register-model-btn-nonMember');
   const registerModel = document.querySelector('.register-model');
   const registerModelNonMember = document.querySelector('.register-model-nonMember');
@@ -40,73 +41,208 @@ function courseModelControl() {
   });
 
   // 非會員報名彈跳視窗;
-  registerModelBtnNonMember.addEventListener('click', (e) => {
-    e.preventDefault();
+  function registerModelNonMemberFormCheck(arr) {
+    registerModelBtnNonMember.addEventListener('click', (e) => {
+      e.preventDefault();
 
-    const courseName = document.querySelector('.course-name');
-    const courseBranch = document.querySelector('#course-branch');
-    const courseBatch = document.querySelector('#course-batch');
-    const nonMemberPrice = document.querySelector('.course-nonmember-price');
-    const courseNonMemberName = document.querySelector('#course-nonMember-name');
-    const courseNonMemberPrice = document.querySelector('#course-nonMember-price');
-    const courseNonMemberBranch = document.querySelector('#course-nonMember-branch');
-    const courseNonMemberBatch = document.querySelector('#course-nonMember-batch');
+      const courseName = document.querySelector('.course-name');
+      const courseBranch = document.querySelector('#course-branch');
+      const courseBatch = document.querySelector('#course-batch');
+      const nonMemberPrice = document.querySelector('.course-nonmember-price');
+      const courseNonMemberID = document.querySelector('#course-nonMember-id');
+      const courseNonMemberName = document.querySelector('#course-nonMember-name');
+      const courseNonMemberPrice = document.querySelector('#course-nonMember-price');
+      const courseNonMemberBranch = document.querySelector('#course-nonMember-branch');
+      const courseNonMemberBatch = document.querySelector('#course-nonMember-batch');
+      let registerBatchId = '';
 
-    courseNonMemberName.value = courseName.textContent.trim();
-    courseNonMemberPrice.value = nonMemberPrice.textContent.trim();
-    courseNonMemberBranch.value = courseBranch.value.trim();
-    courseNonMemberBatch.value = courseBatch.value.trim();
+      arr.forEach((item) => {
+        if (
+          item.branch === courseBranch.value
+          && item.content === courseBatch.value
+          && item.name === courseName.textContent.trim()
+        ) {
+          registerBatchId = item.batchID;
+        }
+      });
 
-    // courseNonMemberName.value = courseName;
+      // 帶資料到確認頁面
+      courseNonMemberID.value = registerBatchId;
+      courseNonMemberName.value = courseName.textContent.trim();
+      courseNonMemberPrice.value = nonMemberPrice.textContent.trim();
+      courseNonMemberBranch.value = courseBranch.value.trim();
+      courseNonMemberBatch.value = courseBatch.value.trim();
 
-    // 關閉前一個視窗
-    registerModelClose();
+      // 關閉前一個視窗
+      registerModelClose();
 
-    // 打開下個頁面
-    registerModelNonMember.classList.add('register-model--active');
+      // 打開下個頁面
+      registerModelNonMember.classList.add('register-model--active');
 
-    // 點擊視窗外關閉
-    registerModelNonMember.addEventListener('click', (event) => {
-      if (
-        event.target.getAttribute('class') === 'register-model-nonMember register-model--active'
-      ) {
-        registerModelClose();
-      }
+      // 點擊視窗外關閉
+      registerModelNonMember.addEventListener('click', (event) => {
+        if (
+          event.target.getAttribute('class') === 'register-model-nonMember register-model--active'
+        ) {
+          registerModelClose();
+        }
+      });
     });
-  });
+  }
 
-  // 非會員 form 表單控制
+  axios
+    .get('http://localhost:3000/batches')
+    .then((res) => {
+      const batchesData = res.data;
+      registerModelNonMemberFormCheck(batchesData);
+    })
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error);
+    });
+
+  // 非會員 form 表單傳值給後台
   registerModelNonMemberForm.addEventListener('click', (e) => {
     e.preventDefault();
+    console.log(123);
     if (e.target.type === 'submit') {
+      const registerNonMemberID = document.querySelector('#course-nonMember-id');
       const registerNonMemberName = document.querySelector('#register-nonMember-name');
       const registerNonMemberEmail = document.querySelector('#register-nonMember-email');
       const registerNonMemberPhoneNum = document.querySelector('#register-nonMember-phoneNum');
 
       const registeredStudentInfo = {
         isUser: false,
-        userId: null,
-        account: null,
-        password: null,
+        batchId: '',
         name: '',
         email: '',
         contactNumber: '',
       };
 
+      registeredStudentInfo.batchId = registerNonMemberID.value;
       registeredStudentInfo.name = registerNonMemberName.value;
       registeredStudentInfo.email = registerNonMemberEmail.value;
       registeredStudentInfo.contactNumber = registerNonMemberPhoneNum.value;
 
+      // sweet alert
       Swal.fire({
-        position: 'center center',
         icon: 'success',
         title: '報名成功<br />請前往填寫的信箱收取報名資訊',
         showConfirmButton: false,
         timer: 5000,
       });
+
+      const idValue = registerNonMemberID.value;
+
+      // 傳送報名資訊到資料庫
+      axios
+        .post('http://localhost:3000/registeredStudent', registeredStudentInfo)
+        .then((res) => {
+          // eslint-disable-next-line no-console
+          console.log(res);
+
+          // 取得最新學生人數
+          axios.get(`http://localhost:3000/registeredStudent?batchId=${idValue}`).then((re) => {
+            const registerNum = re.data.length;
+            const obj = {
+              nowSignUp: registerNum,
+            };
+
+            // 取得梯次 ID
+            axios
+              .get('http://localhost:3000/batches')
+              .then((response) => {
+                const { data } = response;
+                let id = '';
+
+                data.forEach((item) => {
+                  if (idValue === item.batchID) {
+                    id = item.id;
+                  }
+                });
+
+                // 更新資料庫最新報名人數
+                axios
+                  .patch(`http://localhost:3000/batches/${id}`, obj)
+                  .then((resp) => {
+                    // eslint-disable-next-line no-console
+                    console.log(resp);
+                    const courseNowSignUp = document.querySelector('.course-nowSignUp');
+                    courseNowSignUp.innerHTML = '';
+
+                    // 重新渲染梯次表單
+                    axios
+                      .get('http://localhost:3000/batches')
+                      .then((respon) => {
+                        const newData = respon.data;
+                        // eslint-disable-next-line no-use-before-define
+                        batchesChange(newData);
+                      })
+                      .catch((error) => {
+                        // eslint-disable-next-line no-console
+                        console.log(error);
+                      });
+                  })
+                  .catch((error) => {
+                    // eslint-disable-next-line no-console
+                    console.log(error);
+                  });
+              })
+              .catch((error) => {
+                // eslint-disable-next-line no-console
+                console.log(error);
+              });
+          });
+        })
+        .catch((error) => {
+          // eslint-disable-next-line no-console
+          console.log(error);
+        });
+
+      // 關閉視窗
       registerModelClose();
     } else if (e.target.nodeName === 'A') {
       registerModelClose();
+    }
+  });
+}
+
+function batchesChange(array) {
+  const registerPanel = document.querySelector('.register-panel');
+
+  registerPanel.addEventListener('change', (e) => {
+    const courseName = document.querySelector('.course-name');
+    const courseBranch = document.querySelector('#course-branch');
+    const courseBatch = document.querySelector('#course-batch');
+    const courseNowSignUp = document.querySelector('.course-nowSignUp');
+    let batchRestSignUp = '';
+
+    // 根據館別更改梯次
+    if (e.target.id === 'course-branch') {
+      let batchStr = `<option class="letter-12" value="- 請選擇梯次 -" selected disabled>
+    - 請選擇梯次 -
+  </option>`;
+
+      array.forEach((item) => {
+        if (item.branch === courseBranch.value && item.name === courseName.textContent.trim()) {
+          batchStr += `<option value="${item.content}">${item.content}</option>`;
+        }
+        courseBatch.innerHTML = batchStr;
+        courseNowSignUp.innerHTML = '';
+      });
+    }
+    // 判斷梯次後顯示可報名人數;
+    if (e.target.id === 'course-batch') {
+      array.forEach((item) => {
+        if (
+          courseBranch.value === item.branch
+          && courseBatch.value === item.content
+          && courseName.textContent.trim() === item.name
+        ) {
+          batchRestSignUp = item.maximumSignUp - item.nowSignUp;
+        }
+      });
+      courseNowSignUp.innerHTML = `※ 還有 ${batchRestSignUp} 位名額`;
     }
   });
 }
@@ -121,53 +257,26 @@ function renderCourseRegisterPanel(arr) {
   const registerPanel = document.querySelector('.register-panel');
 
   let str = '';
-  let batchStr = `<option class="letter-12" value="- 請選擇梯次 -" selected disabled>
+  const batchStr = `<option class="letter-12" value="- 請選擇梯次 -" selected disabled>
   - 請選擇梯次 -
 </option>`;
   let branchStr = `<option class="letter-12" value="- 請選擇分館 -" selected disabled>
   - 請選擇分館 -
 </option>`;
-  let batchNowSignUp = '';
+
+  axios
+    .get('http://localhost:3000/batches')
+    .then((res) => {
+      const batchesData = res.data;
+      batchesChange(batchesData);
+    })
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error);
+    });
 
   arr.forEach((item) => {
     const branchArr = item.branches;
-    const batchArr = item.batches;
-
-    registerPanel.addEventListener('change', (e) => {
-      const courseBranch = document.querySelector('#course-branch');
-      const courseBatch = document.querySelector('#course-batch');
-      const courseNowSignUp = document.querySelector('.course-nowSignUp');
-      // 根據館別更改梯次
-      if (e.target.id === 'course-branch') {
-        batchStr = `<option class="letter-12" value="- 請選擇梯次 -" selected disabled>
-    - 請選擇梯次 -
-  </option>`;
-
-        batchArr.forEach((i) => {
-          if (i.branch === courseBranch.value) {
-            const { batch } = i;
-            batch.forEach((b) => {
-              batchStr += `<option value="${b.content}">${b.content}</option>`;
-            });
-          }
-        });
-        courseBatch.innerHTML = batchStr;
-        courseNowSignUp.innerHTML = '';
-      }
-
-      // 判斷梯次後顯示可報名人數
-      if (e.target.id === 'course-batch') {
-        batchArr.forEach((i) => {
-          const { batch } = i;
-          batch.forEach((b) => {
-            if (courseBranch.value === b.branch && courseBatch.value === b.content) {
-              batchNowSignUp = `※ 還有 ${b.nowSignUp} 位名額`;
-            }
-          });
-        });
-        courseNowSignUp.innerHTML = batchNowSignUp;
-      }
-    });
 
     // 場館
     branchArr.forEach((i) => {
@@ -335,6 +444,7 @@ function checkOtherCourses(arr) {
       registerTabToggle(nowData);
       renderOtherCourse(othersData);
       courseModelControl();
+      console.log(12345);
     }
   });
 }
@@ -378,7 +488,9 @@ axios
     const { data } = res;
     courseRegisterOpen(data);
     checkOtherCourses(data);
+    console.log(1234);
   })
   .catch((error) => {
+    // eslint-disable-next-line no-console
     console.log(error);
   });

@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "userId": "1",
+      "userId": "user001",
       "account": "likeclimbing@gmail.com",
       "password": "12345566",
       "name": "麥杰倫",
@@ -14,7 +14,7 @@
     },
     {
       "id": 2,
-      "userId": "2",
+      "userId": "user002",
       "account": "aabbcc@gmail.com",
       "password": "112233",
       "name": "安東尼",
@@ -26,7 +26,7 @@
     },
     {
       "id": 3,
-      "userId": "3",
+      "userId": "user003",
       "account": "yoyoyo@gmail.com",
       "password": "55665566",
       "name": "石頭",
@@ -87,8 +87,149 @@
             "C. 隊員於課程開始日或開始後中途停止或未通知不參加者，將不予退費。"
           ]
         }
-      }
+      },
+      "batches": [
+        {
+          "id": 1,
+          "branch": "大安館",
+          "batch": [
+            {
+              "id": 1,
+              "batchID": "bouldering001",
+              "content": "2023 年 1 月 7 日 與 2023 年 1 月 8 日(周末)",
+              "branch": "大安館",
+              "coach": "史傑克",
+              "status": "尚有名額 ",
+              "maximumSignUp": 8,
+              "nowSignUp": 5,
+              "registeredStudent": [
+                {
+                  "id": 1,
+                  "isUser": true,
+                  "userId": "user001",
+                  "account": "likeclimbing@gmail.com",
+                  "password": "12345566",
+                  "name": "麥杰倫",
+                  "email": "likeclimbing@gmail.com",
+                  "contactNumber": "0933-666-888"
+                },
+                {
+                  "id": 2,
+                  "isUser": false,
+                  "userId": null,
+                  "account": null,
+                  "password": null,
+                  "name": "張伯倫",
+                  "email": "basketball@gmail.com",
+                  "contactNumber": "0911-222-333"
+                },
+                {
+                  "id": 3,
+                  "isUser": true,
+                  "userId": "user002",
+                  "account": "aabbcc@gmail.com",
+                  "password": "112233",
+                  "name": "安東尼",
+                  "email": "aabbcc@gmail.com",
+                  "contactNumber": "0999-777-999"
+                },
+                {
+                  "id": 4,
+                  "isUser": true,
+                  "userId": "user003",
+                  "account": "yoyoyo@gmail.com",
+                  "password": "55665566",
+                  "name": "石頭",
+                  "email": "yoyoyo@gmail.com",
+                  "contactNumber": "0955-666-565"
+                },
+                {
+                  "id": 5,
+                  "isUser": false,
+                  "userId": null,
+                  "account": null,
+                  "password": null,
+                  "name": "鄭耀稅",
+                  "email": "gotosleep@gmail.com",
+                  "contactNumber": "0928-282-282"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "batchID": "bouldering002",
+              "content": "2023 年 1 月 21 日 與 2023 年 1 月 22 日(周末)",
+              "branch": "大安館",
+              "coach": "Hank",
+              "status": "尚有名額 ",
+              "maximumSignUp": 8,
+              "nowSignUp": 3,
+              "registeredStudent": [
+                {
+                  "id": 1,
+                  "isUser": true,
+                  "userId": "user001",
+                  "account": "likeclimbing@gmail.com",
+                  "password": "12345566",
+                  "name": "麥杰倫",
+                  "email": "likeclimbing@gmail.com",
+                  "contactNumber": "0933-666-888"
+                },
+                {
+                  "id": 2,
+                  "isUser": false,
+                  "userId": null,
+                  "account": null,
+                  "password": null,
+                  "name": "張伯倫",
+                  "email": "basketball@gmail.com",
+                  "contactNumber": "0911-222-333"
+                },
+                {
+                  "id": 3,
+                  "isUser": false,
+                  "userId": null,
+                  "account": null,
+                  "password": null,
+                  "name": "張伯倫",
+                  "email": "basketball@gmail.com",
+                  "contactNumber": "0911-222-333"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "branch": "新莊館",
+          "batch": [
+            {
+              "id": 1,
+              "batchID": "bouldering003",
+              "content": "2023 年 1 月 21 日 與 2023 年 1 月 22 日(周末)",
+              "branch": "新莊館",
+              "coach": "Eleven",
+              "status": "尚有名額 ",
+              "maximumSignUp": 8,
+              "nowSignUp": 1,
+              "registeredStudent": [
+                {
+                  "id": 1,
+                  "isUser": true,
+                  "userId": "user001",
+                  "account": "likeclimbing@gmail.com",
+                  "password": "12345566",
+                  "name": "麥杰倫",
+                  "email": "likeclimbing@gmail.com",
+                  "contactNumber": "0933-666-888"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
+
     {
       "id": 2,
       "courseId": "course02",
@@ -116,7 +257,112 @@
             "C. 隊員於課程開始日或開始後中途停止或未通知不參加者，將不予退費。"
           ]
         }
-      }
+      },
+      "batches": [
+        {
+          "branch": "大安館",
+          "batch": [
+            {
+              "batchID": "topRope001",
+              "content": "2023 年 12 月 17 日 與 2023 年 12 月 18 日(周末)",
+              "branch": "大安館",
+              "coach": "史傑克",
+              "status": "尚有名額 ",
+              "maximumSignUp": 8,
+              "nowSignUp": 2,
+              "registeredStudent": [
+                {
+                  "id": 1,
+                  "isUser": true,
+                  "userId": "user001",
+                  "account": "likeclimbing@gmail.com",
+                  "password": "12345566",
+                  "name": "麥杰倫",
+                  "email": "likeclimbing@gmail.com",
+                  "contactNumber": "0933-666-888"
+                },
+                {
+                  "id": 2,
+                  "isUser": false,
+                  "userId": null,
+                  "account": null,
+                  "password": null,
+                  "name": "張伯倫",
+                  "email": "basketball@gmail.com",
+                  "contactNumber": "0911-222-333"
+                }
+              ]
+            },
+            {
+              "batchID": "topRope002",
+              "content": "2023 年 12 月 24 日 與 2023 年 12 月 25 日(周末)",
+              "branch": "大安館",
+              "coach": "Hank",
+              "status": "尚有名額 ",
+              "maximumSignUp": 8,
+              "nowSignUp": 3,
+              "registeredStudent": [
+                {
+                  "id": 1,
+                  "isUser": true,
+                  "userId": "user001",
+                  "account": "likeclimbing@gmail.com",
+                  "password": "12345566",
+                  "name": "麥杰倫",
+                  "email": "likeclimbing@gmail.com",
+                  "contactNumber": "0933-666-888"
+                },
+                {
+                  "id": 2,
+                  "isUser": false,
+                  "userId": null,
+                  "account": null,
+                  "password": null,
+                  "name": "張伯倫",
+                  "email": "basketball@gmail.com",
+                  "contactNumber": "0911-222-333"
+                },
+                {
+                  "id": 3,
+                  "isUser": true,
+                  "userId": "user003",
+                  "account": "yoyoyo@gmail.com",
+                  "password": "55665566",
+                  "name": "石頭",
+                  "email": "yoyoyo@gmail.com",
+                  "contactNumber": "0955-666-565"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "branch": "新莊館",
+          "batch": [
+            {
+              "batchID": "topRope003",
+              "content": "2023 年 12 月 31 日 與 2023 年 1 月 1 日(周末)",
+              "branch": "新莊館",
+              "coach": "Eleven",
+              "status": "尚有名額 ",
+              "maximumSignUp": 8,
+              "nowSignUp": 1,
+              "registeredStudent": [
+                {
+                  "id": 1,
+                  "isUser": true,
+                  "userId": "user001",
+                  "account": "likeclimbing@gmail.com",
+                  "password": "12345566",
+                  "name": "麥杰倫",
+                  "email": "likeclimbing@gmail.com",
+                  "contactNumber": "0933-666-888"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 3,
@@ -145,7 +391,112 @@
             "C. 隊員於課程開始日或開始後中途停止或未通知不參加者，將不予退費。"
           ]
         }
-      }
+      },
+      "batches": [
+        {
+          "branch": "大安館",
+          "batch": [
+            {
+              "batchID": "lead001",
+              "content": "2023 年 1 月 7 日 與 2023 年 1 月 8 日(周末)",
+              "branch": "大安館",
+              "coach": "史傑克",
+              "status": "尚有名額 ",
+              "maximumSignUp": 8,
+              "nowSignUp": 2,
+              "registeredStudent": [
+                {
+                  "id": 1,
+                  "isUser": true,
+                  "userId": "user001",
+                  "account": "likeclimbing@gmail.com",
+                  "password": "12345566",
+                  "name": "麥杰倫",
+                  "email": "likeclimbing@gmail.com",
+                  "contactNumber": "0933-666-888"
+                },
+                {
+                  "id": 2,
+                  "isUser": false,
+                  "userId": null,
+                  "account": null,
+                  "password": null,
+                  "name": "張伯倫",
+                  "email": "basketball@gmail.com",
+                  "contactNumber": "0911-222-333"
+                }
+              ]
+            },
+            {
+              "batchID": "lead002",
+              "content": "2023 年 1 月 21 日 與 2023 年 1 月 22 日(周末)",
+              "branch": "大安館",
+              "coach": "Hank",
+              "status": "尚有名額 ",
+              "maximumSignUp": 8,
+              "nowSignUp": 3,
+              "registeredStudent": [
+                {
+                  "id": 1,
+                  "isUser": true,
+                  "userId": "user001",
+                  "account": "likeclimbing@gmail.com",
+                  "password": "12345566",
+                  "name": "麥杰倫",
+                  "email": "likeclimbing@gmail.com",
+                  "contactNumber": "0933-666-888"
+                },
+                {
+                  "id": 2,
+                  "isUser": false,
+                  "userId": null,
+                  "account": null,
+                  "password": null,
+                  "name": "張伯倫",
+                  "email": "basketball@gmail.com",
+                  "contactNumber": "0911-222-333"
+                },
+                {
+                  "id": 3,
+                  "isUser": true,
+                  "userId": "user003",
+                  "account": "yoyoyo@gmail.com",
+                  "password": "55665566",
+                  "name": "石頭",
+                  "email": "yoyoyo@gmail.com",
+                  "contactNumber": "0955-666-565"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "branch": "新莊館",
+          "batch": [
+            {
+              "batchID": "lead003",
+              "content": "2023 年 1 月 28 日 與 2023 年 1 月 29 日(周末)",
+              "branch": "新莊館",
+              "coach": "Eleven",
+              "status": "尚有名額 ",
+              "maximumSignUp": 8,
+              "nowSignUp": 1,
+              "registeredStudent": [
+                {
+                  "id": 1,
+                  "isUser": true,
+                  "userId": "user001",
+                  "account": "likeclimbing@gmail.com",
+                  "password": "12345566",
+                  "name": "麥杰倫",
+                  "email": "likeclimbing@gmail.com",
+                  "contactNumber": "0933-666-888"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 4,
@@ -174,7 +525,112 @@
             "C. 隊員於課程開始日或開始後中途停止或未通知不參加者，將不予退費。"
           ]
         }
-      }
+      },
+      "batches": [
+        {
+          "branch": "大安館",
+          "batch": [
+            {
+              "batchID": "cleanAnchor001",
+              "content": "2023 年 1 月 7 日 與 2023 年 1 月 8 日(周末)",
+              "branch": "大安館",
+              "coach": "史傑克",
+              "status": "尚有名額 ",
+              "maximumSignUp": 8,
+              "nowSignUp": 2,
+              "registeredStudent": [
+                {
+                  "id": 1,
+                  "isUser": true,
+                  "userId": "user001",
+                  "account": "likeclimbing@gmail.com",
+                  "password": "12345566",
+                  "name": "麥杰倫",
+                  "email": "likeclimbing@gmail.com",
+                  "contactNumber": "0933-666-888"
+                },
+                {
+                  "id": 2,
+                  "isUser": false,
+                  "userId": null,
+                  "account": null,
+                  "password": null,
+                  "name": "張伯倫",
+                  "email": "basketball@gmail.com",
+                  "contactNumber": "0911-222-333"
+                }
+              ]
+            },
+            {
+              "batchID": "cleanAnchor002",
+              "content": "2023 年 1 月 21 日 與 2023 年 1 月 22 日(周末)",
+              "branch": "大安館",
+              "coach": "Hank",
+              "status": "尚有名額 ",
+              "maximumSignUp": 8,
+              "nowSignUp": 3,
+              "registeredStudent": [
+                {
+                  "id": 1,
+                  "isUser": true,
+                  "userId": "user001",
+                  "account": "likeclimbing@gmail.com",
+                  "password": "12345566",
+                  "name": "麥杰倫",
+                  "email": "likeclimbing@gmail.com",
+                  "contactNumber": "0933-666-888"
+                },
+                {
+                  "id": 2,
+                  "isUser": false,
+                  "userId": null,
+                  "account": null,
+                  "password": null,
+                  "name": "張伯倫",
+                  "email": "basketball@gmail.com",
+                  "contactNumber": "0911-222-333"
+                },
+                {
+                  "id": 3,
+                  "isUser": true,
+                  "userId": "user003",
+                  "account": "yoyoyo@gmail.com",
+                  "password": "55665566",
+                  "name": "石頭",
+                  "email": "yoyoyo@gmail.com",
+                  "contactNumber": "0955-666-565"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "branch": "新莊館",
+          "batch": [
+            {
+              "batchID": "cleanAnchor003",
+              "content": "2023 年 1 月 21 日 與 2023 年 1 月 22 日(周末)",
+              "branch": "新莊館",
+              "coach": "Eleven",
+              "status": "尚有名額 ",
+              "maximumSignUp": 8,
+              "nowSignUp": 1,
+              "registeredStudent": [
+                {
+                  "id": 1,
+                  "isUser": true,
+                  "userId": "user001",
+                  "account": "likeclimbing@gmail.com",
+                  "password": "12345566",
+                  "name": "麥杰倫",
+                  "email": "likeclimbing@gmail.com",
+                  "contactNumber": "0933-666-888"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "groupLessons": [
@@ -196,7 +652,6 @@
     {
       "id": 1,
       "batchID": "bouldering001",
-      "name": "抱石 (Bouldering)",
       "content": "2023 年 1 月 7 日 與 2023 年 1 月 8 日(周末)",
       "branch": "大安館",
       "coach": "史傑克",
@@ -207,7 +662,6 @@
     {
       "id": 2,
       "batchID": "bouldering002",
-      "name": "抱石 (Bouldering)",
       "content": "2023 年 1 月 21 日 與 2023 年 1 月 22 日(周末)",
       "branch": "大安館",
       "coach": "Hank",
@@ -218,7 +672,6 @@
     {
       "id": 3,
       "batchID": "bouldering003",
-      "name": "抱石 (Bouldering)",
       "content": "2023 年 1 月 21 日 與 2023 年 1 月 22 日(周末)",
       "branch": "新莊館",
       "coach": "Eleven",
@@ -229,7 +682,6 @@
     {
       "id": 4,
       "batchID": "topRope001",
-      "name": "頂繩攀岩 (Top Rope)",
       "content": "2023 年 12 月 17 日 與 2023 年 12 月 18 日(周末)",
       "branch": "大安館",
       "coach": "史傑克",
@@ -240,7 +692,6 @@
     {
       "id": 5,
       "batchID": "topRope002",
-      "name": "頂繩攀岩 (Top Rope)",
       "content": "2023 年 12 月 24 日 與 2023 年 12 月 25 日(周末)",
       "branch": "大安館",
       "coach": "Hank",
@@ -251,7 +702,6 @@
     {
       "id": 6,
       "batchID": "topRope003",
-      "name": "頂繩攀岩 (Top Rope)",
       "content": "2023 年 12 月 31 日 與 2023 年 1 月 1 日(周末)",
       "branch": "新莊館",
       "coach": "Eleven",
@@ -262,7 +712,6 @@
     {
       "id": 7,
       "batchID": "lead001",
-      "name": "先鋒攀登 (Lead Climbing)",
       "content": "2023 年 1 月 7 日 與 2023 年 1 月 8 日(周末)",
       "branch": "大安館",
       "coach": "史傑克",
@@ -273,7 +722,6 @@
     {
       "id": 8,
       "batchID": "lead002",
-      "name": "先鋒攀登 (Lead Climbing)",
       "content": "2023 年 1 月 21 日 與 2023 年 1 月 22 日(周末)",
       "branch": "大安館",
       "coach": "Hank",
@@ -284,7 +732,6 @@
     {
       "id": 9,
       "batchID": "lead003",
-      "name": "先鋒攀登 (Lead Climbing)",
       "content": "2023 年 1 月 28 日 與 2023 年 1 月 29 日(周末)",
       "branch": "新莊館",
       "coach": "Eleven",
@@ -295,7 +742,6 @@
     {
       "id": 10,
       "batchID": "cleanAnchor001",
-      "name": "系統轉換 (Clean Anchor)",
       "content": "2023 年 1 月 7 日 與 2023 年 1 月 8 日(周末)",
       "branch": "大安館",
       "coach": "史傑克",
@@ -306,7 +752,6 @@
     {
       "id": 11,
       "batchID": "cleanAnchor002",
-      "name": "系統轉換 (Clean Anchor)",
       "content": "2023 年 1 月 21 日 與 2023 年 1 月 22 日(周末)",
       "branch": "大安館",
       "coach": "Hank",
@@ -317,7 +762,6 @@
     {
       "id": 12,
       "batchID": "cleanAnchor003",
-      "name": "系統轉換 (Clean Anchor)",
       "content": "2023 年 1 月 21 日 與 2023 年 1 月 22 日(周末)",
       "branch": "新莊館",
       "coach": "Eleven",
