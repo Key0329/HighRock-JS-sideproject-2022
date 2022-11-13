@@ -49,8 +49,8 @@ current: course-register
             </div>
             <input
               type="submit"
-              value="報名本梯次活動"
-              class="btn btn-primary w-100 w-lg-auto rounded-3 px-8"
+              value="報名本梯次課程"
+              class="register-btn btn btn-primary w-100 w-lg-auto rounded-3 px-8"
             />
           </form>
         </div>
@@ -65,46 +65,29 @@ current: course-register
   <!-- course info -->
   <section class="py-10 py-lg-20 mb-lg-20">
     <div class="container">
-      <div class="row row-cols-1 row-cols-lg-4 border-bottom-lg-8">
-        <div class="col">
-          <p class="text-center fs-lg-3 fw-bold py-2">課程介紹</p>
-        </div>
-        <div class="col">
-          <p class="text-center fs-lg-3 fw-bold bg-yellow-c1 py-2">課程內容</p>
-        </div>
-        <!-- <ol class="bg-primary-light mb-0 px-12 py-12 d-lg-none">
-          <li class="mb-4">
-            課程天數：兩次 3 小時，共計 6 小時 ( 週間班上課時間為 19:00～22:00
-            、週末班上課時間為上午 09:00～12:00 )
-          </li>
-          <li class="mb-4">課程地點：HighRock 攀岩館 大安館 或 新莊館(不可跨館上課)</li>
-          <li class="mb-4">參與人數：3 人至 8 人</li>
-          <li class="mb-4">課程優惠：會員為 九折 優惠價</li>
-        </ol> -->
-        <div class="col">
-          <p class="text-center fs-lg-3 fw-bold py-2">課程資訊</p>
-        </div>
-        <div class="col">
-          <p class="text-center fs-lg-3 fw-bold py-2">取消政策</p>
-        </div>
-      </div>
-      <ol class="bg-primary-light mb-0 px-12 py-12 mx-n3 d-none d-lg-block">
-        <li class="mb-4">
-          課程天數：兩次 3 小時，共計 6 小時 ( 週間班上課時間為 19:00～22:00 、週末班上課時間為上午
-          09:00～12:00 )
+      <ul class="register-tabs row row-cols-1 row-cols-lg-4 border-bottom-lg-8 mb-0 list-unstyled">
+        <li class="col register-tab-active">
+          <a href="#" class="text-center fs-lg-3 fw-bold py-2" data-courseInfoTitle="introduction">課程介紹</a>
         </li>
-        <li class="mb-4">課程地點：HighRock 攀岩館 大安館 或 新莊館(不可跨館上課)</li>
-        <li class="mb-4">參與人數：3 人至 8 人</li>
-        <li class="mb-4">課程優惠：會員為 九折 優惠價</li>
-      </ol>
+        <li class="col">
+          <a href="#" class="text-center fs-lg-3 fw-bold py-2" data-courseInfoTitle="content">課程內容</a>
+        </li>
+        <li class="col">
+          <a href="#" class="text-center fs-lg-3 fw-bold py-2" data-courseInfoTitle="information">課程資訊</a>
+        </li>
+        <li class="col">
+          <a href="#" class="text-center fs-lg-3 fw-bold py-2" data-courseInfoTitle="cancellationPolicy">取消政策</a>
+        </li>
+      </ul>
+      <div class="register-info-content bg-primary-light mb-0 px-12 py-12 mx-n3 d-none d-lg-block"></div>
     </div>
   </section>
   <!-- other courses -->
   <section class="py-10 py-lg-40">
     <div class="container">
       <h2 class="text-center text-lg-start mb-4">相關課程</h2>
-      <div class="row row-cols-1 row-cols-lg-3">
-        <div class="col mb-6 mb-lg-0">
+      <ul class="other-courses row row-cols-1 row-cols-lg-3 list-unstyled">
+        <li class="col mb-6 mb-lg-0">
           <img class="mb-4" src="./assets/images/Training/training-lg-2.png" alt="top-rope" />
           <h3 class="text-center text-lg-start mb-2">頂繩攀岩 (Top Rope)</h3>
           <div class="d-flex justify-content-center justify-content-lg-start">
@@ -112,10 +95,10 @@ current: course-register
             <p class="mb-8">尚有名額</p>
           </div>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#" class="btn btn-primary rounded-3 px-8 py-2">查看詳情</a>
+            <a href="#" class="btn btn-primary rounded-3 px-8 py-2" data-courseId="course02">查看詳情</a>
           </div>
-        </div>
-        <div class="col mb-6 mb-lg-0">
+        </li>
+        <li class="col mb-6 mb-lg-0">
           <img class="mb-4" src="./assets/images/Training/training-lg-3.png" alt="lead" />
           <h3 class="text-center text-lg-start mb-2">先鋒攀登 (Lead Climbing)</h3>
           <div class="d-flex justify-content-center justify-content-lg-start">
@@ -123,10 +106,10 @@ current: course-register
             <p class="mb-8 text-danger">已經額滿</p>
           </div>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#" class="btn btn-primary rounded-3 px-8 py-2">查看詳情</a>
+            <a href="#" class="btn btn-primary rounded-3 px-8 py-2" data-courseId="course03">查看詳情</a>
           </div>
-        </div>
-        <div class="col mb-6 mb-lg-0">
+        </li>
+        <li class="col mb-6 mb-lg-0">
           <img class="mb-4" src="./assets/images/courses/clean-anchor.png" alt="clean-anchor" />
           <h3 class="text-center text-lg-start mb-2">系統轉換 (Clean Anchor)</h3>
           <div class="d-flex justify-content-center justify-content-lg-start">
@@ -134,10 +117,71 @@ current: course-register
             <p class="mb-8">尚有名額</p>
           </div>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#" class="btn btn-primary rounded-3 px-8 py-2">查看詳情</a>
+            <a href="#" class="btn btn-primary rounded-3 px-8 py-2" data-courseId="course04">查看詳情</a>
           </div>
-        </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- register model -->
+  <section>
+    <div class="register-model">
+      <div class="register-model-content bg-white px-10 px-lg-30 py-10 rounded-3">
+        <ul class="list-unstyled d-flex flex-column justify-content-around h-100">
+          <li>
+            <a
+              class="register-model-btn-nonMember bg-blue-c1 fs-4 fs-lg-2 text-center shadow rounded-3 px-20 py-15"
+              href="#"
+              >非會員</a
+            >
+          </li>
+          <li>
+            <a
+              class="register-model-btn-member bg-yellow-c1 fs-4 fs-lg-2 text-center shadow rounded-3 px-20 py-15"
+              href="./member-login.html"
+              >會員</a
+            >
+          </li>
+        </ul>
       </div>
     </div>
   </section>
+
+  <!-- non-member registration -->
+  <section>
+    <div class="register-model-nonMember">
+      <div class="register-model-nonMember-content bg-white px-4 px-lg-20 py-4 py-lg-10 rounded-3">
+        <h2 class="fw-bold mb-4">報名資訊</h2>
+        <form class="d-flex flex-column h-0">
+          <label class="mb-1" for="register-nonMember-name">真實姓名 (Passport Name)</label>
+          <input class="fs-6 py-1 px-2 mb-6" type="text" placeholder="請輸入姓名" id="register-nonMember-name" />
+          <label class="mb-1" for="register-nonMember-email">電子信箱 (Email Address)</label>
+          <input
+            class="fs-6 py-1 px-2 mb-6"
+            type="email"
+            placeholder="請輸入電子信箱"
+            id="register-nonMember-email"
+          />
+          <label class="mb-1" for="register-nonMember-phoneNum">連絡電話 (Phone Number)</label>
+          <input
+            class="fs-6 py-1 px-2 mb-12"
+            type="tel"
+            placeholder="請輸入電話號碼"
+            id="register-nonMember-phoneNum"
+          />
+          <label for="course-nonMember-name" class="ps-4">課程名稱</label>
+          <input class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-2 mb-lg-6" type="text" name="course-nonMember-name" id="course-nonMember-name" value="抱石 (Bouldering)" disabled/>
+          <label for="course-nonMember-price" class="ps-4">課程價格</label>
+          <input class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-2 mb-lg-6" type="text" name="course-nonMember-price" id="course-nonMember-price" value="NT$ 3,600" disabled/>
+          <label for="course-nonMember-branch" class="ps-4">分館</label>
+          <input class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-2 mb-lg-6" type="text" name="course-nonMember-branch" id="course-nonMember-branch" value="大安館" disabled/>
+          <label for="course-nonMember-batch" class="ps-4">課程梯次</label>
+          <input class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-12" type="text" name="course-nonMember-batch" id="course-nonMember-batch" value="2023 年 1 月 7 日 與 2023 年 1 月 8 日 (周末)" disabled/>
+          <input type="submit" class="btn btn-gray-c1 mb-4" value="確認" />
+          <a href="#" class="btn btn-danger">取消</a>
+        </form>
+      </div>
+    </div>
+
 </main>

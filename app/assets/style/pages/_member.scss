@@ -1,7 +1,4 @@
 .login {
-  &-panel {
-    background: rgba(255, 255, 255, 0.4);
-  }
   &-rock {
     &-1 {
       top: 0;
@@ -54,8 +51,12 @@
     }
   }
   &-tab {
+    transition: all 0.3s;
+    &:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
     &-active {
-      background-color: $blue-c1;
+      background: rgba(255, 255, 255, 0.4);
     }
   }
 }

@@ -30,4 +30,59 @@
       z-index: -1;
     }
   }
+
+  &-tab-active {
+    background: $yellow-c1;
+  }
+
+  // model
+  &-model,
+  &-model-nonMember {
+    position: fixed;
+    top: -800px;
+    left: 0;
+    display: flex;
+    opacity: 0;
+    z-index: 100;
+    width: 100%;
+    // height: 100%;
+    height: 0;
+
+    &-content {
+      height: 0;
+      opacity: 0;
+      transition: 0.3s all;
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0.5;
+      z-index: -1;
+    }
+    &--active {
+      top: 0;
+      opacity: 1;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      .register-model-content {
+        height: 50%;
+        opacity: 1;
+      }
+      .register-model-nonMember-content {
+        width: 100%;
+        height: auto;
+        opacity: 1;
+        @include pc {
+          width: 50%;
+        }
+      }
+    }
+  }
 }
