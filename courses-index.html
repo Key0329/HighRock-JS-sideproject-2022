@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HighRock - courses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link rel="stylesheet" href="./assets/style/all.css">
+  </head>
+
+  <body>
+    
+    <header class="fixed-top position-lg-relative py-3 py-lg-4 bg-white">
+      <div class="container">
+
+        <nav class="nav d-flex justify-content-between">
+          <!-- logo -->
+          <h2 class="mb-0"><a class="nav-logo hover-opacity" href="./index.html">HIGHROCK</a></h2>
+          <!-- menu pc -->
+          <ul class="nav-menu list-unstyled d-lg-flex d-none align-items-center">
+            <li><a class="text-gray hover-decoBorder-bottom position-relative py-2 px-0 ms-8" href="#">場館資訊</a></li>
+            <li><a class="text-gray hover-decoBorder-bottom position-relative py-2 px-0 ms-8" href="./courses-index.html">課程介紹</a></li>
+            <li><a class="text-gray hover-decoBorder-bottom position-relative py-2 px-0 ms-8" href="#">團體課程</a></li>
+            <li><a class="text-gray hover-decoBorder-bottom position-relative py-2 px-0 ms-8" href="#">會員方案</a></li>
+            <li><a class="text-gray hover-decoBorder-bottom position-relative py-2 ms-8 pe-0" href="./member-login.html">登入</a></li>
+          </ul>
+          <!-- menu mobile ham-->
+          <a class="d-lg-none" data-bs-toggle="collapse" href="#nav-menu-mobile" role="button" aria-expanded="false" aria-controls="nav-menu-mobile">
+            <img class="nav-menu-ham" src="./assets/images/Icon/menu.svg" alt="menu">
+          </a>
+        </nav>
+        <!-- menu mobile show -->
+        <div class="d-lg-none collapse w-50 w-md-25 ms-auto" id="nav-menu-mobile">
+          <ul class="nav-menu-mobile list-unstyled">
+            <li class="pt-4 px-6"><a class="border-bottom nav-menu-mobile-border-color text-end pb-4" href="#">場館資訊</a></li>
+            <li class="pt-4 px-6"><a class="border-bottom nav-menu-mobile-border-color text-end pb-4" href="./courses-index.html">課程介紹</a></li>
+            <li class="pt-4 px-6"><a class="border-bottom nav-menu-mobile-border-color text-end pb-4" href="#">團體課程</a></li>
+            <li class="pt-4 px-6"><a class="border-bottom nav-menu-mobile-border-color text-end pb-4" href="#">會員方案</a></li>
+            <li class="pt-4 px-6"><a class="text-end pb-4" href="./member-login.html">登入</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </header>
+
+
+    
+<main class="courses-list bg-primary-lightest">
+  <section class="courses-banner vh-50">
+    <div
+      class="container d-flex align-items-center justify-content-center justify-content-lg-end h-100"
+    >
+      <div class="courses-slogan py-10 px-7 py-lg-15 px-lg-12 rounded-3 d-flex flex-column">
+        <h1
+          class="text-gray-c1 text-center text-lg-start fw-bold fs-1 display-size-lg-5 mb-1 mb-lg-4"
+        >
+          攀岩訓練課程
+        </h1>
+        <p class="text-center text-lg-start fs-lg-1">Rock Climbing Training</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="text-center py-10 py-lg-40">
+    <div class="container">
+      <h2 class="fs-3 display-size-lg-7 mb-4 mb-lg-6">如何選擇課程？</h2>
+      <p class="fs-5 fs-lg-4 mb-2">攀岩訓練種類繁多，適合新手的課程有哪些呢？</p>
+      <p class="fs-5 fs-lg-4 mb-2">
+        「攀岩」可以大致分為「上攀」與「抱石」兩種項目，可以依據您喜歡的項目或地點來選擇課程。
+      </p>
+      <p class="fs-5 fs-lg-4 mb-8 mb-lg-10">
+        HighRock 的攀岩課程以運動攀登為主軸，針對對攀岩有興趣的新手，從頂繩攀登 (Top Rope) 跟抱石
+        (Bouldering) 開始一起打好基礎。
+      </p>
+      <h3 class="fs-4 fs-lg-2 mb-4 mb-lg-6">【上攀】</h3>
+      <p class="fs-5 fs-lg-4 mb-8 mb-lg-10">
+        上攀的高度約為 8 ~ 10 公尺。<br />
+        上攀通常需兩人為一組，一人攀爬一人確保，館內設有自動確保器可幫忙確保，館內也會有教練確保安全。
+      </p>
+      <h3 class="fs-4 fs-lg-2 mb-4 mb-lg-6">【抱石】</h3>
+      <p class="fs-5 fs-lg-4">
+        抱石的體驗高度約為 3~5 公尺。<br />
+        抱石不須確保，地板鋪設厚軟墊以確保墜落安全，所以抱石獨自一人也可以攀爬，館內也會有教練確保安全。
+      </p>
+    </div>
+  </section>
+  <!-- beginner -->
+  <section class="py-10">
+    <div class="container">
+      <!-- bouldering -->
+      <h2 class="text-center text-lg-start fs-3 display-size-lg-7 mb-2 mb-lg-4">初學者 Beginner</h2>
+      <hr class="mb-5 mb-lg-10" />
+      <div class="row mb-4 mb-lg-30">
+        <div class="col-lg-4 w-lg-25 me-lg-4 mb-4 mb-lg-0">
+          <img
+            class="rounded-3"
+            src="./assets/images/Training/training-lg-1.png"
+            alt="bouldering "
+          />
+        </div>
+        <div class="col-lg-8 d-flex flex-column">
+          <h3 class="fs-4 fs-lg-2 fw-bold mt-lg-2 mb-4 mb-lg-6">抱石 (Bouldering)</h3>
+          <p class="fs-5 fs-lg-4 mb-4">
+            抱石課程將帶學員練習不同的腳法技巧及手點抓法。利用橫向攀爬，練習身體重心的轉移與鍛鍊協調性。
+            再利用直向攀爬，練習雙腳正確踩點及施力方式。練習足夠後將可以嘗試挑戰不同難度路線。
+          </p>
+          <p class="fs-5 fs-lg-4 mb-4">適合新手與老手</p>
+          <ul class="list-unstyled d-none d-lg-block">
+            <li>
+              1. 課程天數：兩次 4 小時，共計 8 小時 ( 週間班上課時間為 18:00～22:00
+              、週末班上課時間為上午 08:00～12:00 )
+            </li>
+            <li>2. 課程地點：HighRock 攀岩館 大安館 或 新莊館 ( 不可跨館上課 )</li>
+            <li>3. 參與人數：3 人至 6 人</li>
+            <li>4. 課程優惠：會員為 九折 優惠價</li>
+          </ul>
+          <a
+            href="#"
+            class="bouldering-register-btn btn btn-primary rounded-pill mt-auto align-self-end py-2 px-4 px-lg-8 w-100 w-lg-25"
+            data-courseId="course01"
+            >馬上報名</a
+          >
+        </div>
+      </div>
+      <!-- top-rope -->
+      <h2 class="text-center text-lg-start fs-3 display-size-lg-7 mb-2 mb-lg-4 d-none d-lg-block">
+        初學者 Beginner
+      </h2>
+      <hr class="mb-5 mb-lg-10" />
+      <div class="row">
+        <div class="col-lg-4 w-lg-25 me-lg-4 mb-4 mb-lg-0">
+          <img class="rounded-3" src="./assets/images/Training/training-lg-2.png" alt="top-rope " />
+        </div>
+        <div class="col-lg-8 d-flex flex-column">
+          <h3 class="fs-4 fs-lg-2 fw-bold mt-lg-2 mb-4 mb-lg-6">頂繩攀岩 (Top Rope)</h3>
+          <p class="fs-5 fs-lg-4 mb-4">
+            頂繩攀登是一堂適合入門新手的訓練，課程中除了繩結、基礎攀岩技巧、確保技術之外，還有攀岩安全口號等課程內容。課程結束後有能力參與安檢卡考試，以及能自己與同伴一起攀岩。
+          </p>
+          <p class="fs-5 fs-lg-4 mb-4">適合新手與老手</p>
+          <ul class="list-unstyled d-none d-lg-block">
+            <li>
+              1. 課程天數：兩次 4 小時，共計 8 小時 ( 週間班上課時間為 18:00～22:00
+              、週末班上課時間為上午 08:00～12:00 )
+            </li>
+            <li>2. 課程地點：HighRock 攀岩館 大安館 或 新莊館 ( 不可跨館上課 )</li>
+            <li>3. 參與人數：4 人至 8 人</li>
+            <li>4. 課程優惠：會員為 九折 優惠價</li>
+          </ul>
+          <a
+            href="#"
+            class="btn btn-primary rounded-pill mt-auto align-self-end py-2 px-4 px-lg-8 w-100 w-lg-25"
+            data-courseId="course02"
+            >馬上報名</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- experienced -->
+  <section class="py-20 py-lg-40">
+    <div class="container">
+      <h2 class="text-center text-lg-start fs-3 display-size-lg-7 mb-2 mb-lg-4">
+        有上攀經驗者 Experienced
+      </h2>
+      <hr class="mb-5 mb-lg-10" />
+      <ul class="row row-cols-1 row-cols-lg-2 list-unstyled">
+        <!-- lead -->
+        <li class="col d-flex flex-column flex-lg-row">
+          <div class="courses-experienced-img me-lg-4 w-100 mb-4 mb-lg-0">
+            <img
+              class="rounded-3 h-100"
+              src="./assets/images/Training/training-lg-3.png"
+              alt="lead "
+            />
+          </div>
+          <div class="d-flex flex-column">
+            <h3 class="fs-4 fs-lg-2 fw-bold mt-lg-2 mb-4 mb-lg-6">先鋒攀登 (Lead Climbing)</h3>
+            <p class="fs-5 fs-lg-4 mb-4">
+              先鋒攀登是Top
+              Rope之後的進階課程，主要為教導先鋒攀登的技能，讓你能與繩伴先鋒一條路線攀岩。課程內容將包含：進階攀岩技巧、先鋒確保、進階攀岩技術、掛快扣以及掛繩等技術。
+            </p>
+            <p class="fs-5 fs-lg-4 mb-4 mb-lg-8">經驗限制 - 適合已有上攀經驗者</p>
+            <a
+              href="#"
+              class="btn btn-primary rounded-pill mt-auto align-self-end py-2 px-4 px-lg-8 w-100 w-lg-auto"
+              data-courseId="course03"
+              >馬上報名</a
+            >
+          </div>
+        </li>
+        <div class="container d-lg-none">
+          <hr class="mb-5 mb-lg-0" />
+        </div>
+        <!-- clean-anchor -->
+        <li class="col d-flex flex-column flex-lg-row">
+          <div class="courses-experienced-img me-lg-4 w-100 mb-4 mb-lg-0">
+            <img
+              class="rounded-3 h-100"
+              src="./assets/images/courses/clean-anchor.png"
+              alt="clean-anchor.png "
+            />
+          </div>
+          <div class="d-flex flex-column">
+            <h3 class="fs-4 fs-lg-2 fw-bold mt-lg-2 mb-4 mb-lg-6">系統轉換 (Clean Anchor)</h3>
+            <p class="fs-5 fs-lg-4 mb-4">
+              完成頂繩與先鋒攀登之後，您已經可以在多數的人工攀岩場攀岩。如果您有想要到龍洞、關子嶺或壽山等戶外岩場攀岩，那麼您還需要學系統轉換，如此一來可以能自主的回收岩壁上的裝備。
+            </p>
+            <p class="fs-5 fs-lg-4 mb-4 mb-lg-8">經驗限制 - 適合已有先鋒攀登經驗者</p>
+            <a
+              href="#"
+              class="btn btn-primary rounded-pill mt-auto align-self-end py-2 px-4 px-lg-8 w-100 w-lg-auto"
+              data-courseId="course04"
+              >馬上報名</a
+            >
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<!-- course register -->
+<main class="course-register bg-primary-lightest d-none">
+  <!-- register panel -->
+  <section class="register-panel py-10 py-lg-20 position-relative">
+    <!-- <div class="container">
+      <div class="row row-cols-1 row-cols-lg-2 g-lg-8">
+        <div class="col d-none d-lg-block">
+          <img src="./assets/images/Training/training-lg-1.png" alt="bouldering" />
+        </div>
+        <div class="col">
+          <h1 class="text-center text-lg-start fw-bold fs-1 display-size-lg-5 my-4 my-lg-10">
+            抱石 (Bouldering)
+          </h1>
+          <div class="d-flex flex-column flex-lg-row align-items-center mb-4 mb-lg-10">
+            <del class="fs-lg-1 me-lg-4">NT$ 4,000</del>
+            <p class="fs-lg-1 text-danger">NT$ 3,600</p>
+          </div>
+          <form>
+            <div class="d-flex flex-column mb-6">
+              <label for="course-branch" class="letter-12">請選擇分館</label>
+              <select class="w-100 w-lg-50 mt-2 py-1 ps-2" name="course-branch" id="course-branch">
+                <option class="letter-12" value="- 請選擇分館 -" selected disabled>
+                  - 請選擇分館 -
+                </option>
+                <option value="大安館">大安館</option>
+                <option value="新莊館">新莊館</option>
+              </select>
+            </div>
+            <div class="register-batch d-flex flex-column mb-10 mb-lg-16">
+              <label for="course-batch" class="letter-12">請選擇梯次</label>
+              <select class="w-100 w-lg-75 my-2 py-1 ps-2" name="course-batch" id="course-batch">
+                <option class="letter-12" value="- 請選擇梯次 -" selected disabled>
+                  - 請選擇梯次 -
+                </option>
+                <option value="2023 年 1 月 7 日 與 2023 年 1 月 8 日 (周末)">
+                  2023 年 1 月 7 日 與 2023 年 1 月 8 日 (周末)
+                </option>
+                <option value="2023 年 1 月 21 日 與 2023 年 1 月 22 日 (周末)">
+                  2023 年 1 月 21 日 與 2023 年 1 月 22 日 (周末)
+                </option>
+              </select>
+              <p class="">※ 還有 5 位名額</p>
+            </div>
+            <input
+              type="submit"
+              value="報名本梯次課程"
+              class="register-btn btn btn-primary w-100 w-lg-auto rounded-3 px-8"
+            />
+          </form>
+        </div>
+      </div>
+      <img
+        class="register-course-text position-absolute d-none d-lg-block"
+        src="./assets/images/Training/training-name-en-1.png"
+        alt="bouldering-text"
+      />
+    </div> -->
+  </section>
+  <!-- course info -->
+  <section class="py-10 py-lg-20 mb-lg-20">
+    <div class="container">
+      <ul class="register-tabs row row-cols-1 row-cols-lg-4 border-bottom-lg-8 mb-0 list-unstyled">
+        <li class="col register-tab-active">
+          <a href="#" class="text-center fs-lg-3 fw-bold py-2" data-courseInfoTitle="introduction"
+            >課程介紹</a
+          >
+        </li>
+        <li class="col">
+          <a href="#" class="text-center fs-lg-3 fw-bold py-2" data-courseInfoTitle="content"
+            >課程內容</a
+          >
+        </li>
+        <li class="col">
+          <a href="#" class="text-center fs-lg-3 fw-bold py-2" data-courseInfoTitle="information"
+            >課程資訊</a
+          >
+        </li>
+        <li class="col">
+          <a
+            href="#"
+            class="text-center fs-lg-3 fw-bold py-2"
+            data-courseInfoTitle="cancellationPolicy"
+            >取消政策</a
+          >
+        </li>
+      </ul>
+      <div
+        class="register-info-content bg-primary-light mb-0 px-12 py-12 mx-n3 d-none d-lg-block"
+      ></div>
+    </div>
+  </section>
+  <!-- other courses -->
+  <section class="py-10 py-lg-40">
+    <div class="container">
+      <h2 class="text-center text-lg-start mb-4">相關課程</h2>
+      <ul class="other-courses row row-cols-1 row-cols-lg-3 list-unstyled">
+        <!-- <li class="col mb-6 mb-lg-0">
+          <img class="mb-4" src="./assets/images/Training/training-lg-2.png" alt="top-rope" />
+          <h3 class="text-center text-lg-start mb-2">頂繩攀岩 (Top Rope)</h3>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <p class="me-2">NT$ 4,800</p>
+            <p class="mb-8">尚有名額</p>
+          </div>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="#" class="btn btn-primary rounded-3 px-8 py-2" data-courseId="course02"
+              >查看詳情</a
+            >
+          </div>
+        </li>
+        <li class="col mb-6 mb-lg-0">
+          <img class="mb-4" src="./assets/images/Training/training-lg-3.png" alt="lead" />
+          <h3 class="text-center text-lg-start mb-2">先鋒攀登 (Lead Climbing)</h3>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <p class="me-2">NT$ 5,600</p>
+            <p class="mb-8 text-danger">已經額滿</p>
+          </div>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="#" class="btn btn-primary rounded-3 px-8 py-2" data-courseId="course03"
+              >查看詳情</a
+            >
+          </div>
+        </li>
+        <li class="col mb-6 mb-lg-0">
+          <img class="mb-4" src="./assets/images/courses/clean-anchor.png" alt="clean-anchor" />
+          <h3 class="text-center text-lg-start mb-2">系統轉換 (Clean Anchor)</h3>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <p class="me-2">NT$ 6,000</p>
+            <p class="mb-8">尚有名額</p>
+          </div>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="#" class="btn btn-primary rounded-3 px-8 py-2" data-courseId="course04"
+              >查看詳情</a
+            >
+          </div>
+        </li> -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- register model -->
+  <section>
+    <div class="register-model">
+      <div class="register-model-content bg-white px-10 px-lg-30 py-10 rounded-3">
+        <ul class="list-unstyled d-flex flex-column justify-content-around h-100">
+          <li>
+            <a
+              class="register-model-btn-nonMember bg-blue-c1 fs-4 fs-lg-2 text-center shadow rounded-3 px-20 py-15"
+              href="#"
+              >非會員</a
+            >
+          </li>
+          <li>
+            <a
+              class="register-model-btn-member bg-yellow-c1 fs-4 fs-lg-2 text-center shadow rounded-3 px-20 py-15"
+              href="./member-login.html"
+              >會員</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- non-member registration -->
+  <section>
+    <div class="register-model-nonMember">
+      <div class="register-model-nonMember-content bg-white px-4 px-lg-20 py-4 py-lg-10 rounded-3">
+        <h2 class="fw-bold mb-4">報名資訊</h2>
+        <form class="register-model-nonMember-form d-flex flex-column h-0">
+          <label class="mb-1" for="register-nonMember-name">真實姓名 (Passport Name)</label>
+          <input
+            class="fs-6 py-1 px-2 mb-6"
+            type="text"
+            placeholder="請輸入姓名"
+            id="register-nonMember-name"
+          />
+          <label class="mb-1" for="register-nonMember-email">電子信箱 (Email Address)</label>
+          <input
+            class="fs-6 py-1 px-2 mb-6"
+            type="email"
+            placeholder="請輸入電子信箱"
+            id="register-nonMember-email"
+          />
+          <label class="mb-1" for="register-nonMember-phoneNum"
+            >連絡電話 (Phone Number)<span class="fs-6 text-danger ms-2">*10個數字</span></label
+          >
+          <input
+            class="fs-6 py-1 px-2 mb-12"
+            type="tel"
+            placeholder="請輸入電話號碼"
+            id="register-nonMember-phoneNum"
+          />
+          <label for="course-nonMember-id" class="ps-4">課程編號</label>
+          <input
+            class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-2 mb-lg-6"
+            type="text"
+            name="course-nonMember-id"
+            id="course-nonMember-id"
+            value=""
+            disabled
+          />
+          <label for="course-nonMember-name" class="ps-4">課程名稱</label>
+          <input
+            class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-2 mb-lg-6"
+            type="text"
+            name="course-nonMember-name"
+            id="course-nonMember-name"
+            value=""
+            disabled
+          />
+          <label for="course-nonMember-price" class="ps-4">課程價格</label>
+          <input
+            class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-2 mb-lg-6"
+            type="text"
+            name="course-nonMember-price"
+            id="course-nonMember-price"
+            value=""
+            disabled
+          />
+          <label for="course-nonMember-branch" class="ps-4">分館</label>
+          <input
+            class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-2 mb-lg-6"
+            type="text"
+            name="course-nonMember-branch"
+            id="course-nonMember-branch"
+            value=""
+            disabled
+          />
+          <label for="course-nonMember-batch" class="ps-4">課程梯次</label>
+          <input
+            class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-12"
+            type="text"
+            name="course-nonMember-batch"
+            id="course-nonMember-batch"
+            value=""
+            disabled
+          />
+          <input type="submit" class="btn btn-gray-c1 mb-4" value="確認" />
+          <a href="#" class="btn btn-danger">取消</a>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+
+
+    <footer class="bg-primary-light py-10 py-lg-10">
+      <div class="container">
+        <div class="d-lg-flex justify-content-between">
+
+          <div class="mb-7 mb-lg-0">
+            <h2 class="mb-2"><a class="nav-logo hover-opacity" href="./index.html">HIGHROCK</a></h2>
+            <p class="fs-6">Taipei’s ultimate rock climbing<br>
+              experience in 2 locations, 7 days a week</p>
+          </div>
+
+          <div>
+            <div class="mb-6">
+              <p class="fs-5 text-gray-c2 mb-2">關於我們</p>
+              <ul class="d-flex list-unstyled">
+                <li><a href="#" class="hover-opacity me-4">場館資訊</a></li>
+                <li><a href="#" class="hover-opacity me-4">門票資訊</a></li>
+                <li><a href="#" class="hover-opacity">會員方案</a></li>
+              </ul>
+            </div>
+            <div class="mb-7 mb-lg-0">
+              <p class="fs-5 text-gray-c2 mb-2">近期活動與課程</p>
+              <ul class="d-flex list-unstyled">
+                <li><a href="#" class="hover-opacity me-4">頂繩攀登</a></li>
+                <li><a href="#" class="hover-opacity me-4">先鋒攀登</a></li>
+                <li><a href="#" class="hover-opacity">室內抱石</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+              <p class="fs-5 text-gray-c2 mb-2">聯絡我們</p>
+              <ul class="list-unstyled mb-7 mb-lg-4">
+                <li class="hover-opacity mb-1"><a href="tel:0988666888" >0988-666-888</a></li>
+                <li class="hover-opacity mb-2"><a href="mailto:highrockclimbing@gmail.com">highrockclimbing@gmail.com</a></li>
+                <li class="d-flex">
+                  <a class="hover-opacity me-6" href="#"><img class="footer-icon" src="./assets/images/Icon/facebook.svg" alt="facebook"></a>
+                  <a class="hover-opacity me-6" href="#"><img class="footer-icon" src="./assets/images/Icon/twitter.svg" alt="twitter"></a>
+                  <a class="hover-opacity" href="#"><img class="footer-icon" src="./assets/images/Icon/instagram.svg" alt="instagram"></a>
+                </li>
+              </ul>
+              <p class="fs-7 text-gray-c2">Copyright© HighRock All Rights Reserved.</p>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="./assets/js/vendors.js"></script>
+    <script src="./assets/js/all.js"></script>
+  </body>
+
+</html>
