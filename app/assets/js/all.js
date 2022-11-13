@@ -2,23 +2,27 @@
 
 // ---------------------- 報名課程 彈跳視窗 ----------------------
 
+let toggleList = 'introduction';
+const otherCourses = document.querySelector('.other-courses');
+const registerModelNonMemberForm = document.querySelector('.register-model-nonMember-form');
+
+// model 關閉
+function registerModelClose() {
+  const registerModel = document.querySelector('.register-model');
+  const registerModelNonMember = document.querySelector('.register-model-nonMember');
+  registerModel.classList.remove('register-model--active');
+  registerModelNonMember.classList.remove('register-model--active');
+}
+
+// model 多數控制
 function courseModelControl() {
-  console.log(123456);
   const registerModelBtnNonMember = document.querySelector('.register-model-btn-nonMember');
   const registerModel = document.querySelector('.register-model');
   const registerModelNonMember = document.querySelector('.register-model-nonMember');
-  const registerModelNonMemberForm = document.querySelector('.register-model-nonMember-form');
-
-  // 彈跳視窗關閉
-  function registerModelClose() {
-    registerModel.classList.remove('register-model--active');
-    registerModelNonMember.classList.remove('register-model--active');
-  }
 
   // 打開彈跳視窗;
   function registerModelOpen() {
     const registerModelOpenBtn = document.querySelector('.register-btn');
-
     registerModelOpenBtn.addEventListener('click', (e) => {
       e.preventDefault();
       registerModel.classList.add('register-model--active');
@@ -100,11 +104,12 @@ function courseModelControl() {
       // eslint-disable-next-line no-console
       console.log(error);
     });
+}
 
-  // 非會員 form 表單傳值給後台
+// 非會員 form 表單傳值給後台
+if (registerModelNonMemberForm) {
   registerModelNonMemberForm.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(123);
     if (e.target.type === 'submit') {
       const registerNonMemberID = document.querySelector('#course-nonMember-id');
       const registerNonMemberName = document.querySelector('#register-nonMember-name');
@@ -129,7 +134,7 @@ function courseModelControl() {
         icon: 'success',
         title: '報名成功<br />請前往填寫的信箱收取報名資訊',
         showConfirmButton: false,
-        timer: 5000,
+        timer: 3000,
       });
 
       const idValue = registerNonMemberID.value;
@@ -207,6 +212,9 @@ function courseModelControl() {
   });
 }
 
+// ---------------------- 報名課程 ----------------------
+
+// 更改梯次
 function batchesChange(array) {
   const registerPanel = document.querySelector('.register-panel');
 
@@ -246,11 +254,6 @@ function batchesChange(array) {
     }
   });
 }
-
-// ---------------------- 報名課程 ----------------------
-
-let toggleList = 'introduction';
-const otherCourses = document.querySelector('.other-courses');
 
 // 渲染 course register panel
 function renderCourseRegisterPanel(arr) {
@@ -423,30 +426,31 @@ function registerTabToggle(arr) {
 
 // 點擊相關課程並渲染
 function checkOtherCourses(arr) {
-  otherCourses.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (e.target.nodeName === 'A') {
-      window.scrollTo(0, 0);
+  if (otherCourses) {
+    otherCourses.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (e.target.nodeName === 'A') {
+        window.scrollTo(0, 0);
 
-      const nowData = [];
-      const othersData = [];
+        const nowData = [];
+        const othersData = [];
 
-      arr.forEach((item) => {
-        // console.log(item.courseId);
-        if (e.target.dataset.courseid === item.courseId) {
-          nowData.push(item);
-        } else {
-          othersData.push(item);
-        }
-      });
-      renderCourseRegisterPanel(nowData);
-      renderCourseContent(nowData);
-      registerTabToggle(nowData);
-      renderOtherCourse(othersData);
-      courseModelControl();
-      console.log(12345);
-    }
-  });
+        arr.forEach((item) => {
+          // console.log(item.courseId);
+          if (e.target.dataset.courseid === item.courseId) {
+            nowData.push(item);
+          } else {
+            othersData.push(item);
+          }
+        });
+        renderCourseRegisterPanel(nowData);
+        renderCourseContent(nowData);
+        registerTabToggle(nowData);
+        renderOtherCourse(othersData);
+        courseModelControl();
+      }
+    });
+  }
 }
 
 // 開啟報名頁面、根據所選課程初始渲染
@@ -454,41 +458,89 @@ function courseRegisterOpen(arr) {
   const coursesList = document.querySelector('.courses-list');
   const courseRegister = document.querySelector('.course-register');
 
-  coursesList.addEventListener('click', (e) => {
-    e.preventDefault();
+  if (coursesList) {
+    coursesList.addEventListener('click', (e) => {
+      e.preventDefault();
 
-    if (e.target.nodeName === 'A') {
-      courseRegister.classList.remove('d-none');
-      coursesList.classList.add('d-none');
-      window.scrollTo(0, 0);
+      if (e.target.nodeName === 'A') {
+        courseRegister.classList.remove('d-none');
+        coursesList.classList.add('d-none');
+        window.scrollTo(0, 0);
 
-      const nowData = [];
-      const othersData = [];
+        const nowData = [];
+        const othersData = [];
 
-      arr.forEach((item) => {
-        // console.log(item.courseId);
-        if (e.target.dataset.courseid === item.courseId) {
-          nowData.push(item);
-        } else {
-          othersData.push(item);
-        }
-      });
-      renderCourseRegisterPanel(nowData);
-      renderCourseContent(nowData);
-      registerTabToggle(nowData);
-      renderOtherCourse(othersData);
-      courseModelControl();
+        arr.forEach((item) => {
+          // console.log(item.courseId);
+          if (e.target.dataset.courseid === item.courseId) {
+            nowData.push(item);
+          } else {
+            othersData.push(item);
+          }
+        });
+        renderCourseRegisterPanel(nowData);
+        renderCourseContent(nowData);
+        registerTabToggle(nowData);
+        renderOtherCourse(othersData);
+        courseModelControl();
+      }
+    });
+  }
+}
+
+// course index 頁面渲染
+function courseIndexRender() {
+  axios
+    .get('http://localhost:3000/courses')
+    .then((res) => {
+      const { data } = res;
+      courseRegisterOpen(data);
+      checkOtherCourses(data);
+    })
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error);
+    });
+}
+
+courseIndexRender();
+
+// ---------------------- 後台-活動課程管理 ----------------------
+
+function renderAdminBatches(arr) {
+  const adminBatchTable = document.querySelector('.admin-batch-table');
+
+  let str = '';
+
+  arr.forEach((item) => {
+    let isOpenedColor = '';
+    if (item.isOpened === '已開課') {
+      isOpenedColor = 'text-success';
+    } else {
+      isOpenedColor = 'text-danger';
     }
+
+    str += `
+    <tr>
+      <th scope="row">${item.batchID}</th>
+      <td>${item.name}</td>
+      <td>${item.branch}</td>
+      <td>${item.coach}</td>
+      <td>${item.content}</td>
+      <td><a href="#" class="d-inline-block">${item.nowSignUp} / ${item.maximumSignUp} 位</a></td>
+      <td class="${isOpenedColor}">${item.isOpened}</td>
+    </tr>
+    `;
   });
+
+  adminBatchTable.innerHTML = str;
 }
 
 axios
-  .get('http://localhost:3000/courses')
+  .get('http://localhost:3000/batches')
   .then((res) => {
     const { data } = res;
-    courseRegisterOpen(data);
-    checkOtherCourses(data);
-    console.log(1234);
+    renderAdminBatches(data);
   })
   .catch((error) => {
     // eslint-disable-next-line no-console
