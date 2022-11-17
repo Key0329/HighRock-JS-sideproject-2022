@@ -8,7 +8,7 @@ function renderAdminMember(arr) {
   let str = '';
 
   arr.forEach((item) => {
-    console.log(item);
+    // console.log(item);
     str = `
     <tr class="vertical-middle">
       <th scope="row">ABC120222</th>
@@ -30,7 +30,9 @@ function renderAdminMember(arr) {
     `;
   });
 
-  adminMemberTable.innerHTML = str;
+  if (adminMemberTable) {
+    adminMemberTable.innerHTML = str;
+  }
 }
 
 axios
