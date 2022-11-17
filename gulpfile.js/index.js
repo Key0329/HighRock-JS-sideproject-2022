@@ -5,29 +5,27 @@ const minimist = require('minimist');
 const browserSync = require('browser-sync').create();
 const { envOptions } = require('./envOptions');
 
-let options = minimist(process.argv.slice(2), envOptions);
-//現在開發狀態
+const options = minimist(process.argv.slice(2), envOptions);
+// 現在開發狀態
 console.log(`Current mode：${options.env}`);
 
 function copyFile() {
-  return gulp.src(envOptions.copyFile.src)
-  .pipe(gulp.dest(envOptions.copyFile.path))
-  .pipe(
-    browserSync.reload({
-      stream: true,
-    }),
-  );
+  return gulp
+    .src(envOptions.copyFile.src)
+    .pipe(gulp.dest(envOptions.copyFile.path))
+    .pipe(
+      browserSync.reload({
+        stream: true,
+      }),
+    );
 }
 
 function layoutHTML() {
-  return gulp.src(envOptions.html.src)
+  return gulp
+    .src(envOptions.html.src)
     .pipe($.plumber())
     .pipe($.frontMatter())
-    .pipe(
-      $.layout((file) => {
-        return file.frontMatter;
-      })
-    )
+    .pipe($.layout((file) => file.frontMatter))
     .pipe(gulp.dest(envOptions.html.path))
     .pipe(
       browserSync.reload({
@@ -37,15 +35,16 @@ function layoutHTML() {
 }
 
 function sass() {
-  const plugins = [
-    autoprefixer(),
-  ];
-  return gulp.src(envOptions.style.src) 
+  const plugins = [autoprefixer()];
+  return gulp
+    .src(envOptions.style.src)
     .pipe($.sourcemaps.init())
-    .pipe($.sass({
-      outputStyle: envOptions.style.outputStyle,
-      includePaths: envOptions.style.includePaths,
-    }).on('error', $.sass.logError))
+    .pipe(
+      $.sass({
+        outputStyle: envOptions.style.outputStyle,
+        includePaths: envOptions.style.includePaths,
+      }).on('error', $.sass.logError),
+    )
     .pipe($.postcss(plugins))
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest(envOptions.style.path))
@@ -57,11 +56,22 @@ function sass() {
 }
 
 function babel() {
-  return gulp.src(envOptions.javascript.src)
+  return gulp
+    .src(envOptions.javascript.src)
     .pipe($.sourcemaps.init())
-    .pipe($.babel({
-      presets: ['@babel/env'],
-    }))
+    .pipe(
+      $.babel({
+        presets: ['@babel/env'],
+        // plugins: [
+        //   [
+        //     '@babel/plugin-transform-runtime',
+        //     {
+        //       regenerator: true,
+        //     },
+        //   ],
+        // ],
+      }),
+    )
     .pipe($.concat(envOptions.javascript.concat))
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest(envOptions.javascript.path))
@@ -73,11 +83,11 @@ function babel() {
 }
 
 function vendorsJs() {
-  return gulp.src(envOptions.vendors.src)
+  return gulp
+    .src(envOptions.vendors.src)
     .pipe($.concat(envOptions.vendors.concat))
     .pipe(gulp.dest(envOptions.vendors.path));
 }
-
 
 function browser() {
   browserSync.init({
@@ -89,7 +99,8 @@ function browser() {
 }
 
 function clean() {
-  return gulp.src(envOptions.clean.src, {
+  return gulp
+    .src(envOptions.clean.src, {
       read: false,
       allowEmpty: true,
     })
@@ -97,8 +108,7 @@ function clean() {
 }
 
 function deploy() {
-  return gulp.src(envOptions.deploySrc)
-    .pipe($.ghPages());
+  return gulp.src(envOptions.deploySrc).pipe($.ghPages());
 }
 
 function watch() {
@@ -115,4 +125,12 @@ exports.clean = clean;
 
 exports.build = gulp.series(clean, copyFile, layoutHTML, sass, babel, vendorsJs);
 
-exports.default = gulp.series(clean, copyFile, layoutHTML, sass, babel, vendorsJs, gulp.parallel(browser, watch));
+exports.default = gulp.series(
+  clean,
+  copyFile,
+  layoutHTML,
+  sass,
+  babel,
+  vendorsJs,
+  gulp.parallel(browser, watch),
+);

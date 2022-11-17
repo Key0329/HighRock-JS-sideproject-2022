@@ -17,7 +17,9 @@
   "dependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
+    "@babel/runtime": "^7.20.1",
     "autoprefixer": "^9.8.6",
+    "babel-polyfill": "^6.26.0",
     "bootstrap": "^5.0.2",
     "browser-sync": "^2.26.13",
     "ejs": "^3.1.5",
@@ -42,6 +44,7 @@
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.19.6",
     "eslint": "^8.26.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",

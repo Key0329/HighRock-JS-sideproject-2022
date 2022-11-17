@@ -7,10 +7,6 @@
     <title>admin-course</title>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-    />
-    <link
-      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
     />
     <link rel="stylesheet" href="./assets/style/all.css" />
@@ -30,12 +26,10 @@
             >
             <ul class="list-unstyled ms-4">
               <li class="mb-4">
-                <a class="hover-orange fs-5 fs-lg-3 active" href="./admin-course.html"
-                  >活動課程管理</a
-                >
+                <a class="hover-orange fs-5 fs-lg-3" href="./admin-course.html">活動課程管理</a>
               </li>
               <li class="mb-8">
-                <a class="hover-orange fs-5 fs-lg-3" href="./admin-course-registered.html"
+                <a class="hover-orange fs-5 fs-lg-3 active" href="./admin-course-registered.html"
                   >活動報名學生資訊</a
                 >
               </li>
@@ -68,64 +62,22 @@
         <a class="ms-auto hover-orange" href="#">登出</a>
       </div>
     </section>
-
-    <main class="admin-course ms-80 p-20">
+    <main class="ms-80 p-20">
       <section>
         <!-- filter -->
         <div class="mb-10 d-flex align-items-center justify-content-end">
-          <div>
-            <label class="me-2" for="admin-course-searchBox">搜尋</label>
-            <input
-              class="rounded-3 text-gray-c2 px-2 py-1"
-              type="text"
-              name="admin-course-searchBox"
-              id="admin-course-searchBox"
-              placeholder="請輸入要搜尋的文字"
-            />
-          </div>
-        </div>
-        <!-- table -->
-        <div class="table-responsive mb-10">
-          <table class="admin-course-form table table-striped table-hover text-nowrap">
-            <thead>
-              <tr>
-                <th class="text-center" scope="col">課程編號</th>
-                <th scope="col">課程名稱</th>
-                <th scope="col">分館</th>
-                <th scope="col">教練</th>
-                <th scope="col">梯次(日期)</th>
-                <th scope="col">報名人數</th>
-                <th scope="col">狀態</th>
-              </tr>
-            </thead>
-            <tbody class="admin-batch-table"></tbody>
-          </table>
-        </div>
-        <!-- add course -->
-        <div class="d-flex flex-column">
-          <a href="#" class="btn btn-primary px-4 py-1 rounded-pill ms-auto mb-4">+ 開設新課程</a>
-          <a href="#" class="btn btn-danger px-4 py-1 rounded-pill ms-auto">- 刪除課程</a>
-        </div>
-      </section>
-    </main>
-
-    <main class="admin-batches ms-80 p-20 d-none">
-      <section>
-        <!-- filter -->
-        <div class="admin-batches-panel mb-10 d-flex align-items-center justify-content-between">
-          <a class="fs-3 d-flex align-items-center hover-orange" href="#"
-            ><span class="material-symbols-outlined vertical-middle"> arrow_back </span>上一頁</a
+          <label class="me-2" for="admin-course-filter">課程篩選</label>
+          <select
+            class="p-2 rounded-3 text-gray-c2"
+            name="admin-course-filter"
+            id="admin-course-filter"
           >
-          <div>
-            <label class="me-2" for="admin-batches-searchBox">搜尋</label>
-            <input
-              class="rounded-3 text-gray-c2 px-2 py-1"
-              type="text"
-              name="admin-batches-searchBox"
-              id="admin-batches-searchBox"
-              placeholder="請輸入要搜尋的文字"
-            />
-          </div>
+            <option value="學生姓名">學生姓名</option>
+            <option value="報名信箱">報名信箱</option>
+            <option value="連絡電話">連絡電話</option>
+            <option value="會員資格">會員資格</option>
+            <option value="報名梯次">報名梯次</option>
+          </select>
         </div>
         <!-- table -->
         <div class="table-responsive mb-10">
@@ -150,7 +102,6 @@
       </section>
     </main>
 
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="./assets/js/vendors.js"></script>
     <script src="./assets/js/all.js"></script>
