@@ -187,9 +187,14 @@ async function errorExample() {
     // eslint-disable-next-line no-use-before-define
     batchesChange(newData);
 
-    return res, res2, res3, res4;
+    return {
+      res,
+      res2,
+      res3,
+      res4,
+    };
   } catch (error) {
-    throw error;
+    return error;
   }
 }
 

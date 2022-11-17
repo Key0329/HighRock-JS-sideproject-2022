@@ -38,6 +38,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "jquery": "^3.5.1",
+    "json-server": "^0.17.1",
     "minimist": "^1.2.0",
     "morgan": "^1.9.1",
     "node-sass": "^4.14.1",
