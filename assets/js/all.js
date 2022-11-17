@@ -110,9 +110,31 @@ prevPage();
 
 /* eslint-disable no-undef */
 var Url = 'http://localhost:3000';
+
+function renderAdminMember(arr) {
+  var adminMemberTable = document.querySelector('.admin-member-table');
+  var str = '';
+  arr.forEach(function (item) {
+    console.log(item);
+    str = "\n    <tr class=\"vertical-middle\">\n      <th scope=\"row\">ABC120222</th>\n      <td>\n        <div class=\"admin-account-avatar me-2\">\n          <img\n            class=\"rounded-circle\"\n            src=\"./assets/images/Avatar/Avatar-1.jpg\"\n            alt=\"avatar\"\n          />\n        </div>\n      </td>\n      <td>\u9EA5\u6770\u502B</td>\n      <td>0933-666-888</td>\n      <td>likeclimbing@gmail.com</td>\n      <td>2022-12-14 \uFF5E 2023-6-13</td>\n      <td class=\"text-success\">\u672A\u5230\u671F</td>\n    </tr>\n    ";
+  });
+  adminMemberTable.innerHTML = str;
+}
+
+axios.get("".concat(Url, "/users")).then(function (res) {
+  var data = res.data;
+  renderAdminMember(data);
+})["catch"](function (error) {
+  // eslint-disable-next-line no-console
+  console.log(error);
+});
 /* eslint-disable no-undef */
 "use strict";
 "use strict";
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 /* eslint-disable no-undef */
 var Url = 'http://localhost:3000';
@@ -205,41 +227,116 @@ function updateDataAndRerender() {
     name: registerNonMemberName.value,
     email: registerNonMemberEmail.value,
     contactNumber: registerNonMemberPhoneNum.value
-  }; // 傳送報名資訊到資料庫;
+  }; // // 傳送報名資訊到資料庫;
+  // axios
+  //   .post(`${Url}/registeredStudent`, registeredStudentInfo)
+  //   .then((res) => {
+  //     // eslint-disable-next-line no-console
+  //     console.log(res);
+  //     const courseNowSignUp = document.querySelector('.course-nowSignUp');
+  //     const courseBranch = document.querySelector('#course-branch');
+  //     const courseBatch = document.querySelector('#course-batch');
+  //     courseNowSignUp.innerHTML = '';
+  //     courseBranch.value = '- 請選擇分館 -';
+  //     courseBatch.value = '- 請選擇梯次 -';
+  //     // 取得最新學生人數
+  //     return axios.get(`${Url}/batches/${idValue}/registeredStudent`);
+  //   })
+  //   .then((res) => {
+  //     const registerNum = res.data.length;
+  //     const obj = {
+  //       nowSignUp: registerNum,
+  //     };
+  //     // 更新資料庫最新報名人數
+  //     return axios.patch(`${Url}/batches/${idValue}`, obj);
+  //   })
+  //   .then((res) => {
+  //     // eslint-disable-next-line no-console
+  //     console.log(res);
+  //     // 重新渲染梯次表單
+  //     return axios.get(`${Url}/batches`);
+  //   })
+  //   .then((res) => {
+  //     const newData = res.data;
+  //     // eslint-disable-next-line no-use-before-define
+  //     batchesChange(newData);
+  //   })
+  //   .catch((error) => {
+  //     // eslint-disable-next-line no-console
+  //     console.log(error);
+  //   });
 
-  axios.post("".concat(Url, "/registeredStudent"), registeredStudentInfo).then(function (res) {
-    // eslint-disable-next-line no-console
-    console.log(res);
-    var courseNowSignUp = document.querySelector('.course-nowSignUp');
-    var courseBranch = document.querySelector('#course-branch');
-    var courseBatch = document.querySelector('#course-batch');
-    courseNowSignUp.innerHTML = '';
-    courseBranch.value = '- 請選擇分館 -';
-    courseBatch.value = '- 請選擇梯次 -'; // 取得最新學生人數
-
-    return axios.get("".concat(Url, "/batches/").concat(idValue, "/registeredStudent"));
-  }).then(function (res) {
-    var registerNum = res.data.length;
-    var obj = {
-      nowSignUp: registerNum
-    }; // 更新資料庫最新報名人數
-
-    return axios.patch("".concat(Url, "/batches/").concat(idValue), obj);
-  }).then(function (res) {
-    // eslint-disable-next-line no-console
-    console.log(res); // 重新渲染梯次表單
-
-    return axios.get("".concat(Url, "/batches"));
-  }).then(function (res) {
-    var newData = res.data; // eslint-disable-next-line no-use-before-define
-
-    batchesChange(newData);
+  errorExample().then(function (res, res2, res3, res4) {
+    console.log(res, res2, res3, res4);
   })["catch"](function (error) {
-    // eslint-disable-next-line no-console
     console.log(error);
   });
+}
+
+function errorExample() {
+  return _errorExample.apply(this, arguments);
 } // 非會員 form 表單確認或取消
 
+
+function _errorExample() {
+  _errorExample = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    var res, courseNowSignUp, courseBranch, courseBatch, res2, registerNum, obj, res3, res4, newData;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.prev = 0;
+            _context.next = 3;
+            return axios.post("".concat(Url, "/registeredStudent"), registeredStudentInfo);
+
+          case 3:
+            res = _context.sent;
+            console.log(res);
+            courseNowSignUp = document.querySelector('.course-nowSignUp');
+            courseBranch = document.querySelector('#course-branch');
+            courseBatch = document.querySelector('#course-batch');
+            courseNowSignUp.innerHTML = '';
+            courseBranch.value = '- 請選擇分館 -';
+            courseBatch.value = '- 請選擇梯次 -';
+            _context.next = 13;
+            return axios.get("".concat(Url, "/batches/").concat(idValue, "/registeredStudent"));
+
+          case 13:
+            res2 = _context.sent;
+            registerNum = res2.data.length;
+            obj = {
+              nowSignUp: registerNum
+            };
+            _context.next = 18;
+            return axios.patch("".concat(Url, "/batches/").concat(idValue), obj);
+
+          case 18:
+            res3 = _context.sent;
+            console.log(res3);
+            _context.next = 22;
+            return axios.get("".concat(Url, "/batches"));
+
+          case 22:
+            res4 = _context.sent;
+            newData = res4.data; // eslint-disable-next-line no-use-before-define
+
+            batchesChange(newData);
+            return _context.abrupt("return", (res, res2, res3, res4));
+
+          case 28:
+            _context.prev = 28;
+            _context.t0 = _context["catch"](0);
+            throw _context.t0;
+
+          case 31:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, null, [[0, 28]]);
+  }));
+  return _errorExample.apply(this, arguments);
+}
 
 function nonMemberFormConfirmOrCancel() {
   var registerModelNonMemberForm = document.querySelector('.register-model-nonMember-form');
