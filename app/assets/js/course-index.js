@@ -96,76 +96,25 @@ function registerModelNonMemberFormCheck(arr) {
 }
 
 // 更新後台資料並重新渲染
-function updateDataAndRerender() {
-  const registerNonMemberId = document.querySelector('#course-nonMember-id');
-  const registerNonMemberName = document.querySelector('#register-nonMember-name');
-  const registerNonMemberEmail = document.querySelector('#register-nonMember-email');
-  const registerNonMemberPhoneNum = document.querySelector('#register-nonMember-phoneNum');
-
-  const idValue = registerNonMemberId.value;
-
-  const registeredStudentInfo = {
-    isUser: false,
-    batchId: idValue,
-    name: registerNonMemberName.value,
-    email: registerNonMemberEmail.value,
-    contactNumber: registerNonMemberPhoneNum.value,
-  };
-
-  // // 傳送報名資訊到資料庫;
-  // axios
-  //   .post(`${Url}/registeredStudent`, registeredStudentInfo)
-  //   .then((res) => {
-  //     // eslint-disable-next-line no-console
-  //     console.log(res);
-  //     const courseNowSignUp = document.querySelector('.course-nowSignUp');
-  //     const courseBranch = document.querySelector('#course-branch');
-  //     const courseBatch = document.querySelector('#course-batch');
-  //     courseNowSignUp.innerHTML = '';
-  //     courseBranch.value = '- 請選擇分館 -';
-  //     courseBatch.value = '- 請選擇梯次 -';
-
-  //     // 取得最新學生人數
-  //     return axios.get(`${Url}/batches/${idValue}/registeredStudent`);
-  //   })
-  //   .then((res) => {
-  //     const registerNum = res.data.length;
-  //     const obj = {
-  //       nowSignUp: registerNum,
-  //     };
-
-  //     // 更新資料庫最新報名人數
-  //     return axios.patch(`${Url}/batches/${idValue}`, obj);
-  //   })
-  //   .then((res) => {
-  //     // eslint-disable-next-line no-console
-  //     console.log(res);
-
-  //     // 重新渲染梯次表單
-  //     return axios.get(`${Url}/batches`);
-  //   })
-  //   .then((res) => {
-  //     const newData = res.data;
-  //     // eslint-disable-next-line no-use-before-define
-  //     batchesChange(newData);
-  //   })
-  //   .catch((error) => {
-  //     // eslint-disable-next-line no-console
-  //     console.log(error);
-  //   });
-  errorExample()
-    .then((res, res2, res3, res4) => {
-      console.log(res, res2, res3, res4);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
-
-async function errorExample() {
+async function updateDataAndRerender() {
   try {
+    const registerNonMemberId = document.querySelector('#course-nonMember-id');
+    const registerNonMemberName = document.querySelector('#register-nonMember-name');
+    const registerNonMemberEmail = document.querySelector('#register-nonMember-email');
+    const registerNonMemberPhoneNum = document.querySelector('#register-nonMember-phoneNum');
+
+    const idValue = registerNonMemberId.value;
+
+    const registeredStudentInfo = {
+      isUser: false,
+      batchId: idValue,
+      name: registerNonMemberName.value,
+      email: registerNonMemberEmail.value,
+      contactNumber: registerNonMemberPhoneNum.value,
+    };
+
+    // 傳送報名資訊到資料庫;
     const res = await axios.post(`${Url}/registeredStudent`, registeredStudentInfo);
-    console.log(res);
     const courseNowSignUp = document.querySelector('.course-nowSignUp');
     const courseBranch = document.querySelector('#course-branch');
     const courseBatch = document.querySelector('#course-batch');
@@ -173,15 +122,17 @@ async function errorExample() {
     courseBranch.value = '- 請選擇分館 -';
     courseBatch.value = '- 請選擇梯次 -';
 
+    // 取得最新學生人數
     const res2 = await axios.get(`${Url}/batches/${idValue}/registeredStudent`);
     const registerNum = res2.data.length;
     const obj = {
       nowSignUp: registerNum,
     };
 
+    // 更新資料庫最新報名人數
     const res3 = await axios.patch(`${Url}/batches/${idValue}`, obj);
-    console.log(res3);
 
+    // 重新渲染梯次表單
     const res4 = await axios.get(`${Url}/batches`);
     const newData = res4.data;
     // eslint-disable-next-line no-use-before-define
@@ -189,9 +140,7 @@ async function errorExample() {
 
     return {
       res,
-      res2,
       res3,
-      res4,
     };
   } catch (error) {
     return error;
@@ -206,7 +155,10 @@ function nonMemberFormConfirmOrCancel() {
     registerModelNonMemberForm.addEventListener('click', (e) => {
       e.preventDefault();
       if (e.target.type === 'submit') {
-        updateDataAndRerender();
+        updateDataAndRerender().then((res, res3) => {
+          // eslint-disable-next-line no-console
+          console.log(res, res3);
+        });
 
         // sweet alert
         Swal.fire({
