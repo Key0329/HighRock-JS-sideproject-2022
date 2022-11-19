@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HighRock - member-info</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
     <link rel="stylesheet" href="./assets/style/all.css">
   </head>
@@ -20,11 +21,24 @@
           <h2 class="mb-0"><a class="nav-logo hover-opacity" href="./index.html">HIGHROCK</a></h2>
           <!-- menu pc -->
           <ul class="nav-menu list-unstyled d-lg-flex d-none align-items-center">
-            <li><a class="text-gray hover-decoBorder-bottom position-relative py-2 px-0 ms-8" href="#">場館資訊</a></li>
-            <li><a class="text-gray hover-decoBorder-bottom position-relative py-2 px-0 ms-8" href="./courses-index.html">課程介紹</a></li>
-            <li><a class="text-gray hover-decoBorder-bottom position-relative py-2 px-0 ms-8" href="#">團體課程</a></li>
-            <li><a class="text-gray hover-decoBorder-bottom position-relative py-2 px-0 ms-8" href="#">會員方案</a></li>
-            <li><a class="text-gray hover-decoBorder-bottom position-relative py-2 ms-8 pe-0" href="./member-login.html">登入</a></li>
+            <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">場館資訊</a></li>
+            <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./courses-index.html">課程介紹</a></li>
+            <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">團體課程</a></li>
+            <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">會員方案</a></li>
+            <li class="nav-menu-login"><a class="nav-menu-login-btn text-gray hover-decoBorder-bottom-gradient position-relative py-2 ms-8 pe-0" href="./member-login.html">登入</a></li>
+            <li class="nav-menu-member position-relative d-none">
+              <a class="nav-menu-member-btn position-relative text-gray d-flex align-items-center py-2 ms-8 pe-0" href="#">
+                <img class="rounded-3" src="./assets/images/Avatar/anonymous.jpg" alt="anonymous">
+                <span class="nav-menu-member-btn-expand  fs-3 material-symbols-outlined">
+                  expand_more
+                  </span>
+              </a>
+              <ul class="nav-menu-member-panel list-unstyled position-absolute py-4 px-6">
+                <li><a class="text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2" href="#">會員資料</a></li>
+                <li><a class="text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2" href="#">課程管理</a></li>
+                <li><a class="nav-menu-logout-btn text-white position-relative hover-decoBorder-bottom-gradient py-1" href="#">登出</a></li>
+              </ul>
+            </li>
           </ul>
           <!-- menu mobile ham-->
           <a class="d-lg-none" data-bs-toggle="collapse" href="#nav-menu-mobile" role="button" aria-expanded="false" aria-controls="nav-menu-mobile">
@@ -55,14 +69,14 @@
         <li class="col">
           <a
             class="member-tab text-center fs-4 fs-lg-3 letter-12 fw-bold shadow rounded-0 py-4 w-100"
-            href="#"
+            href="./member-information.html"
             >會員資料</a
           >
         </li>
         <li class="col">
           <a
             class="member-tab text-center fs-4 fs-lg-3 letter-12 fw-bold shadow rounded-0 py-4 w-100 member-tab-active"
-            href="#"
+            href="./member-course.html"
             >課程管理</a
           >
         </li>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HighRock - login</title>
+    <title>HighRock - register</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
     <link rel="stylesheet" href="./assets/style/all.css">
@@ -68,87 +68,100 @@
         <!-- rocks deco -->
         <div class="col-lg-6 justify-content-center d-none d-lg-block position-relative">
           <img
-            class="login-rocks login-rock-1 position-absolute"
+            class="register-rocks register-rock-1 position-absolute"
             src="./assets/images/Background-mobile/rock-sm-1.png"
-            alt="login-img01"
+            alt="register-img01"
           />
           <img
-            class="login-rocks login-rock-2 position-absolute"
+            class="register-rocks register-rock-2 position-absolute"
             src="./assets/images/Background-mobile/rock-sm-2.png"
-            alt="login-img02"
+            alt="register-img02"
           />
           <img
-            class="login-rocks login-rock-3 position-absolute"
+            class="register-rocks register-rock-3 position-absolute"
             src="./assets/images/Background-mobile/rock-sm-3.png"
-            alt="login-img03"
+            alt="register-img03"
           />
           <img
-            class="login-rocks login-rock-4 position-absolute"
+            class="register-rocks register-rock-4 position-absolute"
             src="./assets/images/Background-mobile/rock-sm-4.png"
-            alt="login-img04"
+            alt="register-img04"
           />
           <img
-            class="login-rocks login-rock-5 position-absolute"
+            class="register-rocks register-rock-5 position-absolute"
             src="./assets/images/Background-mobile/rock-sm-5.png"
-            alt="login-img05"
+            alt="register-img05"
           />
           <img
-            class="login-rocks login-rock-6 position-absolute"
+            class="register-rocks register-rock-6 position-absolute"
             src="./assets/images/Background-mobile/rock-sm-6.png"
-            alt="login-img06"
+            alt="register-img06"
           />
           <img
-            class="login-rocks login-rock-7 position-absolute"
+            class="register-rocks register-rock-7 position-absolute"
             src="./assets/images/Background-mobile/rock-sm-7.png"
-            alt="login-img07"
+            alt="register-img07"
           />
           <img
-            class="login-rocks login-rock-8 position-absolute"
+            class="register-rocks register-rock-8 position-absolute"
             src="./assets/images/Background-mobile/rock-sm-8.png"
-            alt="login-img08"
+            alt="register-img08"
           />
           <img
-            class="login-rocks login-rock-9 position-absolute"
+            class="register-rocks register-rock-9 position-absolute"
             src="./assets/images/Background-mobile/rock-sm-9.png"
-            alt="login-img09"
+            alt="register-img09"
           />
         </div>
-        <!-- login form -->
+        <!-- register form -->
         <div class="col-lg-5 offset-lg-1">
           <div
-            class="login-panel d-flex flex-column align-items-center rounded-3 shadow py-10 py-lg-20 px-4 px-lg-2 bg-opacity-c1"
+            class="register-panel d-flex flex-column align-items-center rounded-3 shadow py-10 py-lg-15 px-4 px-lg-2 bg-opacity-c1"
           >
-            <h1 class="text-gray-c1 fw-bold mb-8">會員登入</h1>
+            <h1 class="text-gray-c1 fw-bold mb-8">會員註冊</h1>
             <form
-              class="d-flex flex-column justify-content-between w-100 w-md-75 h-100 needs-validation"
+              class="member-register-form d-flex flex-column justify-content-between w-100 w-md-75 h-100 needs-validation"
             >
               <div class="mb-8">
-                <label class="form-label" for="member-login-email">帳號</label>
+                <label class="form-label" for="member-register-email">帳號</label>
                 <input
                   type="email"
-                  class="form-control rounded-pill px-6 mb-4"
-                  id="member-login-email"
-                  placeholder="請輸入帳號 (email@mail.com)"
+                  class="form-control fs-5 text-gray-c3 rounded-pill px-6 mb-4"
+                  id="member-register-email"
+                  placeholder="請輸入 email "
                   autocomplete="email"
                   required
                 />
-                <label class="form-label" for="member-login-password">密碼</label>
+                <label class="form-label" for="member-register-password">密碼</label>
                 <input
                   type="password"
-                  class="form-control rounded-pill px-6 mb-4"
-                  id="member-login-password"
+                  class="form-control fs-5 text-gray-c3 rounded-pill px-6 mb-12"
+                  id="member-register-password"
                   placeholder="請輸入密碼"
                   autocomplete="new-password"
                   required
                 />
-                <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="member-account-remember" />
-                  <label for="member-account-remember" class="form-check-label">記住帳號</label>
-                </div>
+                <label class="form-label" for="member-register-name">姓名</label>
+                <input
+                  type="text"
+                  class="form-control fs-5 text-gray-c3 rounded-pill px-6 mb-4"
+                  id="member-register-name"
+                  placeholder="請輸入姓名"
+                  autocomplete="name"
+                  required
+                />
+                <label class="form-label" for="member-register-number">連絡電話</label>
+                <input
+                  type="tel"
+                  class="form-control fs-5 text-gray-c3 rounded-pill px-6 mb-4"
+                  id="member-register-number"
+                  placeholder="請輸入連絡電話"
+                  autocomplete="tel"
+                  required
+                />
               </div>
               <div class="w-100 d-flex flex-column">
-                <a href="#" class="member-login-btn btn btn-outline-gray-c1 mb-4">登入</a>
-                <a href="./member-register.html" class="btn btn-outline-gray-c1">註冊會員</a>
+                <a href="#" class="member-register-btn btn btn-outline-gray-c1 mb-4">註冊</a>
               </div>
             </form>
           </div>
