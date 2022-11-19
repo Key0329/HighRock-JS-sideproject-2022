@@ -20,7 +20,7 @@ function renderAdminBatches(arr) {
 
     str += `
     <tr data-id="${item.batchId}">
-      <th class="text-center" scope="row">${item.batchId}</th>
+      <th class="text-center" scope="row">Batch ${item.batchId}</th>
       <td>${item.name}</td>
       <td>${item.branch}</td>
       <td>${item.coach}</td>
@@ -60,7 +60,7 @@ function renderAdminStudents(arr) {
       <td>${item.email}</td>
       <td>${item.contactNumber}</td>
       <td>${isMember}</td>
-      <td>${item.batchId}</td>
+      <td>Batch ${item.batchId}</td>
     </tr>
     `;
   });

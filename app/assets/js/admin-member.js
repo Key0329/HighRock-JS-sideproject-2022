@@ -1,31 +1,38 @@
 /* eslint-disable no-undef */
-
 const Url = 'http://localhost:3000';
 
 function renderAdminMember(arr) {
   const adminMemberTable = document.querySelector('.admin-member-table');
-
   let str = '';
+  let status = '';
+  let statusColor = '';
 
   arr.forEach((item) => {
-    // console.log(item);
-    str = `
+    if (item.isExpired === true) {
+      status = '已到期';
+      statusColor = 'text-danger';
+    } else {
+      status = '未到期';
+      statusColor = 'text-success';
+    }
+
+    str += `
     <tr class="vertical-middle">
-      <th scope="row">ABC120222</th>
+      <th scope="row">MEM ${item.id}</th>
       <td>
         <div class="admin-account-avatar me-2">
           <img
             class="rounded-circle"
-            src="./assets/images/Avatar/Avatar-1.jpg"
+            src="${item.photo}"
             alt="avatar"
           />
         </div>
       </td>
-      <td>麥杰倫</td>
-      <td>0933-666-888</td>
-      <td>likeclimbing@gmail.com</td>
-      <td>2022-12-14 ～ 2023-6-13</td>
-      <td class="text-success">未到期</td>
+      <td>${item.name}</td>
+      <td>${item.contactNumber}</td>
+      <td>${item.email}</td>
+      <td>${item.startDate} ～ ${item.expireDate}</td>
+      <td class=${statusColor}>${status}</td>
     </tr>
     `;
   });

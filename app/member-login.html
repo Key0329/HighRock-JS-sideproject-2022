@@ -67,30 +67,32 @@ current: member-login
               class="d-flex flex-column justify-content-between w-100 w-md-75 h-100 needs-validation"
             >
               <div class="mb-8">
-                <label class="form-label" for="email">帳號</label>
+                <label class="form-label" for="member-login-email">帳號</label>
                 <input
                   type="email"
                   class="form-control rounded-pill px-6 mb-4"
-                  id="email"
-                  placeholder="請輸入 email 帳號"
+                  id="member-login-email"
+                  placeholder="請輸入帳號 (email@mail.com)"
+                  autocomplete="email"
                   required
                 />
-                <label class="form-label" for="password">密碼</label>
+                <label class="form-label" for="member-login-password">密碼</label>
                 <input
                   type="password"
                   class="form-control rounded-pill px-6 mb-4"
-                  id="password"
+                  id="member-login-password"
                   placeholder="請輸入密碼"
+                  autocomplete="new-password"
                   required
                 />
                 <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="account-remember" />
-                  <label for="account-remember" class="form-check-label">記住帳號</label>
+                  <input type="checkbox" class="form-check-input" id="member-account-remember" />
+                  <label for="member-account-remember" class="form-check-label">記住帳號</label>
                 </div>
               </div>
               <div class="w-100 d-flex flex-column">
-                <a href="#" class="btn btn-outline-gray-c1 mb-4">登入</a>
-                <a href="#" class="btn btn-outline-gray-c1">加入會員</a>
+                <a href="#" class="member-login-btn btn btn-outline-gray-c1 mb-4">登入</a>
+                <a href="./member-register.html" class="btn btn-outline-gray-c1">註冊會員</a>
               </div>
             </form>
           </div>

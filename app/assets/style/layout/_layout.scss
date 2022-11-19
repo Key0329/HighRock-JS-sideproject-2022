@@ -32,6 +32,38 @@
       box-shadow: 0 1px 8px rgba(0, 0, 0, 0.24);
       border-radius: 0px 0px 8px 8px;
     }
+    &-member-btn {
+      &-expand {
+        transition: all 0.3s;
+        &.active {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    &-member-panel {
+      width: 200px;
+      top: 56px; //
+      right: 0;
+      background: rgba(0, 0, 0, 0.24);
+      height: 0;
+      opacity: 0;
+      transition: ease-in-out 0.3s;
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent transparent rgba(0, 0, 0, 0.24) transparent;
+        top: -20px;
+        right: 5%;
+      }
+      &.active {
+        height: 144px;
+        opacity: 1;
+      }
+    }
   }
 }
 

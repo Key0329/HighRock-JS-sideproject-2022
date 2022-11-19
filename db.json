@@ -2,21 +2,17 @@
   "users": [
     {
       "id": 1,
-      "userId": "1",
-      "account": "likeclimbing@gmail.com",
       "password": "12345566",
       "photo": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/Avatar/Avatar-1.jpg?raw=true",
       "name": "麥杰倫",
       "email": "likeclimbing@gmail.com",
       "contactNumber": "0933-666-888",
-      "startDate": "2022-12-14",
-      "expireDate": "2023-6-13",
-      "isExpired": false
+      "startDate": "2022-3-14",
+      "expireDate": "2022-9-13",
+      "isExpired": true
     },
     {
       "id": 2,
-      "userId": "2",
-      "account": "aabbcc@gmail.com",
       "password": "112233",
       "photo": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/Avatar/user-1.png?raw=true",
       "name": "安東尼",
@@ -28,8 +24,6 @@
     },
     {
       "id": 3,
-      "userId": "3",
-      "account": "yoyoyo@gmail.com",
       "password": "55665566",
       "photo": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/Avatar/user-3.png?raw=true",
       "name": "艾曼達",
@@ -38,6 +32,13 @@
       "startDate": "2022-11-20",
       "expireDate": "2023-5-20",
       "isExpired": false
+    },
+    {
+      "email": "spring@gmai.com",
+      "password": "$2a$10$Fvef0OeRqpTCqlZcrg/qs.awyIqPWguz2BN5RuNXRXNu2Rj/wJ/vq",
+      "name": "Jack",
+      "contactNumber": "0963222",
+      "id": 4
     }
   ],
   "branches": [

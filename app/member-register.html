@@ -1,0 +1,116 @@
+---
+title: HighRock - register
+layout: ./app/layout.ejs
+engine: ejs
+current: member-register
+---
+
+<main class="bg-c-gradient">
+  <section class="py-20 py-md-30 vh-75 vh-lg-100">
+    <div class="container">
+      <div class="row">
+        <!-- rocks deco -->
+        <div class="col-lg-6 justify-content-center d-none d-lg-block position-relative">
+          <img
+            class="register-rocks register-rock-1 position-absolute"
+            src="./assets/images/Background-mobile/rock-sm-1.png"
+            alt="register-img01"
+          />
+          <img
+            class="register-rocks register-rock-2 position-absolute"
+            src="./assets/images/Background-mobile/rock-sm-2.png"
+            alt="register-img02"
+          />
+          <img
+            class="register-rocks register-rock-3 position-absolute"
+            src="./assets/images/Background-mobile/rock-sm-3.png"
+            alt="register-img03"
+          />
+          <img
+            class="register-rocks register-rock-4 position-absolute"
+            src="./assets/images/Background-mobile/rock-sm-4.png"
+            alt="register-img04"
+          />
+          <img
+            class="register-rocks register-rock-5 position-absolute"
+            src="./assets/images/Background-mobile/rock-sm-5.png"
+            alt="register-img05"
+          />
+          <img
+            class="register-rocks register-rock-6 position-absolute"
+            src="./assets/images/Background-mobile/rock-sm-6.png"
+            alt="register-img06"
+          />
+          <img
+            class="register-rocks register-rock-7 position-absolute"
+            src="./assets/images/Background-mobile/rock-sm-7.png"
+            alt="register-img07"
+          />
+          <img
+            class="register-rocks register-rock-8 position-absolute"
+            src="./assets/images/Background-mobile/rock-sm-8.png"
+            alt="register-img08"
+          />
+          <img
+            class="register-rocks register-rock-9 position-absolute"
+            src="./assets/images/Background-mobile/rock-sm-9.png"
+            alt="register-img09"
+          />
+        </div>
+        <!-- register form -->
+        <div class="col-lg-5 offset-lg-1">
+          <div
+            class="register-panel d-flex flex-column align-items-center rounded-3 shadow py-10 py-lg-15 px-4 px-lg-2 bg-opacity-c1"
+          >
+            <h1 class="text-gray-c1 fw-bold mb-8">會員註冊</h1>
+            <form
+              class="member-register-form d-flex flex-column justify-content-between w-100 w-md-75 h-100 needs-validation"
+            >
+              <div class="mb-8">
+                <label class="form-label" for="member-register-email">帳號</label>
+                <input
+                  type="email"
+                  class="form-control fs-5 text-gray-c3 rounded-pill px-6 mb-4"
+                  id="member-register-email"
+                  placeholder="請輸入 email "
+                  autocomplete="email"
+                  required
+                />
+                <label class="form-label" for="member-register-password">密碼</label>
+                <input
+                  type="password"
+                  class="form-control fs-5 text-gray-c3 rounded-pill px-6 mb-12"
+                  id="member-register-password"
+                  placeholder="請輸入密碼"
+                  autocomplete="new-password"
+                  required
+                />
+                <label class="form-label" for="member-register-name">姓名</label>
+                <input
+                  type="text"
+                  class="form-control fs-5 text-gray-c3 rounded-pill px-6 mb-4"
+                  id="member-register-name"
+                  placeholder="請輸入姓名"
+                  autocomplete="name"
+                  required
+                />
+                <label class="form-label" for="member-register-number">連絡電話</label>
+                <input
+                  type="tel"
+                  class="form-control fs-5 text-gray-c3 rounded-pill px-6 mb-4"
+                  id="member-register-number"
+                  placeholder="請輸入連絡電話"
+                  autocomplete="tel"
+                  required
+                />
+              </div>
+              <div class="w-100 d-flex flex-column">
+                <a href="#" class="member-register-btn btn btn-outline-gray-c1 mb-4">註冊</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

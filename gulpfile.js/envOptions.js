@@ -2,7 +2,7 @@ const srcPath = './app';
 const distPath = './dist';
 const nodePath = './node_modules';
 
-let envOptions = {
+const envOptions = {
   string: 'env',
   default: {
     env: 'dev',
@@ -20,29 +20,18 @@ let envOptions = {
     path: distPath,
   },
   html: {
-    src: [
-      `${srcPath}/**/*.html`,
-    ],
-    ejsSrc: [
-      `${srcPath}/**/*.ejs`,
-    ],
+    src: [`${srcPath}/**/*.html`],
+    ejsSrc: [`${srcPath}/**/*.ejs`],
     path: distPath,
   },
   style: {
-    src: [
-      `${srcPath}/assets/style/**/*.scss`,
-      `${srcPath}/assets/style/**/*.sass`,
-    ],
+    src: [`${srcPath}/assets/style/**/*.scss`, `${srcPath}/assets/style/**/*.sass`],
     outputStyle: 'expanded',
-    includePaths: [
-      `${nodePath}/bootstrap/scss`,
-    ],
+    includePaths: [`${nodePath}/bootstrap/scss`],
     path: `${distPath}/assets/style`,
   },
   javascript: {
-    src: [
-      `${srcPath}/assets/js/**/*.js`
-    ],
+    src: [`${srcPath}/assets/js/**/*.js`],
     concat: 'all.js',
     path: `${distPath}/assets/js`,
   },
@@ -55,9 +44,7 @@ let envOptions = {
     path: `${distPath}/assets/js`,
   },
   img: {
-    src: [
-      `${srcPath}/assets/images/**/*`,
-    ],
+    src: [`${srcPath}/assets/images/**/*`],
   },
   clean: {
     src: distPath,

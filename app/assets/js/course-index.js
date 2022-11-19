@@ -20,10 +20,12 @@ function registerModelControl() {
   const registerModelOpenBtn = document.querySelector('.register-btn');
 
   // 開啟彈跳視窗
-  registerModelOpenBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    registerModel.classList.add('register-model--active');
-  });
+  if (registerModelOpenBtn) {
+    registerModelOpenBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      registerModel.classList.add('register-model--active');
+    });
+  }
 
   // 點擊視窗外關閉
   registerModel.addEventListener('click', (event) => {
