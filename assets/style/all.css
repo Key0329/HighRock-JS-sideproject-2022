@@ -36605,9 +36605,9 @@ img {
   position: absolute;
   width: 100%;
   height: 5px;
-  background: -webkit-gradient(linear, left top, right top, from(#6cd2d9), to(#ffe2aa));
-  background: -o-linear-gradient(left, #6cd2d9, #ffe2aa);
-  background: linear-gradient(left, #6cd2d9, #ffe2aa);
+  background: -webkit-gradient(linear, right top, left top, from(#6cd2d9), to(#ffe2aa));
+  background: -o-linear-gradient(right, #6cd2d9, #ffe2aa);
+  background: linear-gradient(right, #6cd2d9, #ffe2aa);
   bottom: 0;
   left: 0;
 }
@@ -36735,6 +36735,28 @@ img {
   -webkit-transition: ease-in-out 0.3s;
   -o-transition: ease-in-out 0.3s;
   transition: ease-in-out 0.3s;
+  position: absolute;
+  z-index: 0;
+  padding: 0 24px;
+}
+
+.nav-menu-member-panel a {
+  height: 0;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.nav-menu-member-panel::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 65px;
+  background-color: transparent;
+  top: 0px;
+  right: 0;
+  z-index: 0;
 }
 
 .nav-menu-member-panel::after {
@@ -36752,6 +36774,12 @@ img {
 .nav-menu-member-panel.active {
   height: 144px;
   opacity: 1;
+  padding: 16px 24px;
+}
+
+.nav-menu-member-panel.active a {
+  height: 100%;
+  z-index: 0;
 }
 
 .footer-icon {

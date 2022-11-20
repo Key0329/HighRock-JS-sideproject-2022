@@ -88,7 +88,7 @@ axios.get("".concat(Url, "/batches")).then(function (res) {
   // eslint-disable-next-line no-console
   console.log(error);
 });
-axios.get("".concat(Url, "/registeredStudent")).then(function (res) {
+axios.get("".concat(Url, "/registeredStudents")).then(function (res) {
   var data = res.data;
   renderAdminStudents(data);
   showRegisterStudent(data);
@@ -101,6 +101,8 @@ prevPage();
 
 /* eslint-disable no-undef */
 var Url = 'http://localhost:3000';
+
+// 渲染後臺會員列表
 function renderAdminMember(arr) {
   var adminMemberTable = document.querySelector('.admin-member-table');
   var str = '';
@@ -114,7 +116,7 @@ function renderAdminMember(arr) {
       status = '未到期';
       statusColor = 'text-success';
     }
-    str += "\n    <tr class=\"vertical-middle\">\n      <th scope=\"row\">MEM ".concat(item.id, "</th>\n      <td>\n        <div class=\"admin-account-avatar me-2\">\n          <img\n            class=\"rounded-circle\"\n            src=\"").concat(item.photo, "\"\n            alt=\"avatar\"\n          />\n        </div>\n      </td>\n      <td>").concat(item.name, "</td>\n      <td>").concat(item.contactNumber, "</td>\n      <td>").concat(item.email, "</td>\n      <td>").concat(item.startDate, " \uFF5E ").concat(item.expireDate, "</td>\n      <td class=").concat(statusColor, ">").concat(status, "</td>\n    </tr>\n    ");
+    str += "\n    <tr class=\"vertical-middle\">\n      <th scope=\"row\">MEM ".concat(item.id, "</th>\n      <td>\n        <div class=\"admin-account-avatar me-2\">\n          <img\n            class=\"rounded-circle\"\n            src=\"./\"\n            alt=\"avatar\"\n          />\n        </div>\n      </td>\n      <td>").concat(item.name, "</td>\n      <td>").concat(item.contactNumber, "</td>\n      <td>").concat(item.email, "</td>\n      <td>").concat(item.startDate, " \uFF5E ").concat(item.expireDate, "</td>\n      <td class=").concat(statusColor, ">").concat(status, "</td>\n    </tr>\n    ");
   });
   if (adminMemberTable) {
     adminMemberTable.innerHTML = str;
@@ -516,17 +518,116 @@ nonMemberFormConfirmOrCancel();
 "use strict";
 
 /* eslint-disable no-undef */
+
+var id = localStorage.getItem('userId');
+function renderMemberCourse(arr) {
+  var memberCourseDetail = document.querySelector('.member-course-detail');
+  var str = '';
+  arr.forEach(function (item) {
+    var batch = item.batch;
+    str += "\n    <li class=\"mb-4\">\n      <ul class=\"row row-cols-lg-2 px-6 py-8 bg-opacity-c1 list-unstyled\">\n        <li class=\"col mb-4\">\n          <p class=\"fs-4 fs-lg-3 fw-bold\">\n            \u8AB2\u7A0B\u540D\u7A31\uFF1A<span class=\"fs-5 fs-lg-4 fw-normal\">".concat(batch.name, "</span>\n          </p>\n        </li>\n        <li class=\"col mb-4\">\n          <p class=\"fs-4 fs-lg-3 fw-bold\">\n            \u8AB2\u7A0B\u72C0\u614B\uFF1A<span class=\"fs-5 fs-lg-4 fw-normal\">").concat(batch.isOpened, "</span>\n          </p>\n        </li>\n        <li class=\"col\">\n          <p class=\"fs-4 fs-lg-3 fw-bold\">\n            \u9928\u5225\uFF1A<span class=\"fs-5 fs-lg-4 fw-normal\">").concat(batch.branch, "</span>\n          </p>\n        </li>\n        <li class=\"col\">\n          <p class=\"fs-4 fs-lg-3 fw-bold\">\n            \u8AB2\u7A0B\u65E5\u671F\uFF1A<span class=\"fs-5 fw-normal\"\n              >").concat(batch.content, "\n            </span>\n          </p>\n        </li>\n      </ul>\n    </li>\n    ");
+  });
+  if (memberCourseDetail) {
+    memberCourseDetail.innerHTML = str;
+  }
+}
+axios.get("".concat(Url, "/users/").concat(id, "/registeredStudents?_expand=batch")).then(function (res) {
+  var data = res.data;
+  renderMemberCourse(data);
+})["catch"](function (error) {
+  // eslint-disable-next-line no-console
+  console.log(error);
+});
+"use strict";
+
+/* eslint-disable no-undef */
 var Url = 'http://localhost:3000';
+var id = localStorage.getItem('userId');
+
+// 渲染會員資訊
+function renderMemberInfo(obj) {
+  var memberEmail = document.querySelector('#member-email');
+  var memberTel = document.querySelector('#member-tel');
+  var memberName = document.querySelector('#member-name');
+  var memberAccount = document.querySelector('#member-account');
+  var memberPwd = document.querySelector('#member-pwd');
+  var memberDetail = document.querySelector('.member-detail');
+  if (memberEmail || memberTel || memberName || memberAccount || memberPwd) {
+    memberEmail.value = obj.email;
+    memberTel.value = obj.contactNumber;
+    memberName.value = obj.name;
+    memberAccount.value = obj.email;
+    memberPwd.value = obj.password;
+  }
+  var str = '';
+  str = "\n  <p class=\"fs-4 fs-lg-3 mb-2\">\u6703\u54E1\u7DE8\u865F\uFF1A<span>MEM - ".concat(obj.id, " </span></p>\n  <p class=\"fs-4 fs-lg-3 mb-2\">\u6703\u54E1\u8CC7\u683C\uFF1A<span>\u514D\u8CBB\u6703\u54E1</span></p>\n  <p class=\"fs-4 fs-lg-3\">VIP \u8D77\u8A16\u65E5\uFF1A<span>\u7121</span></p>\n  ");
+  if (memberDetail) {
+    memberDetail.innerHTML = str;
+  }
+}
+
+// 從遠端取得該會員資訊並渲染
+function getUserData() {
+  axios.get("".concat(Url, "/users/").concat(id)).then(function (res) {
+    var data = res.data;
+    renderMemberInfo(data);
+  });
+}
+
+// 如果本地端有會員資訊才渲染
+if (id) {
+  getUserData();
+}
+"use strict";
+
+/* eslint-disable no-undef */
+var Url = 'http://localhost:3000';
+
+// 將登入資訊存入 LocalStorage
 function saveUserToLocal(_ref) {
   var accessToken = _ref.accessToken,
     user = _ref.user;
   localStorage.setItem('token', accessToken);
-  localStorage.setItem('userID', user.id);
-  localStorage.setItem('userName', user.name);
-  localStorage.setItem('userEmail', user.email);
-  localStorage.setItem('userNumber', user.contactNumber);
+  localStorage.setItem('userId', user.id);
 }
-function renderNavMenu() {}
+
+// 將登入資訊從 LocalStorage 移除
+function removeUserFromLocal() {
+  window.localStorage.removeItem('token');
+  window.localStorage.removeItem('userId');
+}
+
+// 未登入 nav menu 渲染
+function renderVisitorNavMenu() {
+  var navMenu = document.querySelector('.nav-menu');
+  var str = '';
+  str = "\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u5834\u9928\u8CC7\u8A0A</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./courses-index.html\">\u8AB2\u7A0B\u4ECB\u7D39</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u5718\u9AD4\u8AB2\u7A0B</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u6703\u54E1\u65B9\u6848</a></li>\n  <li class=\"nav-menu-login\"><a class=\"nav-menu-login-btn text-gray hover-decoBorder-bottom-gradient position-relative py-2 ms-8 pe-0\" href=\"./member-login.html\">\u767B\u5165</a></li>\n  ";
+  if (navMenu) {
+    navMenu.innerHTML = str;
+  }
+}
+
+// 登入後 nav menu 渲染
+function renderLoginRenderNavMenu() {
+  var navMenu = document.querySelector('.nav-menu');
+  var str = '';
+  str = "\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u5834\u9928\u8CC7\u8A0A</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./courses-index.html\">\u8AB2\u7A0B\u4ECB\u7D39</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u5718\u9AD4\u8AB2\u7A0B</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u6703\u54E1\u65B9\u6848</a></li>\n  <li class=\"nav-menu-member position-relative\">\n    <a class=\"nav-menu-member-btn position-relative text-gray d-flex align-items-center py-2 ms-8 pe-0\" href=\"#\">\n      <img class=\"rounded-3\" src=\"./assets/images/Avatar/anonymous.jpg\" alt=\"anonymous\">\n      <span class=\"nav-menu-member-btn-expand  fs-3 material-symbols-outlined\">\n        expand_more\n        </span>\n    </a>\n    <ul class=\"nav-menu-member-panel list-unstyled position-absolute\">\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-information.html\">\u6703\u54E1\u8CC7\u6599</a>\n      </li>\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-course.html\">\u8AB2\u7A0B\u7BA1\u7406</a>\n      </li>\n      <li>\n      <a class=\"nav-menu-logout-btn text-white position-relative hover-decoBorder-bottom-gradient py-1\" href=\"#\">\u767B\u51FA</a>\n      </li>\n    </ul>\n  </li>\n  ";
+  if (navMenu) {
+    navMenu.innerHTML = str;
+  }
+}
+
+// 判斷登入狀態後渲染 nav menu
+function renderNavMenu() {
+  var savedToken = localStorage.getItem('token');
+  if (savedToken) {
+    renderLoginRenderNavMenu();
+  } else {
+    renderVisitorNavMenu();
+  }
+}
+
+// 登入
 function login() {
   var memberLoginBtn = document.querySelector('.member-login-btn');
   if (memberLoginBtn) {
@@ -535,8 +636,6 @@ function login() {
       var memberLoginEmail = document.querySelector('#member-login-email');
       var memberLoginPwd = document.querySelector('#member-login-password');
       var LoginPanel = document.querySelector('.login-panel');
-      var navMenuLogin = document.querySelector('.nav-menu-login');
-      var navMenuMember = document.querySelector('.nav-menu-member');
       var loginData = {
         email: memberLoginEmail.value.trim(),
         password: memberLoginPwd.value.trim()
@@ -553,8 +652,7 @@ function login() {
             setTimeout(function () {
               window.location.replace('/index.html');
             }, '3000');
-            navMenuLogin.classList.add('d-none');
-            navMenuMember.classList.remove('d-none');
+            renderLoginRenderNavMenu();
           }
         })["catch"](function (error) {
           // eslint-disable-next-line no-console
@@ -567,6 +665,8 @@ function login() {
     });
   }
 }
+
+// 會員下拉選單開合
 function expandMemberNavMenu() {
   var navMenuMemberBtn = document.querySelector('.nav-menu-member-btn');
   if (navMenuMemberBtn) {
@@ -584,12 +684,42 @@ function expandMemberNavMenu() {
     });
   }
 }
-login();
-expandMemberNavMenu();
+
+// 登出
+function logout() {
+  var navMenuLogoutBtn = document.querySelector('.nav-menu-logout-btn');
+  if (navMenuLogoutBtn) {
+    navMenuLogoutBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      removeUserFromLocal();
+      renderVisitorNavMenu();
+      Swal.fire({
+        icon: 'success',
+        title: '登出成功',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      setTimeout(function () {
+        window.location.replace('/member-login.html');
+      }, '3000');
+    });
+  }
+}
+
+// 登入初始渲染
+function loginInit() {
+  renderNavMenu();
+  login();
+  expandMemberNavMenu();
+  logout();
+}
+loginInit();
 "use strict";
 
 /* eslint-disable no-undef */
 var Url = 'http://localhost:3000';
+
+// 註冊
 function signUp() {
   var memberRegisterBtn = document.querySelector('.member-register-btn');
   if (memberRegisterBtn) {
