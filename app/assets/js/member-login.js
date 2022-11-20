@@ -1,16 +1,83 @@
 /* eslint-disable no-undef */
 const Url = 'http://localhost:3000';
 
+// 將登入資訊存入 LocalStorage
 function saveUserToLocal({ accessToken, user }) {
   localStorage.setItem('token', accessToken);
-  localStorage.setItem('userID', user.id);
-  localStorage.setItem('userName', user.name);
-  localStorage.setItem('userEmail', user.email);
-  localStorage.setItem('userNumber', user.contactNumber);
+  localStorage.setItem('userId', user.id);
 }
 
-function renderNavMenu() {}
+// 將登入資訊從 LocalStorage 移除
+function removeUserFromLocal() {
+  window.localStorage.removeItem('token');
+  window.localStorage.removeItem('userId');
+}
 
+// 未登入 nav menu 渲染
+function renderVisitorNavMenu() {
+  const navMenu = document.querySelector('.nav-menu');
+  let str = '';
+
+  str = `
+  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">場館資訊</a></li>
+  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./courses-index.html">課程介紹</a></li>
+  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">團體課程</a></li>
+  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">會員方案</a></li>
+  <li class="nav-menu-login"><a class="nav-menu-login-btn text-gray hover-decoBorder-bottom-gradient position-relative py-2 ms-8 pe-0" href="./member-login.html">登入</a></li>
+  `;
+
+  if (navMenu) {
+    navMenu.innerHTML = str;
+  }
+}
+
+// 登入後 nav menu 渲染
+function renderLoginRenderNavMenu() {
+  const navMenu = document.querySelector('.nav-menu');
+  let str = '';
+
+  str = `
+  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">場館資訊</a></li>
+  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./courses-index.html">課程介紹</a></li>
+  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">團體課程</a></li>
+  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">會員方案</a></li>
+  <li class="nav-menu-member position-relative">
+    <a class="nav-menu-member-btn position-relative text-gray d-flex align-items-center py-2 ms-8 pe-0" href="#">
+      <img class="rounded-3" src="./assets/images/Avatar/anonymous.jpg" alt="anonymous">
+      <span class="nav-menu-member-btn-expand  fs-3 material-symbols-outlined">
+        expand_more
+        </span>
+    </a>
+    <ul class="nav-menu-member-panel list-unstyled position-absolute">
+      <li>
+      <a class="text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2" href="./member-information.html">會員資料</a>
+      </li>
+      <li>
+      <a class="text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2" href="./member-course.html">課程管理</a>
+      </li>
+      <li>
+      <a class="nav-menu-logout-btn text-white position-relative hover-decoBorder-bottom-gradient py-1" href="#">登出</a>
+      </li>
+    </ul>
+  </li>
+  `;
+
+  if (navMenu) {
+    navMenu.innerHTML = str;
+  }
+}
+
+// 判斷登入狀態後渲染 nav menu
+function renderNavMenu() {
+  const savedToken = localStorage.getItem('token');
+  if (savedToken) {
+    renderLoginRenderNavMenu();
+  } else {
+    renderVisitorNavMenu();
+  }
+}
+
+// 登入
 function login() {
   const memberLoginBtn = document.querySelector('.member-login-btn');
 
@@ -21,8 +88,6 @@ function login() {
       const memberLoginEmail = document.querySelector('#member-login-email');
       const memberLoginPwd = document.querySelector('#member-login-password');
       const LoginPanel = document.querySelector('.login-panel');
-      const navMenuLogin = document.querySelector('.nav-menu-login');
-      const navMenuMember = document.querySelector('.nav-menu-member');
 
       const loginData = {
         email: memberLoginEmail.value.trim(),
@@ -44,8 +109,7 @@ function login() {
               setTimeout(() => {
                 window.location.replace('/index.html');
               }, '3000');
-              navMenuLogin.classList.add('d-none');
-              navMenuMember.classList.remove('d-none');
+              renderLoginRenderNavMenu();
             }
           })
           .catch((error) => {
@@ -60,6 +124,7 @@ function login() {
   }
 }
 
+// 會員下拉選單開合
 function expandMemberNavMenu() {
   const navMenuMemberBtn = document.querySelector('.nav-menu-member-btn');
 
@@ -83,5 +148,33 @@ function expandMemberNavMenu() {
   }
 }
 
-login();
-expandMemberNavMenu();
+// 登出
+function logout() {
+  const navMenuLogoutBtn = document.querySelector('.nav-menu-logout-btn');
+  if (navMenuLogoutBtn) {
+    navMenuLogoutBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      removeUserFromLocal();
+      renderVisitorNavMenu();
+      Swal.fire({
+        icon: 'success',
+        title: '登出成功',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      setTimeout(() => {
+        window.location.replace('/member-login.html');
+      }, '3000');
+    });
+  }
+}
+
+// 登入初始渲染
+function loginInit() {
+  renderNavMenu();
+  login();
+  expandMemberNavMenu();
+  logout();
+}
+
+loginInit();

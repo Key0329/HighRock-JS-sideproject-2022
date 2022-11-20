@@ -126,7 +126,7 @@ axios
   });
 
 axios
-  .get(`${Url}/registeredStudent`)
+  .get(`${Url}/registeredStudents`)
   .then((res) => {
     const { data } = res;
     renderAdminStudents(data);

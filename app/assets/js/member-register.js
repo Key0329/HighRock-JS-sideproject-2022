@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 const Url = 'http://localhost:3000';
 
+// 註冊
 function signUp() {
   const memberRegisterBtn = document.querySelector('.member-register-btn');
 

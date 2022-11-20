@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 const Url = 'http://localhost:3000';
 
+// 渲染後臺會員列表
 function renderAdminMember(arr) {
   const adminMemberTable = document.querySelector('.admin-member-table');
   let str = '';
@@ -23,7 +24,7 @@ function renderAdminMember(arr) {
         <div class="admin-account-avatar me-2">
           <img
             class="rounded-circle"
-            src="${item.photo}"
+            src="./"
             alt="avatar"
           />
         </div>
