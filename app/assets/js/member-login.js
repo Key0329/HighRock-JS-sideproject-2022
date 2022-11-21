@@ -77,6 +77,28 @@ function renderNavMenu() {
   }
 }
 
+function accountRemember() {
+  const memberAccountRemember = document.querySelector('#member-account-remember');
+  const memberLoginEmail = document.querySelector('#member-login-email');
+  // memberAccountRemember.setAttribute('checked', 'checked');
+
+  if (memberAccountRemember.checked === true) {
+    localStorage.setItem('accountRemembered', memberLoginEmail.value);
+    console.log(123);
+  } else {
+    localStorage.removeItem('accountRemembered');
+  }
+}
+
+function renderMemberLoginRemember() {
+  const memberAccountRemember = document.querySelector('#member-account-remember');
+  const memberLoginEmail = document.querySelector('#member-login-email');
+  if (localStorage.getItem('accountRemembered')) {
+    memberLoginEmail.value = localStorage.getItem('accountRemembered');
+    memberAccountRemember.setAttribute('checked', 'checked');
+  }
+}
+
 // 登入
 function login() {
   const memberLoginBtn = document.querySelector('.member-login-btn');
@@ -104,6 +126,7 @@ function login() {
             console.log(res);
             if (res.status === 200) {
               const str = '<h1 class="text-gray-c1 fw-bold mb-8">登入成功</h1><p>即將返回首頁</p>';
+              accountRemember();
               LoginPanel.innerHTML = str;
               saveUserToLocal(res.data);
               setTimeout(() => {
@@ -175,6 +198,7 @@ function loginInit() {
   login();
   expandMemberNavMenu();
   logout();
+  renderMemberLoginRemember();
 }
 
 loginInit();
