@@ -221,47 +221,7 @@ current: courses-index
   <section class="py-10 py-lg-40">
     <div class="container">
       <h2 class="text-center text-lg-start mb-4">相關課程</h2>
-      <ul class="other-courses row row-cols-1 row-cols-lg-3 list-unstyled">
-        <!-- <li class="col mb-6 mb-lg-0">
-          <img class="mb-4" src="./assets/images/Training/training-lg-2.png" alt="top-rope" />
-          <h3 class="text-center text-lg-start mb-2">頂繩攀岩 (Top Rope)</h3>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <p class="me-2">NT$ 4,800</p>
-            <p class="mb-8">尚有名額</p>
-          </div>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#" class="btn btn-primary rounded-3 px-8 py-2" data-courseId="course02"
-              >查看詳情</a
-            >
-          </div>
-        </li>
-        <li class="col mb-6 mb-lg-0">
-          <img class="mb-4" src="./assets/images/Training/training-lg-3.png" alt="lead" />
-          <h3 class="text-center text-lg-start mb-2">先鋒攀登 (Lead Climbing)</h3>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <p class="me-2">NT$ 5,600</p>
-            <p class="mb-8 text-danger">已經額滿</p>
-          </div>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#" class="btn btn-primary rounded-3 px-8 py-2" data-courseId="course03"
-              >查看詳情</a
-            >
-          </div>
-        </li>
-        <li class="col mb-6 mb-lg-0">
-          <img class="mb-4" src="./assets/images/courses/clean-anchor.png" alt="clean-anchor" />
-          <h3 class="text-center text-lg-start mb-2">系統轉換 (Clean Anchor)</h3>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <p class="me-2">NT$ 6,000</p>
-            <p class="mb-8">尚有名額</p>
-          </div>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#" class="btn btn-primary rounded-3 px-8 py-2" data-courseId="course04"
-              >查看詳情</a
-            >
-          </div>
-        </li> -->
-      </ul>
+      <ul class="other-courses row row-cols-1 row-cols-lg-3 list-unstyled"></ul>
     </div>
   </section>
 
@@ -272,16 +232,16 @@ current: courses-index
         <ul class="list-unstyled d-flex flex-column justify-content-around h-100">
           <li>
             <a
-              class="register-model-btn-nonMember bg-blue-c1 fs-4 fs-lg-2 text-center shadow rounded-3 px-20 py-15"
-              href="#"
-              >非會員</a
+              class="bg-blue-c1 fs-4 fs-lg-2 text-center shadow rounded-3 px-20 py-15"
+              href="./member-login.html"
+              >會員登入</a
             >
           </li>
           <li>
             <a
               class="register-model-btn-member bg-yellow-c1 fs-4 fs-lg-2 text-center shadow rounded-3 px-20 py-15"
-              href="./member-login.html"
-              >會員</a
+              href="./member-register.html"
+              >註冊</a
             >
           </li>
         </ul>
@@ -289,12 +249,12 @@ current: courses-index
     </div>
   </section>
 
-  <!-- non-member registration -->
+  <!-- registration-form -->
   <section>
     <div class="register-model-nonMember">
       <div class="register-model-nonMember-content bg-white px-4 px-lg-20 py-4 py-lg-10 rounded-3">
         <h2 class="fw-bold mb-4">報名資訊</h2>
-        <form class="register-model-nonMember-form d-flex flex-column h-0">
+        <form class="register-model-nonMember-form d-flex flex-column">
           <label class="mb-1" for="register-nonMember-name">真實姓名 (Passport Name)</label>
           <input
             class="fs-6 py-1 px-2 mb-6"
@@ -318,51 +278,64 @@ current: courses-index
             placeholder="請輸入電話號碼"
             id="register-nonMember-phoneNum"
           />
-          <label for="course-nonMember-id" class="ps-4">課程編號</label>
-          <input
-            class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-2 mb-lg-6"
-            type="text"
-            name="course-nonMember-id"
-            id="course-nonMember-id"
-            value=""
-            disabled
-          />
-          <label for="course-nonMember-name" class="ps-4">課程名稱</label>
-          <input
-            class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-2 mb-lg-6"
-            type="text"
-            name="course-nonMember-name"
-            id="course-nonMember-name"
-            value=""
-            disabled
-          />
-          <label for="course-nonMember-price" class="ps-4">課程價格</label>
-          <input
-            class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-2 mb-lg-6"
-            type="text"
-            name="course-nonMember-price"
-            id="course-nonMember-price"
-            value=""
-            disabled
-          />
-          <label for="course-nonMember-branch" class="ps-4">分館</label>
-          <input
-            class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-2 mb-lg-6"
-            type="text"
-            name="course-nonMember-branch"
-            id="course-nonMember-branch"
-            value=""
-            disabled
-          />
-          <label for="course-nonMember-batch" class="ps-4">課程梯次</label>
-          <input
-            class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-12"
-            type="text"
-            name="course-nonMember-batch"
-            id="course-nonMember-batch"
-            value=""
-            disabled
-          />
+          <div class="row">
+            <div class="col-md-6 d-flex flex-column">
+              <label for="course-nonMember-id">課程編號</label>
+              <input
+                class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-2 mb-lg-6"
+                type="text"
+                name="course-nonMember-id"
+                id="course-nonMember-id"
+                value=""
+                disabled
+              />
+            </div>
+            <div class="col-md-6 d-flex flex-column">
+              <label for="course-nonMember-name">課程名稱</label>
+              <input
+                class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-2 mb-lg-6"
+                type="text"
+                name="course-nonMember-name"
+                id="course-nonMember-name"
+                value=""
+                disabled
+              />
+            </div>
+            <div class="col-md-6 d-flex flex-column">
+              <label for="course-nonMember-price">課程價格</label>
+              <input
+                class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-2 mb-lg-6"
+                type="text"
+                name="course-nonMember-price"
+                id="course-nonMember-price"
+                value=""
+                disabled
+              />
+            </div>
+            <div class="col-md-6 d-flex flex-column">
+              <label for="course-nonMember-branch">課程分館</label>
+              <input
+                class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-2 mb-lg-6"
+                type="text"
+                name="course-nonMember-branch"
+                id="course-nonMember-branch"
+                value=""
+                disabled
+              />
+            </div>
+            <div class="col-12">
+              <label for="course-nonMember-batch">課程梯次</label>
+              <input
+                class="fs-6 fs-lg-4 rounded-pill py-1 px-4 mb-12 w-100"
+                type="text"
+                name="course-nonMember-batch"
+                id="course-nonMember-batch"
+                value=""
+                disabled
+              />
+            </div>
+          </div>
+
           <input type="submit" class="btn btn-gray-c1 mb-4" value="確認" />
           <a href="#" class="btn btn-danger">取消</a>
         </form>

@@ -77,6 +77,7 @@ function renderNavMenu() {
   }
 }
 
+// 登入記住帳號
 function accountRemember() {
   const memberAccountRemember = document.querySelector('#member-account-remember');
   const memberLoginEmail = document.querySelector('#member-login-email');
@@ -84,18 +85,20 @@ function accountRemember() {
 
   if (memberAccountRemember.checked === true) {
     localStorage.setItem('accountRemembered', memberLoginEmail.value);
-    console.log(123);
   } else {
     localStorage.removeItem('accountRemembered');
   }
 }
 
+// 渲染登入記住帳號
 function renderMemberLoginRemember() {
   const memberAccountRemember = document.querySelector('#member-account-remember');
   const memberLoginEmail = document.querySelector('#member-login-email');
   if (localStorage.getItem('accountRemembered')) {
-    memberLoginEmail.value = localStorage.getItem('accountRemembered');
-    memberAccountRemember.setAttribute('checked', 'checked');
+    if (memberAccountRemember) {
+      memberLoginEmail.value = localStorage.getItem('accountRemembered');
+      memberAccountRemember.setAttribute('checked', 'checked');
+    }
   }
 }
 
@@ -125,12 +128,13 @@ function login() {
             // eslint-disable-next-line no-console
             console.log(res);
             if (res.status === 200) {
-              const str = '<h1 class="text-gray-c1 fw-bold mb-8">登入成功</h1><p>即將返回首頁</p>';
+              const str = '<h1 class="text-gray-c1 fw-bold mb-8">登入成功</h1><p>即將返回上一頁</p>';
               accountRemember();
               LoginPanel.innerHTML = str;
               saveUserToLocal(res.data);
               setTimeout(() => {
-                window.location.replace('/index.html');
+                // window.location.replace('/index.html');
+                window.history.go(-1);
               }, '3000');
               renderLoginRenderNavMenu();
             }
@@ -141,7 +145,12 @@ function login() {
             LoginPanel.innerHTML = error.response.data || error;
           });
       } else {
-        alert('還有空欄位未填');
+        Swal.fire({
+          icon: 'warning',
+          title: '還有空欄位未填',
+          showConfirmButton: false,
+          timer: 3000,
+        });
       }
     });
   }

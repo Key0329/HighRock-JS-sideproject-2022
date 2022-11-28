@@ -14,16 +14,109 @@ function registerModelClose() {
   registerModelNonMember.classList.remove('register-model--active');
 }
 
+// 會員報名彈跳視窗;
+function registerModelNonMemberFormCheck(arr) {
+  const registerModelNonMember = document.querySelector('.register-model-nonMember');
+
+  const courseName = document.querySelector('.course-name');
+  const courseBranch = document.querySelector('#course-branch');
+  const courseBatch = document.querySelector('#course-batch');
+  const nonMemberPrice = document.querySelector('.course-nonmember-price');
+  const courseNonMemberBatchId = document.querySelector('#course-nonMember-id');
+  const courseNonMemberName = document.querySelector('#course-nonMember-name');
+  const courseNonMemberPrice = document.querySelector('#course-nonMember-price');
+  const courseNonMemberBranch = document.querySelector('#course-nonMember-branch');
+  const courseNonMemberBatch = document.querySelector('#course-nonMember-batch');
+  let registerBatchId = '';
+
+  arr.forEach((item) => {
+    if (
+      item.branch === courseBranch.value
+      && item.content === courseBatch.value
+      && item.name === courseName.textContent.trim()
+    ) {
+      registerBatchId = item.batchId;
+    }
+  });
+
+  // 帶資料到確認頁面
+  courseNonMemberBatchId.value = registerBatchId;
+  courseNonMemberName.value = courseName.textContent.trim();
+  courseNonMemberPrice.value = nonMemberPrice.textContent.trim();
+  courseNonMemberBranch.value = courseBranch.value.trim();
+  courseNonMemberBatch.value = courseBatch.value.trim();
+
+  // 點擊視窗外關閉
+  registerModelNonMember.addEventListener('click', (event) => {
+    if (event.target.getAttribute('class') === 'register-model-nonMember register-model--active') {
+      registerModelClose();
+    }
+  });
+}
+
 // model 控制
 function registerModelControl() {
   const registerModel = document.querySelector('.register-model');
   const registerModelOpenBtn = document.querySelector('.register-btn');
+  const courseBranch = document.querySelector('#course-branch');
+  const courseBatch = document.querySelector('#course-batch');
 
   // 開啟彈跳視窗
   if (registerModelOpenBtn) {
+    // eslint-disable-next-line consistent-return
     registerModelOpenBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      registerModel.classList.add('register-model--active');
+
+      // 判斷是否有選擇分館、梯次
+      if (courseBranch.value === '- 請選擇分館 -' && courseBatch.value === '- 請選擇梯次 -') {
+        Swal.fire({
+          icon: 'warning',
+          title: '請選擇分館與梯次',
+          showConfirmButton: false,
+          timer: 3000,
+        });
+        return;
+      }
+
+      if (courseBatch.value === '- 請選擇梯次 -') {
+        Swal.fire({
+          icon: 'warning',
+          title: '請選擇梯次',
+          showConfirmButton: false,
+          timer: 3000,
+        });
+        return;
+      }
+
+      // 判斷是否為會員
+      const registerModelNonMember = document.querySelector('.register-model-nonMember');
+      const savedToken = localStorage.getItem('token');
+      if (savedToken) {
+        // 檢查報名表格;
+        axios
+          .get(`${Url}/batches`)
+          .then((res) => {
+            const batchesData = res.data;
+            registerModelNonMemberFormCheck(batchesData);
+            // 打開下個頁面
+            registerModelNonMember.classList.add('register-model--active');
+          })
+          .catch((error) => {
+            // eslint-disable-next-line no-console
+            console.log(error);
+          });
+      } else {
+        registerModel.classList.add('register-model--active');
+      }
+
+      // 點擊視窗外關閉
+      registerModelNonMember.addEventListener('click', (event) => {
+        if (
+          event.target.getAttribute('class') === 'register-model-nonMember register-model--active'
+        ) {
+          registerModelClose();
+        }
+      });
     });
   }
 
@@ -40,61 +133,6 @@ function registerModelControl() {
       registerModelClose();
     }
   });
-}
-
-// 非會員報名彈跳視窗;
-function registerModelNonMemberFormCheck(arr) {
-  const registerModelBtnNonMember = document.querySelector('.register-model-btn-nonMember');
-  const registerModelNonMember = document.querySelector('.register-model-nonMember');
-
-  if (registerModelBtnNonMember) {
-    registerModelBtnNonMember.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      const courseName = document.querySelector('.course-name');
-      const courseBranch = document.querySelector('#course-branch');
-      const courseBatch = document.querySelector('#course-batch');
-      const nonMemberPrice = document.querySelector('.course-nonmember-price');
-      const courseNonMemberBatchId = document.querySelector('#course-nonMember-id');
-      const courseNonMemberName = document.querySelector('#course-nonMember-name');
-      const courseNonMemberPrice = document.querySelector('#course-nonMember-price');
-      const courseNonMemberBranch = document.querySelector('#course-nonMember-branch');
-      const courseNonMemberBatch = document.querySelector('#course-nonMember-batch');
-      let registerBatchId = '';
-
-      arr.forEach((item) => {
-        if (
-          item.branch === courseBranch.value
-          && item.content === courseBatch.value
-          && item.name === courseName.textContent.trim()
-        ) {
-          registerBatchId = item.batchId;
-        }
-      });
-
-      // 帶資料到確認頁面
-      courseNonMemberBatchId.value = registerBatchId;
-      courseNonMemberName.value = courseName.textContent.trim();
-      courseNonMemberPrice.value = nonMemberPrice.textContent.trim();
-      courseNonMemberBranch.value = courseBranch.value.trim();
-      courseNonMemberBatch.value = courseBatch.value.trim();
-
-      // 關閉前一個視窗
-      registerModelClose();
-
-      // 打開下個頁面
-      registerModelNonMember.classList.add('register-model--active');
-
-      // 點擊視窗外關閉
-      registerModelNonMember.addEventListener('click', (event) => {
-        if (
-          event.target.getAttribute('class') === 'register-model-nonMember register-model--active'
-        ) {
-          registerModelClose();
-        }
-      });
-    });
-  }
 }
 
 // 更新後台資料並重新渲染
@@ -214,7 +252,7 @@ function renderCourseRegisterPanel(arr) {
             ${item.name}
           </h1>
           <div class="d-flex flex-column flex-lg-row align-items-center mb-4 mb-lg-10">
-            <del class="course-nonmember-price fs-lg-1 me-lg-4">NT$ ${item.price}</del>
+            <del class="course-nonmember-price fs-lg-1 me-lg-4">NT$ ${item.price}</del> 
             <p class="course-member-price fs-lg-1 text-danger">NT$ ${item.userPrice}</p>
           </div>
           <form>
@@ -465,13 +503,12 @@ function courseIndexRender() {
     });
 }
 
-// 檢查報名表格、更新報名人數
-function checkNonMemberFormANdUpdateNowSignUp() {
+// 更新報名人數
+function UpdateNowSignUp() {
   axios
     .get(`${Url}/batches`)
     .then((res) => {
       const batchesData = res.data;
-      registerModelNonMemberFormCheck(batchesData);
       batchesChange(batchesData);
     })
     .catch((error) => {
@@ -481,5 +518,5 @@ function checkNonMemberFormANdUpdateNowSignUp() {
 }
 
 courseIndexRender();
-checkNonMemberFormANdUpdateNowSignUp();
+UpdateNowSignUp();
 nonMemberFormConfirmOrCancel();
