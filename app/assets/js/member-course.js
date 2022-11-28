@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 
-const id = localStorage.getItem('userId');
-
+// 渲染會員已報名課程
 function renderMemberCourse(arr) {
   const memberCourseDetail = document.querySelector('.member-course-detail');
 
@@ -12,6 +11,8 @@ function renderMemberCourse(arr) {
 
     str += `
     <li class="mb-4">
+    <div class="row">
+    <div class="col-11">
       <ul class="row row-cols-lg-2 px-6 py-8 bg-opacity-c1 list-unstyled">
         <li class="col mb-4">
           <p class="fs-4 fs-lg-3 fw-bold">
@@ -36,6 +37,12 @@ function renderMemberCourse(arr) {
           </p>
         </li>
       </ul>
+    </div>
+    <div class="col-1 d-flex align-items-center">
+      <button type="button" class="cancel-course-btn btn btn-danger" data-batchId=${batch.id} data-id=${item.id}>取消報名</button>
+    </div>
+    </div>
+      
     </li>
     `;
   });
@@ -45,13 +52,58 @@ function renderMemberCourse(arr) {
   }
 }
 
-axios
-  .get(`${Url}/users/${id}/registeredStudents?_expand=batch`)
-  .then((res) => {
-    const { data } = res;
-    renderMemberCourse(data);
-  })
-  .catch((error) => {
-    // eslint-disable-next-line no-console
-    console.log(error);
+// 刪除已報名課程
+
+// const res3 = await axios.patch(`${Url}/batches/${batchId}`, {
+//   nowSignUp: 5,
+
+function deleteCourse(data) {
+  const cancelCourseBtns = document.querySelectorAll('.cancel-course-btn');
+  cancelCourseBtns.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      const deleteId = e.target.dataset.id;
+      const { batchId } = e.target.dataset;
+
+      axios
+        .delete(`${Url}/students/${deleteId}`)
+        .then((res) => {
+          console.log(res);
+          renderMemberCourse(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      axios
+        .get(`${Url}/batches/${batchId}`)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
   });
+}
+
+// 獲取報名課程資訊
+function getCourseData() {
+  const id = localStorage.getItem('userId');
+  axios
+    .get(`${Url}/users/${id}/students?_expand=batch`)
+    .then((resp) => {
+      const { data } = resp;
+      renderMemberCourse(data);
+      deleteCourse(data);
+    })
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error);
+    });
+}
+
+function memberCourseInit() {
+  getCourseData();
+}
+
+memberCourseInit();

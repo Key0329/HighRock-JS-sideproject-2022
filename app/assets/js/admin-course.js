@@ -48,10 +48,8 @@ function renderAdminStudents(arr) {
   arr.forEach((item) => {
     let isMember = '';
 
-    if (item.isUser === true) {
-      isMember = '會員';
-    } else {
-      isMember = '非會員';
+    if (item.userId) {
+      isMember = '一般會員';
     }
 
     regiStr += `
@@ -126,7 +124,7 @@ axios
   });
 
 axios
-  .get(`${Url}/registeredStudents`)
+  .get(`${Url}/students`)
   .then((res) => {
     const { data } = res;
     renderAdminStudents(data);

@@ -37,7 +37,7 @@
 
   // model
   &-model,
-  &-model-nonMember {
+  &-model-member {
     position: fixed;
     top: -800px;
     left: 0;
@@ -75,7 +75,7 @@
         height: 50%;
         opacity: 1;
       }
-      .register-model-nonMember-content {
+      .register-model-member-content {
         width: 100%;
         height: auto;
         opacity: 1;

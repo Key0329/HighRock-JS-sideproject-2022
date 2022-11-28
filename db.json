@@ -55,7 +55,7 @@
     },
     {
       "id": 2,
-      "name": "HighRock 新莊館",
+      "name": "HighRock 攀岩館 新莊館",
       "location": "新北市新莊區中正路 1564 號",
       "contactNumber": "02-1277-2389",
       "openTime": {
@@ -64,7 +64,7 @@
       }
     }
   ],
-  "courses": [
+  "activities": [
     {
       "id": 1,
       "courseId": "course01",
@@ -197,6 +197,7 @@
       "nowSignUp": 1
     }
   ],
+
   "batches": [
     {
       "id": 1,
@@ -355,10 +356,9 @@
       "nowSignUp": 1
     }
   ],
-  "registeredStudents": [
+  "students": [
     {
       "id": 1,
-      "isUser": true,
       "userId": "1",
       "batchId": "1",
       "name": "麥杰倫",
@@ -366,16 +366,7 @@
       "contactNumber": "0933-666-888"
     },
     {
-      "id": 2,
-      "isUser": false,
-      "batchId": "1",
-      "name": "張伯倫",
-      "email": "basketball@gmail.com",
-      "contactNumber": "0911-222-333"
-    },
-    {
       "id": 3,
-      "isUser": true,
       "userId": "2",
       "batchId": "1",
       "name": "安東尼",
@@ -383,25 +374,7 @@
       "contactNumber": "0999-777-999"
     },
     {
-      "id": 4,
-      "isUser": true,
-      "userId": "3",
-      "batchId": "1",
-      "name": "石頭",
-      "email": "yoyoyo@gmail.com",
-      "contactNumber": "0955-666-565"
-    },
-    {
-      "id": 5,
-      "isUser": false,
-      "batchId": "1",
-      "name": "鄭耀稅",
-      "email": "gotosleep@gmail.com",
-      "contactNumber": "0928-282-282"
-    },
-    {
       "id": 6,
-      "isUser": true,
       "userId": "1",
       "batchId": "2",
       "name": "麥杰倫",
@@ -409,24 +382,7 @@
       "contactNumber": "0933-666-888"
     },
     {
-      "id": 7,
-      "isUser": false,
-      "batchId": "2",
-      "name": "張伯倫",
-      "email": "basketball@gmail.com",
-      "contactNumber": "0911-222-333"
-    },
-    {
-      "id": 8,
-      "isUser": false,
-      "batchId": "2",
-      "name": "張伯倫",
-      "email": "basketball@gmail.com",
-      "contactNumber": "0911-222-333"
-    },
-    {
       "id": 9,
-      "isUser": true,
       "userId": "1",
       "batchId": "3",
       "name": "麥杰倫",
@@ -435,24 +391,14 @@
     },
     {
       "id": 10,
-      "isUser": true,
       "userId": "1",
       "batchId": "4",
       "name": "麥杰倫",
       "email": "likeclimbing@gmail.com",
       "contactNumber": "0933-666-888"
-    },
-    {
-      "id": 11,
-      "isUser": false,
-      "batchId": "4",
-      "name": "張伯倫",
-      "email": "basketball@gmail.com",
-      "contactNumber": "0911-222-333"
     },
     {
       "id": 12,
-      "isUser": true,
       "userId": "1",
       "batchId": "5",
       "name": "麥杰倫",
@@ -460,16 +406,7 @@
       "contactNumber": "0933-666-888"
     },
     {
-      "id": 13,
-      "isUser": false,
-      "batchId": "5",
-      "name": "張伯倫",
-      "email": "basketball@gmail.com",
-      "contactNumber": "0911-222-333"
-    },
-    {
       "id": 14,
-      "isUser": true,
       "userId": "3",
       "batchId": "5",
       "name": "石頭",
@@ -478,7 +415,6 @@
     },
     {
       "id": 15,
-      "isUser": true,
       "userId": "1",
       "batchId": "6",
       "name": "麥杰倫",
@@ -487,7 +423,6 @@
     },
     {
       "id": 16,
-      "isUser": true,
       "userId": "1",
       "batchId": "6",
       "name": "麥杰倫",
@@ -495,16 +430,7 @@
       "contactNumber": "0933-666-888"
     },
     {
-      "id": 17,
-      "isUser": false,
-      "batchId": "7",
-      "name": "張伯倫",
-      "email": "basketball@gmail.com",
-      "contactNumber": "0911-222-333"
-    },
-    {
       "id": 18,
-      "isUser": true,
       "userId": "1",
       "batchId": "8",
       "name": "麥杰倫",
@@ -512,16 +438,7 @@
       "contactNumber": "0933-666-888"
     },
     {
-      "id": 19,
-      "isUser": false,
-      "batchId": "8",
-      "name": "張伯倫",
-      "email": "basketball@gmail.com",
-      "contactNumber": "0911-222-333"
-    },
-    {
       "id": 20,
-      "isUser": true,
       "userId": "3",
       "batchId": "8",
       "name": "石頭",
@@ -530,7 +447,6 @@
     },
     {
       "id": 21,
-      "isUser": true,
       "userId": "1",
       "batchId": "9",
       "name": "麥杰倫",
@@ -539,24 +455,14 @@
     },
     {
       "id": 22,
-      "isUser": true,
       "userId": "1",
       "batchId": "10",
       "name": "麥杰倫",
       "email": "likeclimbing@gmail.com",
       "contactNumber": "0933-666-888"
-    },
-    {
-      "id": 23,
-      "isUser": false,
-      "batchId": "10",
-      "name": "張伯倫",
-      "email": "basketball@gmail.com",
-      "contactNumber": "0911-222-333"
     },
     {
       "id": 24,
-      "isUser": true,
       "userId": "1",
       "batchId": "11",
       "name": "麥杰倫",
@@ -564,30 +470,12 @@
       "contactNumber": "0933-666-888"
     },
     {
-      "id": 25,
-      "isUser": false,
-      "batchId": "11",
-      "name": "張伯倫",
-      "email": "basketball@gmail.com",
-      "contactNumber": "0911-222-333"
-    },
-    {
       "id": 26,
-      "isUser": true,
       "userId": "3",
       "batchId": "11",
       "name": "石頭",
       "email": "yoyoyo@gmail.com",
       "contactNumber": "0955-666-565"
-    },
-    {
-      "id": 27,
-      "isUser": true,
-      "userId": "1",
-      "batchId": "12",
-      "name": "麥杰倫",
-      "email": "likeclimbing@gmail.com",
-      "contactNumber": "0933-666-888"
     }
   ]
 }
