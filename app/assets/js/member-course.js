@@ -39,7 +39,7 @@ function renderMemberCourse(arr) {
       </ul>
     </div>
     <div class="col-1 d-flex align-items-center">
-      <button type="button" class="cancel-course-btn btn btn-danger" data-batchId=${batch.id} data-id=${item.id}>取消報名</button>
+      <button type="button" class="cancel-course-btn btn btn-danger" data-batchid=${batch.id} data-id=${item.id}>取消報名</button>
     </div>
     </div>
       
@@ -53,35 +53,51 @@ function renderMemberCourse(arr) {
 }
 
 // 刪除已報名課程
-
-// const res3 = await axios.patch(`${Url}/batches/${batchId}`, {
-//   nowSignUp: 5,
-
-function deleteCourse(data) {
+function deleteCourse() {
   const cancelCourseBtns = document.querySelectorAll('.cancel-course-btn');
   cancelCourseBtns.forEach((item) => {
     item.addEventListener('click', (e) => {
       const deleteId = e.target.dataset.id;
-      const { batchId } = e.target.dataset;
+      const batchId = e.target.dataset.batchid;
 
-      axios
-        .delete(`${Url}/students/${deleteId}`)
-        .then((res) => {
-          console.log(res);
-          renderMemberCourse(data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axios
+            .delete(`${Url}/students/${deleteId}`)
+            .then(() => {})
+            .catch((error) => {
+              // eslint-disable-next-line no-console
+              console.log(error);
+            });
 
-      axios
-        .get(`${Url}/batches/${batchId}`)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+          axios
+            .get(`${Url}/batches/${batchId}`)
+            .then((res) => {
+              const newSignUpNum = res.data.nowSignUp - 1;
+              return axios.patch(`${Url}/batches/${batchId}`, {
+                nowSignUp: newSignUpNum,
+              });
+            })
+            .then(() => {
+              // eslint-disable-next-line no-use-before-define
+              getCourseData();
+            })
+
+            .catch((error) => {
+              // eslint-disable-next-line no-console
+              console.log(error);
+            });
+          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+        }
+      });
     });
   });
 }
@@ -91,10 +107,10 @@ function getCourseData() {
   const id = localStorage.getItem('userId');
   axios
     .get(`${Url}/users/${id}/students?_expand=batch`)
-    .then((resp) => {
-      const { data } = resp;
+    .then((res) => {
+      const { data } = res;
       renderMemberCourse(data);
-      deleteCourse(data);
+      deleteCourse();
     })
     .catch((error) => {
       // eslint-disable-next-line no-console
