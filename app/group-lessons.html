@@ -1,0 +1,34 @@
+---
+title: HighRock - group-lessons
+layout: ./app/layout.ejs
+engine: ejs
+current: group-lessons
+---
+
+<main class="vh-100 text-gray-c1 pt-10">
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="group-calendar bg-primary-light">
+      <div
+        class="month bg-primary-dark d-flex justify-content-between align-items-center text-center p-8"
+      >
+        <i class="fas fa-angle-left prev"></i>
+        <div class="date">
+          <h1 class="current-month fs-1 fw-bold mb-0"></h1>
+        </div>
+        <i class="fas fa-angle-right next"></i>
+      </div>
+      <div class="container">
+        <div class="weekdays d-flex align-items-center pt-8">
+          <div class="text-center fs-2 ls-01">Sun</div>
+          <div class="text-center fs-2 ls-01">Mon</div>
+          <div class="text-center fs-2 ls-01">Tue</div>
+          <div class="text-center fs-2 ls-01">Wed</div>
+          <div class="text-center fs-2 ls-01">Thu</div>
+          <div class="text-center fs-2 ls-01">Fri</div>
+          <div class="text-center fs-2 ls-01">Sat</div>
+        </div>
+        <div class="days mt-8 d-flex flex-wrap"></div>
+      </div>
+    </div>
+  </div>
+</main>

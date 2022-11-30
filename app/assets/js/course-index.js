@@ -129,6 +129,8 @@ function registerModelControl() {
           });
         // 打開下個頁面
         registerModelMember.classList.add('register-model--active');
+      } else {
+        registerModel.classList.add('register-model--active');
       }
 
       // 點擊視窗外關閉

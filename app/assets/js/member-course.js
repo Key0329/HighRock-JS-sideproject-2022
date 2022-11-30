@@ -118,6 +118,7 @@ function getCourseData() {
     });
 }
 
+// 會員課程頁面初始化
 function memberCourseInit() {
   getCourseData();
 }
