@@ -2,5 +2,7 @@
 
 window.onload = () => {
   const preLoader = document.querySelector('#preloader');
-  preLoader.classList.add('loader-hide');
+  if (preLoader) {
+    preLoader.classList.add('loader-hide');
+  }
 };

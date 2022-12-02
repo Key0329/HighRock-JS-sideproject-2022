@@ -43,11 +43,33 @@ function renderAdminMember(arr) {
   }
 }
 
+// 會員姓名搜尋
+function memberNameSearch(arr) {
+  const adminMemberFilter = document.querySelector('#admin-member-filter');
+
+  adminMemberFilter.addEventListener('input', () => {
+    const keyword = adminMemberFilter.value.trim().toLowerCase();
+    let targetProduct = [];
+
+    targetProduct = arr.filter((item) => {
+      const title = item.name.toLowerCase();
+      const mail = item.email.toLowerCase();
+      const tel = item.contactNumber.toLowerCase();
+      return title.match(keyword) || mail.match(keyword) || tel.match(keyword);
+    });
+
+    setTimeout(() => {
+      renderAdminMember(targetProduct);
+    }, 1000);
+  });
+}
+
 axios
   .get(`${Url}/users`)
   .then((res) => {
     const { data } = res;
     renderAdminMember(data);
+    memberNameSearch(data);
   })
   .catch((error) => {
     // eslint-disable-next-line no-console

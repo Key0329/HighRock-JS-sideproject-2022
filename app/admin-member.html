@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./assets/style/all.css" />
   </head>
   <body>
@@ -69,13 +70,16 @@
       <section>
         <!-- filter -->
         <div class="mb-10 d-flex align-items-center justify-content-end">
-          <label class="me-2" for="admin-member-filter">會員搜尋</label>
+          <label class="me-2" for="admin-member-filter">關鍵字搜尋</label>
           <input
             type="text"
             name="admin-member-filter"
             id="admin-member-filter"
-            class="rounded-2"
+            class="rounded-2 me-2 ps-1"
           />
+          <!-- <button type="button" class="admin-member-filter-btn btn btn-outline-gray-c1">
+            搜尋
+          </button> -->
         </div>
         <!-- table -->
         <div class="table-responsive mb-10">
@@ -102,6 +106,10 @@
       </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/TextPlugin.min.js"></script>
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="./assets/js/vendors.js"></script>
     <script src="./assets/js/all.js"></script>
