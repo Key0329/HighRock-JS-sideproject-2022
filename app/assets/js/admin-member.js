@@ -24,7 +24,7 @@ function renderAdminMember(arr) {
         <div class="admin-account-avatar me-2">
           <img
             class="rounded-circle"
-            src="./"
+            src="${item.photo}"
             alt="avatar"
           />
         </div>

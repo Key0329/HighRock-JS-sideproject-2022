@@ -20,6 +20,7 @@ function signUp() {
         password: memberRegisterPwd.value.trim(),
         name: memberRegisterName.value.trim(),
         contactNumber: memberRegisterNumber.value.trim(),
+        role: 'user',
       };
 
       const hasInput = registerData.email

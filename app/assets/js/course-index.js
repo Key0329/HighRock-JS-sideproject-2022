@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
 const Url = 'http://localhost:3000';
-let toggleList = 'introduction';
+let toggleList = 'information';
 
 // ---------------------- 報名課程 彈跳視窗 ----------------------
 
