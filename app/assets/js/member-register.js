@@ -51,6 +51,7 @@ function signUp() {
   }
 }
 
+// 滑鼠點擊
 function mousesSignUp() {
   const memberRegisterBtn = document.querySelector('.member-register-btn');
 
@@ -62,6 +63,7 @@ function mousesSignUp() {
   }
 }
 
+// Enter確認
 function keyboardSignUp() {
   const registerPanel = document.querySelector('.register-panel');
 

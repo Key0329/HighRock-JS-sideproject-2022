@@ -112,11 +112,64 @@ function prevPage() {
   }
 }
 
+// 活動報名學生關鍵字搜尋
+function memberBatchSearch(arr) {
+  const adminCourseBatchFilter = document.querySelector('#admin-course-batch-search');
+
+  if (adminCourseBatchFilter) {
+    adminCourseBatchFilter.addEventListener('input', () => {
+      const keyword = adminCourseBatchFilter.value.trim().toLowerCase();
+      let targetProduct = [];
+
+      targetProduct = arr.filter((item) => {
+        const title = item.name.toLowerCase();
+        const branch = item.branch.toLowerCase();
+        const coach = item.coach.toLowerCase();
+        const content = item.content.toLowerCase();
+        return (
+          title.match(keyword)
+          || branch.match(keyword)
+          || coach.match(keyword)
+          || content.match(keyword)
+        );
+      });
+
+      setTimeout(() => {
+        renderAdminBatches(targetProduct);
+      }, 1000);
+    });
+  }
+}
+
+// 活動報名學生關鍵字搜尋
+function memberRegisteredSearch(arr) {
+  const adminCourseRegisteredFilter = document.querySelector('#admin-course-registered-filter');
+
+  if (adminCourseRegisteredFilter) {
+    adminCourseRegisteredFilter.addEventListener('input', () => {
+      const keyword = adminCourseRegisteredFilter.value.trim().toLowerCase();
+      let targetProduct = [];
+
+      targetProduct = arr.filter((item) => {
+        const title = item.name.toLowerCase();
+        const mail = item.email.toLowerCase();
+        const tel = item.contactNumber.toLowerCase();
+        return title.match(keyword) || mail.match(keyword) || tel.match(keyword);
+      });
+
+      setTimeout(() => {
+        renderAdminStudents(targetProduct);
+      }, 1000);
+    });
+  }
+}
+
 axios
   .get(`${Url}/batches`)
   .then((res) => {
     const { data } = res;
     renderAdminBatches(data);
+    memberBatchSearch(data);
   })
   .catch((error) => {
     // eslint-disable-next-line no-console
@@ -129,6 +182,7 @@ axios
     const { data } = res;
     renderAdminStudents(data);
     showRegisterStudent(data);
+    memberRegisteredSearch(data);
   })
   .catch((error) => {
     // eslint-disable-next-line no-console
