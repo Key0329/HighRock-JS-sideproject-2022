@@ -61,13 +61,13 @@ function deleteCourse() {
       const batchId = e.target.dataset.batchid;
 
       Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: '確定刪除此課程?',
+        text: '點擊確認後將為您取消該課程報名',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!',
+        confirmButtonText: '確認',
       }).then((result) => {
         if (result.isConfirmed) {
           axios
@@ -95,7 +95,7 @@ function deleteCourse() {
               // eslint-disable-next-line no-console
               console.log(error);
             });
-          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+          Swal.fire('已取消！', '您的課程已取消！', 'success');
         }
       });
     });

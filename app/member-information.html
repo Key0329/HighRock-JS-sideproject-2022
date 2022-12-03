@@ -41,7 +41,7 @@ current: member-information
               <div class="col-lg-6 d-flex flex-column mb-4">
                 <label for="member-email">信箱</label>
                 <input
-                  class="rounded-2 border-0 p-1 ps-2 mt-1 mb-4 w-md-75"
+                  class="member-info rounded-2 border-0 p-1 ps-2 mt-1 mb-4 w-md-75"
                   type="email"
                   name="member-email"
                   id="member-email"
@@ -49,7 +49,7 @@ current: member-information
                 />
                 <label for="member-tel">連絡電話</label>
                 <input
-                  class="rounded-2 border-0 p-1 ps-2 mt-1 mb-4 w-md-75"
+                  class="member-info rounded-2 border-0 p-1 ps-2 mt-1 mb-4 w-md-75"
                   type="tel"
                   name="member-tel"
                   id="member-tel"
@@ -57,7 +57,7 @@ current: member-information
                 />
                 <label for="member-name">真實姓名</label>
                 <input
-                  class="rounded-2 border-0 p-1 ps-2 mt-1 mb-4 w-md-75"
+                  class="member-info rounded-2 border-0 p-1 ps-2 mt-1 mb-4 w-md-75"
                   type="text"
                   name="member-name"
                   id="member-name"
@@ -84,9 +84,18 @@ current: member-information
                   autocomplete="current-password"
                 />
               </div>
-              <div class="col-lg-12 d-flex justify-content-end">
-                <a href="#" class="btn btn-gray-c1 me-4">儲存變更</a>
-                <a href="#" class="btn btn-danger">取消</a>
+
+              <div class="member-info-panel col-lg-12 d-flex justify-content-end">
+                <!-- edit info -->
+                <div>
+                  <a href="#" class="member-info-edit btn btn-gray-c1 me-4">編輯個人資訊</a>
+                </div>
+
+                <!-- confirm or cancel -->
+                <div class="member-info-confirm-area d-none">
+                  <a href="#" class="member-info-save btn btn-gray-c1 me-4">儲存變更</a>
+                  <a href="#" class="member-info-cancel btn btn-danger">取消</a>
+                </div>
               </div>
             </form>
             <div class="member-detail col-lg-8 d-flex flex-column mb-8 mb-lg-20">

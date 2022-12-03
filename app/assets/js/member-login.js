@@ -177,7 +177,14 @@ function login() {
       .catch((error) => {
         // eslint-disable-next-line no-console
         console.log(error);
-        LoginPanel.innerHTML = error.response.data || error;
+        if (error.response.data === 'Cannot find user') {
+          LoginPanel.innerHTML = '找不到此帳號';
+        } else {
+          LoginPanel.innerHTML = error.response.data || error;
+        }
+        setTimeout(() => {
+          window.location.replace('/member-login.html');
+        }, '2000');
       });
   } else {
     Swal.fire({

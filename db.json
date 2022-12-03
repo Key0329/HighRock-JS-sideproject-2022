@@ -40,7 +40,7 @@
       "email": "dev@dev.com",
       "password": "$2a$10$hzW7h4/0eDQEopcNDGPqgO80B10QUznWOYyzMZBtQN1p1qWzp1b.S",
       "name": "Jack",
-      "contactNumber": "0911222333",
+      "contactNumber": "0912345678",
       "id": 4,
       "role": "admin",
       "photo": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/Icon/climber.png?raw=true"
@@ -93,7 +93,10 @@
       "name": "抱石 (Bouldering)",
       "price": 4000,
       "userPrice": 3600,
-      "branches": ["HighRock 攀岩館 大安館", "HighRock 攀岩館 新莊館"],
+      "branches": [
+        "HighRock 攀岩館 大安館",
+        "HighRock 攀岩館 新莊館"
+      ],
       "image": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/Training/training-lg-1.png?raw=true",
       "courseNameEn": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/Training/training-name-en-1.png?raw=true",
       "introduction": "抱石 (Bouldering) 為一個人也可以進行的攀岩項目，在抱石場攀爬約 4~6 米高左右的石牆，上面會有各種顏色的石塊代表不同難度路線。底下鋪有厚軟墊確保安全，與頂繩攀登不同，不需繩索輔助也不需要確保",
@@ -122,7 +125,10 @@
       "name": "頂繩攀岩 (Top Rope)",
       "price": 4800,
       "userPrice": 4320,
-      "branches": ["HighRock 攀岩館 大安館", "HighRock 攀岩館 新莊館"],
+      "branches": [
+        "HighRock 攀岩館 大安館",
+        "HighRock 攀岩館 新莊館"
+      ],
       "image": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/Training/training-lg-2.png?raw=true",
       "courseNameEn": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/Training/training-name-en-2.png?raw=true",
       "introduction": "頂繩攀岩 (Top Rope) 需要兩個人配合，一人攀登，一人在下方當確保者，因有確保，攀爬高度也會比抱石還要高。與抱石相同，岩壁上面會有各種顏色的石塊代表不同難度路線。",
@@ -151,7 +157,9 @@
       "name": "先鋒攀登 (Lead Climbing)",
       "price": 5600,
       "userPrice": 5040,
-      "branches": ["HighRock 攀岩館 大安館"],
+      "branches": [
+        "HighRock 攀岩館 大安館"
+      ],
       "image": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/Training/training-lg-3.png?raw=true",
       "courseNameEn": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/Training/training-name-en-3.png?raw=true",
       "introduction": "先鋒攀登 (Lead Climbing) 需要兩個人配合，一人攀登，一人在下方當確保者，因有確保，攀爬高度也會比抱石還要高。與抱石相同，岩壁上面會有各種顏色的石塊代表不同難度路線。",
@@ -180,7 +188,10 @@
       "name": "系統轉換 (Clean Anchor)",
       "price": 6000,
       "userPrice": 5400,
-      "branches": ["HighRock 攀岩館 大安館", "HighRock 攀岩館 新莊館"],
+      "branches": [
+        "HighRock 攀岩館 大安館",
+        "HighRock 攀岩館 新莊館"
+      ],
       "image": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/courses/clean-anchor.png?raw=true",
       "courseNameEn": "",
       "introduction": "系統轉換 (Clean Anchor) 需要兩個人配合，一人攀登，一人在下方當確保者，因有確保，攀爬高度也會比抱石還要高。",
