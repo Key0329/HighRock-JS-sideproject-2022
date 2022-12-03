@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HighRock - group-lessons</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="./assets/style/all.css">
+  </head>
+
+  <body>
+    
+    <!-- 讀取畫面 -->
+    <div class="loading" id="preloader">
+      <div class="load d-flex flex-column justify-content-center align-items-center">
+        <img class="preloader-img w-25" src="./assets/images/LOGO/logo-lg.png" />
+      </div>
+    </div>
+
+    <header class="fixed-top position-lg-relative py-3 py-lg-4 bg-white">
+      <div class="container">
+
+        <nav class="nav d-flex justify-content-between">
+          <!-- logo -->
+          <h2 class="mb-0"><a class="nav-logo hover-opacity" href="./index.html">HIGHROCK</a></h2>
+          <!-- menu pc -->
+          <ul class="nav-menu list-unstyled d-lg-flex d-none align-items-center">
+          </ul>
+          <!-- menu mobile ham-->
+          <a class="d-lg-none" data-bs-toggle="collapse" href="#nav-menu-mobile" role="button" aria-expanded="false" aria-controls="nav-menu-mobile">
+            <img class="nav-menu-ham" src="./assets/images/Icon/menu.svg" alt="menu">
+          </a>
+        </nav>
+        <!-- menu mobile show -->
+        <div class="d-lg-none collapse w-50 w-md-25 ms-auto" id="nav-menu-mobile">
+          <ul class="nav-menu-mobile list-unstyled">
+            <li class="pt-4 px-6"><a class="border-bottom nav-menu-mobile-border-color text-end pb-4" href="#">場館資訊</a></li>
+            <li class="pt-4 px-6"><a class="border-bottom nav-menu-mobile-border-color text-end pb-4" href="./courses-index.html">課程介紹</a></li>
+            <li class="pt-4 px-6"><a class="border-bottom nav-menu-mobile-border-color text-end pb-4" href="./group-lessons.html">團體課程</a></li>
+            <li class="pt-4 px-6"><a class="border-bottom nav-menu-mobile-border-color text-end pb-4" href="#">會員方案</a></li>
+            <li class="pt-4 px-6"><a class="text-end pb-4" href="./member-login.html">登入</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </header>
+
+
+
+    
+<main class="vh-100 text-gray-c1 pt-10">
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="group-calendar bg-primary-light">
+      <div
+        class="month bg-primary-dark d-flex justify-content-between align-items-center text-center p-8"
+      >
+        <i class="fas fa-angle-left prev"></i>
+        <div class="date">
+          <h1 class="current-month fs-1 fw-bold mb-0"></h1>
+        </div>
+        <i class="fas fa-angle-right next"></i>
+      </div>
+      <div class="container">
+        <div class="weekdays d-flex align-items-center pt-8">
+          <div class="text-center fs-2 ls-01">Sun</div>
+          <div class="text-center fs-2 ls-01">Mon</div>
+          <div class="text-center fs-2 ls-01">Tue</div>
+          <div class="text-center fs-2 ls-01">Wed</div>
+          <div class="text-center fs-2 ls-01">Thu</div>
+          <div class="text-center fs-2 ls-01">Fri</div>
+          <div class="text-center fs-2 ls-01">Sat</div>
+        </div>
+        <div class="days mt-8 d-flex flex-wrap"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+
+
+    <footer class="bg-primary-light py-10 py-lg-10">
+      <div class="container">
+        <div class="d-lg-flex justify-content-between">
+
+          <div class="mb-7 mb-lg-0">
+            <h2 class="mb-2"><a class="nav-logo hover-opacity" href="./index.html">HIGHROCK</a></h2>
+            <p class="fs-6">Taipei’s ultimate rock climbing<br>
+              experience in 2 locations, 7 days a week</p>
+          </div>
+
+          <div>
+            <div class="mb-6">
+              <p class="fs-5 text-gray-c2 mb-2">關於我們</p>
+              <ul class="d-flex list-unstyled">
+                <li><a href="#" class="hover-opacity me-4">場館資訊</a></li>
+                <li><a href="#" class="hover-opacity me-4">門票資訊</a></li>
+                <li><a href="#" class="hover-opacity">會員方案</a></li>
+              </ul>
+            </div>
+            <div class="mb-7 mb-lg-0">
+              <p class="fs-5 text-gray-c2 mb-2">近期活動與課程</p>
+              <ul class="d-flex list-unstyled">
+                <li><a href="#" class="hover-opacity me-4">頂繩攀登</a></li>
+                <li><a href="#" class="hover-opacity me-4">先鋒攀登</a></li>
+                <li><a href="#" class="hover-opacity">室內抱石</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+              <p class="fs-5 text-gray-c2 mb-2">聯絡我們</p>
+              <ul class="list-unstyled mb-7 mb-lg-4">
+                <li class="hover-opacity mb-1"><a href="tel:0988666888" >0988-666-888</a></li>
+                <li class="hover-opacity mb-2"><a href="mailto:highrockclimbing@gmail.com">highrockclimbing@gmail.com</a></li>
+                <li class="d-flex">
+                  <a class="hover-opacity me-6" href="#"><img class="footer-icon" src="./assets/images/Icon/facebook.svg" alt="facebook"></a>
+                  <a class="hover-opacity me-6" href="#"><img class="footer-icon" src="./assets/images/Icon/twitter.svg" alt="twitter"></a>
+                  <a class="hover-opacity" href="#"><img class="footer-icon" src="./assets/images/Icon/instagram.svg" alt="instagram"></a>
+                </li>
+              </ul>
+              <a class="fs-7" href="https://www.flaticon.com/free-icons/climber" title="climber icons">Climber icons created by Freepik - Flaticon</a>
+              <p class="fs-7 text-gray-c2">Copyright© HighRock All Rights Reserved.</p>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/TextPlugin.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="./assets/js/vendors.js"></script>
+    <script src="./assets/js/all.js"></script>
+  </body>
+
+</html>
