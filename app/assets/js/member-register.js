@@ -48,6 +48,75 @@ function signUp() {
           window.location.replace('/member-login.html');
         }, '3000');
       });
+  } else {
+    Swal.fire({
+      icon: 'warning',
+      title: '還有空欄位未填',
+      showConfirmButton: false,
+      timer: 3000,
+    });
+  }
+}
+
+// 驗證註冊表單
+function memberSignUpFormValidate() {
+  const memberRegisterForm = document.querySelector('.member-register-form');
+
+  if (memberRegisterForm) {
+    const constraints = {
+      username: {
+        presence: {
+          message: '必填',
+        },
+      },
+      email: {
+        presence: {
+          message: '必填',
+        }, // Email 是必填欄位
+        email: true, // 需要符合 email 格式
+      },
+      tel: {
+        presence: {
+          message: '必填',
+        },
+        length: {
+          minimum: 8, // 長度要超過 8
+          message: '至少 8 個數字',
+        },
+      },
+      password: {
+        presence: {
+          message: '必填',
+        },
+        length: {
+          minimum: 5, // 長度大於 ５
+          maximum: 12, // 長度小於 12
+          message: '^密碼長度需大於 5 小於 12',
+        },
+      },
+    };
+
+    const formInputs = document.querySelectorAll(
+      'input[name=email],input[name=tel],input[name=username],input[name=password]',
+    );
+
+    formInputs.forEach((item) => {
+      item.previousElementSibling.textContent = '(必填)';
+      item.addEventListener('change', () => {
+        // 預設為空值
+        item.previousElementSibling.textContent = '';
+
+        // 驗證回傳的內容
+        const errors = validate(memberRegisterForm, constraints);
+
+        // 呈現在畫面上
+        if (errors) {
+          Object.keys(errors).forEach((keys) => {
+            document.querySelector(`.${keys}`).textContent = errors[keys];
+          });
+        }
+      });
+    });
   }
 }
 
@@ -80,6 +149,7 @@ function keyboardSignUp() {
 function memberRegisterInit() {
   mousesSignUp();
   keyboardSignUp();
+  memberSignUpFormValidate();
 }
 
 memberRegisterInit();

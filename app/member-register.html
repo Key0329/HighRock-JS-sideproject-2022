@@ -68,38 +68,49 @@ current: member-register
             >
               <div class="mb-8">
                 <label class="form-label" for="member-register-email">帳號</label>
+                <span class="messages fs-7 text-danger email mb-6 mt-1"></span>
                 <input
                   type="email"
                   class="form-control fs-5 text-gray-c1 rounded-pill px-6 mb-4"
                   id="member-register-email"
                   placeholder="請輸入 email "
+                  name="email"
                   autocomplete="email"
                   required
                 />
+
                 <label class="form-label" for="member-register-password">密碼</label>
+                <span class="messages fs-7 text-danger password mb-6 mt-1"></span>
                 <input
                   type="password"
                   class="form-control fs-5 text-gray-c1 rounded-pill px-6 mb-12"
                   id="member-register-password"
                   placeholder="請輸入密碼"
+                  name="password"
                   autocomplete="new-password"
                   required
                 />
+
                 <label class="form-label" for="member-register-name">姓名</label>
+                <span class="messages fs-7 text-danger username mb-6 mt-1"></span>
                 <input
                   type="text"
                   class="form-control fs-5 text-gray-c1 rounded-pill px-6 mb-4"
                   id="member-register-name"
                   placeholder="請輸入姓名"
+                  name="username"
                   autocomplete="name"
                   required
                 />
+
                 <label class="form-label" for="member-register-number">連絡電話</label>
+                <span class="messages fs-7 text-danger tel mb-6 mt-1"></span>
                 <input
                   type="tel"
                   class="form-control fs-5 text-gray-c1 rounded-pill px-6 mb-4"
                   id="member-register-number"
                   placeholder="請輸入連絡電話"
+                  name="tel"
                   autocomplete="tel"
                   required
                 />

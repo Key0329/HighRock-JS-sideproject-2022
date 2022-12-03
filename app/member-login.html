@@ -64,23 +64,27 @@ current: member-login
           >
             <h1 class="text-gray-c1 fw-bold mb-8">會員登入</h1>
             <form
-              class="d-flex flex-column justify-content-between w-100 w-md-75 h-100 needs-validation"
+              class="member-login-form d-flex flex-column justify-content-between w-100 w-md-75 h-100 needs-validation"
             >
               <div class="mb-8">
                 <label class="form-label" for="member-login-email">帳號</label>
+                <span class="messages fs-7 text-danger email mb-6 mt-1"></span>
                 <input
                   type="email"
                   class="form-control rounded-pill px-6 mb-4"
                   id="member-login-email"
+                  name="email"
                   placeholder="請輸入帳號 (email@mail.com)"
                   autocomplete="email"
                   required
                 />
                 <label class="form-label" for="member-login-password">密碼</label>
+                <span class="messages fs-7 text-danger password mb-6 mt-1"></span>
                 <input
                   type="password"
                   class="form-control rounded-pill px-6 mb-4"
                   id="member-login-password"
+                  name="password"
                   placeholder="請輸入密碼"
                   autocomplete="new-password"
                   required

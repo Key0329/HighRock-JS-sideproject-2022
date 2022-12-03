@@ -37,32 +37,35 @@ current: member-information
             <a href="#" class="btn btn-gray-c1 px-3">設定頭像</a>
           </div>
           <div class="col-md-7">
-            <form class="row mb-12">
+            <form class="member-info-form row mb-12">
               <div class="col-lg-6 d-flex flex-column mb-4">
                 <label for="member-email">信箱</label>
                 <input
-                  class="member-info rounded-2 border-0 p-1 ps-2 mt-1 mb-4 w-md-75"
+                  class="member-info rounded-2 border-0 p-1 ps-2 mt-1 w-md-75"
                   type="email"
-                  name="member-email"
+                  name="email"
                   id="member-email"
                   disabled
                 />
+                <span class="messages fs-7 text-danger email mb-6 mt-1"></span>
                 <label for="member-tel">連絡電話</label>
                 <input
-                  class="member-info rounded-2 border-0 p-1 ps-2 mt-1 mb-4 w-md-75"
+                  class="member-info rounded-2 border-0 p-1 ps-2 mt-1 w-md-75"
                   type="tel"
-                  name="member-tel"
+                  name="tel"
                   id="member-tel"
                   disabled
                 />
+                <span class="messages fs-7 text-danger tel mb-6 mt-1"></span>
                 <label for="member-name">真實姓名</label>
                 <input
-                  class="member-info rounded-2 border-0 p-1 ps-2 mt-1 mb-4 w-md-75"
+                  class="member-info rounded-2 border-0 p-1 ps-2 mt-1 w-md-75"
                   type="text"
-                  name="member-name"
+                  name="username"
                   id="member-name"
                   disabled
                 />
+                <span class="messages fs-7 text-danger username mb-6 mt-1"></span>
               </div>
               <div class="col-lg-6 d-flex flex-column mb-4">
                 <label for="member-account">帳號</label>

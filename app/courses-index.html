@@ -260,27 +260,34 @@ current: courses-index
         <form class="register-model-member-form d-flex flex-column">
           <label class="mb-1" for="register-member-name">真實姓名 (Passport Name)</label>
           <input
-            class="fs-6 py-1 px-2 mb-6"
+            class="fs-6 py-1 px-2"
             type="text"
             placeholder="請輸入姓名"
+            name="username"
             id="register-member-name"
           />
+          <span class="messages fs-7 text-danger username mb-6 mt-1"></span>
+
           <label class="mb-1" for="register-member-email">電子信箱 (Email Address)</label>
           <input
-            class="fs-6 py-1 px-2 mb-6"
+            class="fs-6 py-1 px-2"
             type="email"
             placeholder="請輸入電子信箱"
+            name="email"
             id="register-member-email"
           />
-          <label class="mb-1" for="register-member-phoneNum"
-            >連絡電話 (Phone Number)<span class="fs-6 text-danger ms-2">*10個數字</span></label
-          >
+          <span class="messages fs-7 text-danger email mb-6 mt-1"></span>
+
+          <label class="mb-1" for="register-member-phoneNum">連絡電話 (Phone Number)</label>
           <input
-            class="fs-6 py-1 px-2 mb-12"
+            class="fs-6 py-1 px-2"
             type="tel"
             placeholder="請輸入電話號碼"
+            name="tel"
             id="register-member-phoneNum"
           />
+          <span class="messages fs-7 text-danger tel mb-12 mt-1"></span>
+
           <div class="row">
             <div class="col-md-6 d-flex flex-column">
               <label for="course-member-id">課程編號</label>

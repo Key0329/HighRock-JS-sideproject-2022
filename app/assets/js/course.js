@@ -215,9 +215,23 @@ function memberFormConfirmOrCancel() {
   const registerModelMemberForm = document.querySelector('.register-model-member-form');
 
   if (registerModelMemberForm) {
+    const registerMemberName = document.querySelector('#register-member-name');
+    const registerMemberEmail = document.querySelector('#register-member-email');
+    const registerMemberPhoneNum = document.querySelector('#register-member-phoneNum');
+
     registerModelMemberForm.addEventListener('click', (e) => {
       e.preventDefault();
+
       if (e.target.type === 'submit') {
+        if (
+          registerMemberName.value === ''
+          || registerMemberEmail.value === ''
+          || registerMemberPhoneNum.value === ''
+        ) {
+          // eslint-disable-next-line no-useless-return
+          return;
+        }
+
         updateDataAndRerender().then((res, res3) => {
           // eslint-disable-next-line no-console
           console.log(res, res3);
@@ -239,7 +253,75 @@ function memberFormConfirmOrCancel() {
   }
 }
 
+// 驗證報名表單
+function registerModelMemberFormValidate() {
+  const registerModelMemberForm = document.querySelector('.register-model-member-form');
+
+  if (registerModelMemberForm) {
+    const constraints = {
+      username: {
+        presence: {
+          message: '必填',
+        },
+      },
+      email: {
+        presence: {
+          message: '必填',
+        }, // Email 是必填欄位
+        email: true, // 需要符合 email 格式
+      },
+      tel: {
+        presence: {
+          message: '必填',
+        },
+        length: {
+          minimum: 8, // 長度要超過 8
+          message: '至少 8 個數字',
+        },
+      },
+      // password: {
+      //   presence: {
+      //     message: '是必填的欄位',
+      //   },
+      //   length: {
+      //     minimum: 5, // 長度大於 ５
+      //     maximum: 12, // 長度小於 12
+      //     message: '^密碼長度需大於 5 小於 12',
+      //   },
+      // },
+    };
+
+    const formInputs = document.querySelectorAll(
+      'input[name=username],input[name=email],input[name=tel]',
+    );
+
+    formInputs.forEach((item) => {
+      item.addEventListener('change', () => {
+        // 預設為空值
+        item.nextElementSibling.textContent = '';
+
+        // 驗證回傳的內容
+        const errors = validate(registerModelMemberForm, constraints);
+
+        // 呈現在畫面上
+        if (errors) {
+          Object.keys(errors).forEach((keys) => {
+            document.querySelector(`.${keys}`).textContent = errors[keys];
+          });
+        }
+      });
+    });
+  }
+}
+
 // ---------------------- 報名課程頁面 ----------------------
+
+// 增加千分位逗點
+function toThousands(x) {
+  const parts = x.toString().split('.');
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return parts.join('.');
+}
 
 // 渲染 course register panel
 function renderCourseRegisterPanel(arr) {
@@ -274,8 +356,12 @@ function renderCourseRegisterPanel(arr) {
             ${item.name}
           </h1>
           <div class="d-flex flex-column flex-lg-row align-items-center mb-4 mb-lg-10">
-            <del class="course-member-price fs-lg-1 me-lg-4">NT$ ${item.price}</del> 
-            <p class="course-member-price fs-lg-1 text-danger">NT$ ${item.userPrice}</p>
+            <del class="course-nonMember-price fs-lg-1 me-lg-4">NT$ ${toThousands(
+    item.price,
+  )}</del> 
+            <p class="course-member-price fs-lg-1 text-danger">NT$ ${toThousands(
+    item.userPrice,
+  )}</p>
           </div>
           <form>
             <div class="d-flex flex-column mb-6">
@@ -366,11 +452,13 @@ function renderOtherCourse(arr) {
             <img class="mb-4" src="${item.image}" alt="${item.name}" />
             <h3 class="text-center text-lg-start mb-2">${item.name}</h3>
             <div class="d-flex justify-content-center justify-content-lg-start">
-              <p class="me-2">NT$ ${item.price}</p>
+              <p class="me-2">NT$ ${toThousands(item.price)}</p>
               <p class="mb-8">尚有名額</p>
             </div>
             <div class="d-flex justify-content-center justify-content-lg-start">
-              <a href="#" class="btn btn-primary rounded-3 px-8 py-2" data-courseId="${item.courseId}"
+              <a href="#" class="btn btn-primary rounded-3 px-8 py-2" data-courseId="${
+  item.courseId
+}"
                 >查看詳情</a
               >
             </div>
@@ -550,6 +638,11 @@ function UpdateNowSignUp() {
     });
 }
 
-courseIndexRender();
-UpdateNowSignUp();
-memberFormConfirmOrCancel();
+function courseInit() {
+  courseIndexRender();
+  UpdateNowSignUp();
+  memberFormConfirmOrCancel();
+  registerModelMemberFormValidate();
+}
+
+courseInit();

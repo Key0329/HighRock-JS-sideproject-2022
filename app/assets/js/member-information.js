@@ -33,6 +33,7 @@ function renderMemberInfo(obj) {
   }
 }
 
+// 編輯會員資訊
 function editMemberInfo() {
   const memberInfoPanel = document.querySelector('.member-info-panel');
   const memberInfoEdit = document.querySelector('.member-info-edit');
@@ -54,24 +55,28 @@ function editMemberInfo() {
           item.removeAttribute('disabled');
         });
       } else if (targetClass.contains('member-info-cancel')) {
-        if (
-          memberInfo[0].value === ''
-          || memberInfo[1].value === ''
-          || memberInfo[2].value === ''
-        ) {
-          axios
-            .get(`${Url}/users/${id}`)
-            .then((res) => {
-              memberInfo[0].value = res.data.email;
-              memberInfo[1].value = res.data.contactNumber;
-              memberInfo[2].value = res.data.name;
-            })
-            .catch((error) => {
-              // eslint-disable-next-line no-console
-              console.log(error);
-            });
-        }
+        // 取消後回復欄位內容
+        axios
+          .get(`${Url}/users/${id}`)
+          .then((res) => {
+            memberInfo[0].value = res.data.email;
+            memberInfo[1].value = res.data.contactNumber;
+            memberInfo[2].value = res.data.name;
+          })
+          .catch((error) => {
+            // eslint-disable-next-line no-console
+            console.log(error);
+          });
 
+        // 清空錯誤訊息
+        const formInputs = document.querySelectorAll(
+          'input[name=email],input[name=tel],input[name=username]',
+        );
+        formInputs.forEach((item) => {
+          item.nextElementSibling.textContent = '';
+        });
+
+        // disable 欄位
         memberInfoConfirmArea.classList.add('d-none');
         memberInfoEdit.classList.remove('d-none');
         memberInfo.forEach((item) => {
@@ -84,6 +89,7 @@ function editMemberInfo() {
         obj.contactNumber = memberInfo[1].value;
         obj.name = memberInfo[2].value;
 
+        // 判斷是否有空欄位
         if (obj.email === '' || obj.contactNumber === '' || obj.name === '') {
           Swal.fire({
             icon: 'warning',
@@ -121,6 +127,67 @@ function editMemberInfo() {
   }
 }
 
+// 驗證會員資訊表單
+function memberInfoFormValidate() {
+  const memberInfoForm = document.querySelector('.member-info-form');
+
+  if (memberInfoForm) {
+    const constraints = {
+      username: {
+        presence: {
+          message: '必填',
+        },
+      },
+      email: {
+        presence: {
+          message: '必填',
+        }, // Email 是必填欄位
+        email: true, // 需要符合 email 格式
+      },
+      tel: {
+        presence: {
+          message: '必填',
+        },
+        length: {
+          minimum: 8, // 長度要超過 8
+          message: '至少 8 個數字',
+        },
+      },
+      // password: {
+      //   presence: {
+      //     message: '是必填的欄位',
+      //   },
+      //   length: {
+      //     minimum: 5, // 長度大於 ５
+      //     maximum: 12, // 長度小於 12
+      //     message: '^密碼長度需大於 5 小於 12',
+      //   },
+      // },
+    };
+
+    const formInputs = document.querySelectorAll(
+      'input[name=email],input[name=tel],input[name=username]',
+    );
+
+    formInputs.forEach((item) => {
+      item.addEventListener('change', () => {
+        // 預設為空值
+        item.nextElementSibling.textContent = '';
+
+        // 驗證回傳的內容
+        const errors = validate(memberInfoForm, constraints);
+
+        // 呈現在畫面上
+        if (errors) {
+          Object.keys(errors).forEach((keys) => {
+            document.querySelector(`.${keys}`).textContent = errors[keys];
+          });
+        }
+      });
+    });
+  }
+}
+
 // 從遠端取得該會員資訊並渲染
 function getUserData() {
   axios
@@ -139,4 +206,5 @@ function getUserData() {
 if (id) {
   getUserData();
   editMemberInfo();
+  memberInfoFormValidate();
 }

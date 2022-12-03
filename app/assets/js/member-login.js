@@ -196,17 +196,65 @@ function login() {
   }
 }
 
+// 驗證登入表單
+function memberLoginFormValidate() {
+  const memberLoginForm = document.querySelector('.member-login-form');
+
+  if (memberLoginForm) {
+    const constraints = {
+      email: {
+        presence: {
+          message: '必填',
+        }, // Email 是必填欄位
+        email: true, // 需要符合 email 格式
+      },
+      password: {
+        presence: {
+          message: '必填',
+        },
+        length: {
+          minimum: 5, // 長度大於 ５
+          maximum: 12, // 長度小於 12
+          message: '^密碼長度需大於 5 小於 12',
+        },
+      },
+    };
+
+    const formInputs = document.querySelectorAll('input[name=email],input[name=password]');
+
+    formInputs.forEach((item) => {
+      item.addEventListener('change', () => {
+        // 預設為空值
+        item.previousElementSibling.textContent = '';
+      });
+    });
+
+    // 驗證回傳的內容
+    const errors = validate(memberLoginForm, constraints);
+
+    // 呈現在畫面上
+    if (errors) {
+      Object.keys(errors).forEach((keys) => {
+        document.querySelector(`.${keys}`).textContent = errors[keys];
+      });
+    }
+  }
+}
+
+// 滑鼠登入
 function mouseLogin() {
   const memberLoginBtn = document.querySelector('.member-login-btn');
 
   if (memberLoginBtn) {
     memberLoginBtn.addEventListener('click', (e) => {
       e.preventDefault();
+      memberLoginFormValidate();
       login();
     });
   }
 }
 
+// 鍵盤登入
 function keyboardLogin() {
   const loginPanel = document.querySelector('.login-panel');
 
@@ -214,6 +262,7 @@ function keyboardLogin() {
     loginPanel.addEventListener('keyup', (e) => {
       e.preventDefault();
       if (e.key === 'Enter') {
+        memberLoginFormValidate();
         login();
       }
     });
@@ -257,11 +306,32 @@ function expandMemberNavMenu() {
   }
 }
 
-// 登出
-function logout() {
+// 前台登出
+function frontLogout() {
   const navMenuLogoutBtn = document.querySelector('.nav-menu-logout-btn');
   if (navMenuLogoutBtn) {
     navMenuLogoutBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      removeUserFromLocal();
+      renderVisitorNavMenu();
+      Swal.fire({
+        icon: 'success',
+        title: '登出成功',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      setTimeout(() => {
+        window.location.replace('/member-login.html');
+      }, '3000');
+    });
+  }
+}
+
+// 後台登出
+function adminLogout() {
+  const adminLogoutBtn = document.querySelector('.admin-logout-btn');
+  if (adminLogoutBtn) {
+    adminLogoutBtn.addEventListener('click', (e) => {
       e.preventDefault();
       removeUserFromLocal();
       renderVisitorNavMenu();
@@ -284,7 +354,8 @@ function loginInit() {
   mouseLogin();
   keyboardLogin();
   expandMemberNavMenu();
-  logout();
+  frontLogout();
+  adminLogout();
   renderMemberLoginRemember();
 }
 
