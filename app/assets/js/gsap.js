@@ -369,27 +369,16 @@ if (
     rotation: 180,
   });
 
-  const rockTimeline = gsap.timeline({
+  gsap.to(bgRockLg8, {
+    duration: 3,
     scrollTrigger: {
       trigger: bgRockLg8,
-      start: 'top 70%',
     },
+    x: -400,
+    y: 0,
+    rotation: 180,
+    ease: 'power3.out',
   });
-
-  rockTimeline
-    .to(bgRockLg8, {
-      duration: 3,
-      x: -900,
-      y: 500,
-      rotation: 180,
-    })
-    .to(bgRockLg8, {
-      duration: 3,
-      x: -1150,
-      y: 0,
-      rotation: 360,
-      ease: 'bounce.out',
-    });
 
   gsap.to(bgRockLg9, {
     duration: 1.5,
@@ -437,5 +426,291 @@ if (indexCalendarRight || indexCalendarLeft) {
     },
     x: -100,
     opacity: 0,
+  });
+}
+// ----------------------- member register -----------------------
+// rock moving
+const registerRock1 = document.querySelector('.register-rock-1');
+const registerRock2 = document.querySelector('.register-rock-2');
+const registerRock3 = document.querySelector('.register-rock-3');
+const registerRock4 = document.querySelector('.register-rock-4');
+const registerRock5 = document.querySelector('.register-rock-5');
+const registerRock6 = document.querySelector('.register-rock-6');
+const registerRock7 = document.querySelector('.register-rock-7');
+const registerRock8 = document.querySelector('.register-rock-8');
+const registerRock9 = document.querySelector('.register-rock-9');
+
+if (
+  registerRock1
+  || registerRock2
+  || registerRock3
+  || registerRock4
+  || registerRock5
+  || registerRock6
+  || registerRock7
+  || registerRock8
+  || registerRock9
+) {
+  gsap.from(registerRock1, {
+    duration: 1,
+    opacity: 0,
+    x: -200,
+  });
+  gsap.from(registerRock2, {
+    duration: 1,
+    delay: 1,
+    opacity: 0,
+    x: -200,
+  });
+  gsap.from(registerRock3, {
+    duration: 1,
+    delay: 1.5,
+    opacity: 0,
+    x: -200,
+  });
+  gsap.from(registerRock4, {
+    duration: 1,
+    delay: 2.5,
+    opacity: 0,
+    x: -200,
+  });
+  gsap.from(registerRock5, {
+    duration: 1,
+    delay: 3,
+    opacity: 0,
+    x: -200,
+  });
+  gsap.from(registerRock6, {
+    duration: 1,
+    delay: 4,
+    opacity: 0,
+    x: -200,
+  });
+  gsap.from(registerRock7, {
+    duration: 1,
+    delay: 4.5,
+    opacity: 0,
+    x: -200,
+  });
+  gsap.from(registerRock8, {
+    duration: 1,
+    delay: 5,
+    opacity: 0,
+    x: -200,
+  });
+  gsap.from(registerRock9, {
+    duration: 1,
+    delay: 6,
+    opacity: 0,
+    x: -200,
+  });
+}
+
+// climber
+const registerClimber1 = document.querySelector('.register-climber-1');
+const registerClimber2 = document.querySelector('.register-climber-2');
+const registerClimber3 = document.querySelector('.register-climber-3');
+const registerClimber4 = document.querySelector('.register-climber-4');
+const registerClimber5 = document.querySelector('.register-climber-5');
+
+if (
+  registerClimber1
+  || registerClimber2
+  || registerClimber3
+  || registerClimber4
+  || registerClimber5
+) {
+  gsap.from(registerClimber1, {
+    duration: 1,
+    delay: 3.5,
+    opacity: 0,
+    y: 50,
+  });
+  gsap.from(registerClimber2, {
+    duration: 1,
+    delay: 6.5,
+    opacity: 0,
+    y: -50,
+  });
+  gsap.from(registerClimber3, {
+    duration: 1,
+    delay: 5.5,
+    opacity: 0,
+    y: 50,
+  });
+  gsap.from(registerClimber4, {
+    duration: 1,
+    delay: 0.5,
+    opacity: 0,
+    y: 50,
+  });
+  gsap.from(registerClimber5, {
+    duration: 1,
+    delay: 2,
+    opacity: 0,
+    x: -50,
+  });
+}
+
+// ----------------------- member login -----------------------
+
+// rock moving
+const loginRock1 = document.querySelector('.login-rock-1');
+const loginRock2 = document.querySelector('.login-rock-2');
+const loginRock3 = document.querySelector('.login-rock-3');
+const loginRock4 = document.querySelector('.login-rock-4');
+const loginRock5 = document.querySelector('.login-rock-5');
+const loginRock6 = document.querySelector('.login-rock-6');
+const loginRock7 = document.querySelector('.login-rock-7');
+const loginRock8 = document.querySelector('.login-rock-8');
+const loginRock9 = document.querySelector('.login-rock-9');
+const loginRock10 = document.querySelector('.login-rock-10');
+const loginRock11 = document.querySelector('.login-rock-11');
+const loginRock12 = document.querySelector('.login-rock-12');
+const loginRock13 = document.querySelector('.login-rock-13');
+const loginRock14 = document.querySelector('.login-rock-14');
+const loginRock15 = document.querySelector('.login-rock-15');
+
+if (
+  loginRock1
+  || loginRock2
+  || loginRock3
+  || loginRock4
+  || loginRock5
+  || loginRock6
+  || loginRock7
+  || loginRock8
+  || loginRock9
+  || loginRock10
+  || loginRock11
+  || loginRock12
+  || loginRock13
+  || loginRock14
+  || loginRock15
+) {
+  gsap.from(loginRock1, {
+    duration: 1,
+    opacity: 0,
+    y: -200,
+    x: -200,
+  });
+  gsap.from(loginRock2, {
+    duration: 1,
+    opacity: 0,
+    x: -200,
+  });
+  gsap.from(loginRock3, {
+    duration: 1,
+    opacity: 0,
+    x: -200,
+  });
+  gsap.from(loginRock4, {
+    duration: 1,
+    opacity: 0,
+    x: -200,
+    y: 200,
+  });
+  gsap.from(loginRock5, {
+    duration: 1,
+    opacity: 0,
+    x: -100,
+    y: 200,
+  });
+  gsap.from(loginRock6, {
+    duration: 1,
+    opacity: 0,
+    y: -200,
+    x: -100,
+  });
+  gsap.from(loginRock7, {
+    duration: 1,
+    opacity: 0,
+    y: -200,
+  });
+  gsap.from(loginRock8, {
+    duration: 1,
+    opacity: 0,
+    y: -200,
+  });
+  gsap.from(loginRock9, {
+    duration: 1,
+    opacity: 0,
+    y: -200,
+    x: 100,
+  });
+  gsap.from(loginRock10, {
+    duration: 1,
+    opacity: 0,
+    y: -200,
+    x: 200,
+  });
+  gsap.from(loginRock11, {
+    duration: 1,
+    opacity: 0,
+    y: 200,
+  });
+  gsap.from(loginRock12, {
+    duration: 1,
+    opacity: 0,
+    y: 200,
+    x: 100,
+  });
+  gsap.from(loginRock13, {
+    duration: 1,
+    opacity: 0,
+    y: 200,
+    x: 200,
+  });
+  gsap.from(loginRock14, {
+    duration: 1,
+    opacity: 0,
+
+    x: 200,
+  });
+  gsap.from(loginRock15, {
+    duration: 1,
+    opacity: 0,
+    y: 100,
+    x: 200,
+  });
+}
+
+// climber
+const loginClimber1 = document.querySelector('.login-climber-1');
+const loginClimber2 = document.querySelector('.login-climber-2');
+const loginClimber3 = document.querySelector('.login-climber-3');
+const loginClimber4 = document.querySelector('.login-climber-4');
+const loginClimber5 = document.querySelector('.login-climber-5');
+
+if (loginClimber1 || loginClimber2 || loginClimber3 || loginClimber4 || loginClimber5) {
+  gsap.from(loginClimber1, {
+    duration: 1,
+    opacity: 0,
+    delay: 0.5,
+    y: 50,
+  });
+  gsap.from(loginClimber2, {
+    duration: 1,
+    opacity: 0,
+    delay: 1,
+    y: -50,
+  });
+  gsap.from(loginClimber3, {
+    duration: 1,
+    opacity: 0,
+    delay: 1.5,
+    y: 50,
+  });
+  gsap.from(loginClimber4, {
+    duration: 1,
+    opacity: 0,
+    delay: 2,
+    y: -50,
+  });
+  gsap.from(loginClimber5, {
+    duration: 1,
+    opacity: 0,
+    delay: 2.5,
+    x: -50,
   });
 }

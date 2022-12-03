@@ -42,7 +42,8 @@
     "minimist": "^1.2.0",
     "morgan": "^1.9.1",
     "node-sass": "^4.14.1",
-    "popper.js": "^1.16.1"
+    "popper.js": "^1.16.1",
+    "smooth-scrollbar": "^8.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",

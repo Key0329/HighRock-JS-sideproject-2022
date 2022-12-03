@@ -40,8 +40,6 @@ const renderCalendar = () => {
   for (let i = 1; i <= lastDate; i++) {
     if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
       days += `<div class="today bg-yellow-c1">${i}</div>`;
-    } else if (new Date().getDay() === 0) {
-      days += `<div class="today bg-yellow-c1">${i}</div>`;
     } else {
       days += `<div>${i}</div>`;
     }

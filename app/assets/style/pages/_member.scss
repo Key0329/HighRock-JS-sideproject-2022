@@ -1,40 +1,105 @@
-.login {
+.register {
   &-rock {
     &-1 {
-      top: 0;
+      top: 450px;
       left: 0;
     }
     &-2 {
-      top: 200px;
-      left: 20px;
+      top: 420px;
+      left: 70px;
     }
     &-3 {
-      top: 230px;
-      left: 240px;
+      top: 390px;
+      left: 120px;
     }
     &-4 {
-      top: 360px;
-      left: 550px;
+      top: 350px;
+      left: 180px;
     }
     &-5 {
-      top: 100px;
-      left: 450px;
+      top: 300px;
+      left: 250px;
     }
     &-6 {
-      bottom: 160px;
-      right: 200px;
+      top: 240px;
+      left: 270px;
     }
     &-7 {
-      bottom: 230px;
-      right: 100px;
+      top: 180px;
+      left: 290px;
     }
     &-8 {
-      bottom: 140px;
-      right: 450px;
+      top: 120px;
+      left: 340px;
     }
     &-9 {
-      bottom: 220px;
-      right: 310px;
+      top: 80px;
+      left: 380px;
+    }
+  }
+}
+
+.login {
+  &-rock {
+    &-1 {
+      top: 150px;
+      left: 0;
+    }
+    &-2 {
+      top: 230px;
+      left: 0;
+    }
+    &-3 {
+      top: 310px;
+      left: 0;
+    }
+    &-4 {
+      top: 390px;
+      left: 0;
+    }
+    &-5 {
+      top: 390px;
+      left: 100px;
+    }
+    &-6 {
+      top: 150px;
+      left: 100px;
+    }
+    &-7 {
+      top: 150px;
+      left: 180px;
+    }
+    &-8 {
+      top: 150px;
+      left: 280px;
+    }
+    &-9 {
+      top: 150px;
+      left: 360px;
+    }
+    &-10 {
+      top: 150px;
+      left: 440px;
+    }
+    &-11 {
+      top: 390px;
+      left: 170px;
+    }
+    &-12 {
+      top: 390px;
+      left: 240px;
+    }
+    &-13 {
+      top: 390px;
+      left: 320px;
+    }
+    &-14 {
+      top: 230px;
+      left: 400px;
+    }
+    &-15 {
+      top: 310px;
+      left: 360px;
     }
   }
 }
@@ -58,5 +123,53 @@
     &-active {
       background: rgba(255, 255, 255, 0.4);
     }
+  }
+}
+
+.register-climber {
+  width: 50px;
+  &-1 {
+    top: 300px;
+    left: 280px;
+  }
+  &-2 {
+    top: 30px;
+    left: 390px;
+  }
+  &-3 {
+    top: 130px;
+    left: 300px;
+  }
+  &-4 {
+    top: 490px;
+    left: -10px;
+  }
+  &-5 {
+    top: 350px;
+    left: 100px;
+  }
+}
+
+.login-climber {
+  width: 50px;
+  &-1 {
+    top: 170px;
+    left: 490px;
+  }
+  &-2 {
+    top: 100px;
+    left: 300px;
+  }
+  &-3 {
+    top: 250px;
+    left: -50px;
+  }
+  &-4 {
+    top: 450px;
+    left: 100px;
+  }
+  &-5 {
+    top: 340px;
+    left: 250px;
   }
 }
