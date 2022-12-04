@@ -36568,6 +36568,14 @@ img {
   border-color: #eef8f3 !important;
 }
 
+.opacity08 {
+  opacity: 0.8;
+}
+
+.max-width-none {
+  max-width: none;
+}
+
 .hover-decoBorder-bottom::after {
   content: '';
   position: absolute;
@@ -36632,6 +36640,14 @@ img {
 
 .hover-orange:hover {
   color: orange;
+}
+
+.hover-shadow-lg:hover::after {
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.175);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.175);
 }
 
 .border-google {
@@ -36712,8 +36728,6 @@ img {
 }
 
 .nav-menu-mobile {
-  -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.24);
-          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.24);
   border-radius: 0px 0px 8px 8px;
 }
 
@@ -36850,33 +36864,15 @@ img {
 }
 
 .swiper-slide-2 {
-  background-image: url(../images/Hero/hero-sm-new.png);
-}
-
-@media (min-width: 767px) {
-  .swiper-slide-2 {
-    background-image: url(../images/Hero/hero-lg-3.png);
-  }
+  background-image: url(../images/Hero/hero-lg-3.png);
 }
 
 .swiper-slide-3 {
-  background-image: url(../images/Hero/hero-sm-new.png);
-}
-
-@media (min-width: 767px) {
-  .swiper-slide-3 {
-    background-image: url(../images/Hero/hero-lg-2.png);
-  }
+  background-image: url(../images/Hero/hero-lg-2.png);
 }
 
 .swiper-slide-4 {
-  background-image: url(../images/Hero/hero-sm-new.png);
-}
-
-@media (min-width: 767px) {
-  .swiper-slide-4 {
-    background-image: url(../images/Hero/hero-lg-4.png);
-  }
+  background-image: url(../images/Hero/hero-lg-4.png);
 }
 
 .experience-img {
@@ -37336,49 +37332,124 @@ img {
   height: 50px;
 }
 
+.register-rock-1 {
+  top: 450px;
+  left: 0;
+}
+
+.register-rock-2 {
+  top: 420px;
+  left: 70px;
+}
+
+.register-rock-3 {
+  top: 390px;
+  left: 120px;
+}
+
+.register-rock-4 {
+  top: 350px;
+  left: 180px;
+}
+
+.register-rock-5 {
+  top: 300px;
+  left: 250px;
+}
+
+.register-rock-6 {
+  top: 240px;
+  left: 270px;
+}
+
+.register-rock-7 {
+  top: 180px;
+  left: 290px;
+}
+
+.register-rock-8 {
+  top: 120px;
+  left: 340px;
+}
+
+.register-rock-9 {
+  top: 80px;
+  left: 380px;
+}
+
 .login-rock-1 {
-  top: 0;
+  top: 150px;
   left: 0;
 }
 
 .login-rock-2 {
-  top: 200px;
-  left: 20px;
+  top: 230px;
+  left: 0;
 }
 
 .login-rock-3 {
-  top: 230px;
-  left: 240px;
+  top: 310px;
+  left: 0;
 }
 
 .login-rock-4 {
-  top: 360px;
-  left: 550px;
+  top: 390px;
+  left: 0;
 }
 
 .login-rock-5 {
-  top: 100px;
-  left: 450px;
+  top: 390px;
+  left: 100px;
 }
 
 .login-rock-6 {
-  bottom: 160px;
-  right: 200px;
+  top: 150px;
+  left: 100px;
 }
 
 .login-rock-7 {
-  bottom: 230px;
-  right: 100px;
+  top: 150px;
+  left: 180px;
 }
 
 .login-rock-8 {
-  bottom: 140px;
-  right: 450px;
+  top: 150px;
+  left: 280px;
 }
 
 .login-rock-9 {
-  bottom: 220px;
-  right: 310px;
+  top: 150px;
+  left: 360px;
+}
+
+.login-rock-10 {
+  top: 150px;
+  left: 440px;
+}
+
+.login-rock-11 {
+  top: 390px;
+  left: 170px;
+}
+
+.login-rock-12 {
+  top: 390px;
+  left: 240px;
+}
+
+.login-rock-13 {
+  top: 390px;
+  left: 320px;
+}
+
+.login-rock-14 {
+  top: 230px;
+  left: 400px;
+}
+
+.login-rock-15 {
+  top: 310px;
+  left: 360px;
 }
 
 .member-info-img {
@@ -37405,6 +37476,64 @@ img {
 
 .member-tab-active {
   background: rgba(255, 255, 255, 0.4);
+}
+
+.register-climber {
+  width: 50px;
+}
+
+.register-climber-1 {
+  top: 300px;
+  left: 280px;
+}
+
+.register-climber-2 {
+  top: 30px;
+  left: 390px;
+}
+
+.register-climber-3 {
+  top: 130px;
+  left: 300px;
+}
+
+.register-climber-4 {
+  top: 490px;
+  left: -10px;
+}
+
+.register-climber-5 {
+  top: 350px;
+  left: 100px;
+}
+
+.login-climber {
+  width: 50px;
+}
+
+.login-climber-1 {
+  top: 170px;
+  left: 490px;
+}
+
+.login-climber-2 {
+  top: 100px;
+  left: 300px;
+}
+
+.login-climber-3 {
+  top: 250px;
+  left: -50px;
+}
+
+.login-climber-4 {
+  top: 450px;
+  left: 100px;
+}
+
+.login-climber-5 {
+  top: 340px;
+  left: 250px;
 }
 
 .group-calendar {
@@ -37462,6 +37591,49 @@ img {
 .prev-date,
 .next-date {
   opacity: 0.5;
+}
+
+.gym-banner {
+  background-image: url(../images/Hero/hero-lg-gym.png);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.gym-slogan {
+  width: 295px;
+  height: 136px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+@media (min-width: 992px) {
+  .gym-slogan {
+    width: 507px;
+    height: 236px;
+  }
+}
+
+.card-img-top {
+  height: 280px;
+}
+
+.text-in-border {
+  border-color: #4d4d4d !important;
+}
+
+.text-in-border::before {
+  content: attr(title);
+  position: absolute;
+  left: 79px;
+  top: 0;
+  padding: 0 8px;
+  -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+  -webkit-transform: translate(-50%, -50%);
+  background-color: #eef8f3;
+  font-size: 24px;
+  color: #4d4d4d;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=all.css.map */

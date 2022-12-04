@@ -194,6 +194,7 @@ window.onload = function () {
 };
 
 // 增加千分位逗點
+// eslint-disable-next-line no-unused-vars
 function toThousands(x) {
   var parts = x.toString().split('.');
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -750,8 +751,6 @@ var renderCalendar = function renderCalendar() {
   for (var i = 1; i <= lastDate; i++) {
     if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
       days += "<div class=\"today bg-yellow-c1\">".concat(i, "</div>");
-    } else if (new Date().getDay() === 0) {
-      days += "<div class=\"today bg-yellow-c1\">".concat(i, "</div>");
     } else {
       days += "<div>".concat(i, "</div>");
     }
@@ -785,19 +784,10 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
 // preloader
 // const preLoader = document.querySelector('.preloader-img');
 
-// gsap.fromTo(
-//   preLoader,
-//   0,
-//   {
-//     visibility: 'hidden',
-//   },
-//   {
-//     visibility: 'visible',
-//     repeat: -1,
-//     yoyo: true,
-//     repeatDelay: 0.3,
-//   },
-// );
+// gsap.from(preLoader, {
+//   opacity: 0,
+//   duration: 1,
+// });
 
 // experience
 var experienceImg = document.querySelector('.experience-img');
@@ -1079,23 +1069,15 @@ if (bgRockLg1 || bgRockLg2 || bgRockLg3 || bgRockLg4 || bgRockLg5 || bgRockLg6 |
     y: -200,
     rotation: 180
   });
-  var rockTimeline = gsap.timeline({
+  gsap.to(bgRockLg8, {
+    duration: 3,
     scrollTrigger: {
-      trigger: bgRockLg8,
-      start: 'top 70%'
-    }
-  });
-  rockTimeline.to(bgRockLg8, {
-    duration: 3,
-    x: -900,
-    y: 500,
-    rotation: 180
-  }).to(bgRockLg8, {
-    duration: 3,
-    x: -1150,
+      trigger: bgRockLg8
+    },
+    x: -400,
     y: 0,
-    rotation: 360,
-    ease: 'bounce.out'
+    rotation: 180,
+    ease: 'power3.out'
   });
   gsap.to(bgRockLg9, {
     duration: 1.5,
@@ -1142,6 +1124,260 @@ if (indexCalendarRight || indexCalendarLeft) {
     opacity: 0
   });
 }
+// ----------------------- member register -----------------------
+// rock moving
+var registerRock1 = document.querySelector('.register-rock-1');
+var registerRock2 = document.querySelector('.register-rock-2');
+var registerRock3 = document.querySelector('.register-rock-3');
+var registerRock4 = document.querySelector('.register-rock-4');
+var registerRock5 = document.querySelector('.register-rock-5');
+var registerRock6 = document.querySelector('.register-rock-6');
+var registerRock7 = document.querySelector('.register-rock-7');
+var registerRock8 = document.querySelector('.register-rock-8');
+var registerRock9 = document.querySelector('.register-rock-9');
+if (registerRock1 || registerRock2 || registerRock3 || registerRock4 || registerRock5 || registerRock6 || registerRock7 || registerRock8 || registerRock9) {
+  gsap.from(registerRock1, {
+    duration: 1,
+    delay: 1,
+    opacity: 0,
+    x: -200
+  });
+  gsap.from(registerRock2, {
+    duration: 1,
+    delay: 2,
+    opacity: 0,
+    x: -200
+  });
+  gsap.from(registerRock3, {
+    duration: 1,
+    delay: 2.5,
+    opacity: 0,
+    x: -200
+  });
+  gsap.from(registerRock4, {
+    duration: 1,
+    delay: 3.5,
+    opacity: 0,
+    x: -200
+  });
+  gsap.from(registerRock5, {
+    duration: 1,
+    delay: 4,
+    opacity: 0,
+    x: -200
+  });
+  gsap.from(registerRock6, {
+    duration: 1,
+    delay: 5,
+    opacity: 0,
+    x: -200
+  });
+  gsap.from(registerRock7, {
+    duration: 1,
+    delay: 5.5,
+    opacity: 0,
+    x: -200
+  });
+  gsap.from(registerRock8, {
+    duration: 1,
+    delay: 6,
+    opacity: 0,
+    x: -200
+  });
+  gsap.from(registerRock9, {
+    duration: 1,
+    delay: 7,
+    opacity: 0,
+    x: -200
+  });
+}
+
+// climber
+var registerClimber1 = document.querySelector('.register-climber-1');
+var registerClimber2 = document.querySelector('.register-climber-2');
+var registerClimber3 = document.querySelector('.register-climber-3');
+var registerClimber4 = document.querySelector('.register-climber-4');
+var registerClimber5 = document.querySelector('.register-climber-5');
+if (registerClimber1 || registerClimber2 || registerClimber3 || registerClimber4 || registerClimber5) {
+  gsap.from(registerClimber1, {
+    duration: 1,
+    delay: 4.5,
+    opacity: 0,
+    y: 50
+  });
+  gsap.from(registerClimber2, {
+    duration: 1,
+    delay: 7.5,
+    opacity: 0,
+    y: -50
+  });
+  gsap.from(registerClimber3, {
+    duration: 1,
+    delay: 6.5,
+    opacity: 0,
+    y: 50
+  });
+  gsap.from(registerClimber4, {
+    duration: 1,
+    delay: 1.5,
+    opacity: 0,
+    y: 50
+  });
+  gsap.from(registerClimber5, {
+    duration: 1,
+    delay: 3,
+    opacity: 0,
+    x: -50
+  });
+}
+
+// ----------------------- member login -----------------------
+
+// rock moving
+var loginRock1 = document.querySelector('.login-rock-1');
+var loginRock2 = document.querySelector('.login-rock-2');
+var loginRock3 = document.querySelector('.login-rock-3');
+var loginRock4 = document.querySelector('.login-rock-4');
+var loginRock5 = document.querySelector('.login-rock-5');
+var loginRock6 = document.querySelector('.login-rock-6');
+var loginRock7 = document.querySelector('.login-rock-7');
+var loginRock8 = document.querySelector('.login-rock-8');
+var loginRock9 = document.querySelector('.login-rock-9');
+var loginRock10 = document.querySelector('.login-rock-10');
+var loginRock11 = document.querySelector('.login-rock-11');
+var loginRock12 = document.querySelector('.login-rock-12');
+var loginRock13 = document.querySelector('.login-rock-13');
+var loginRock14 = document.querySelector('.login-rock-14');
+var loginRock15 = document.querySelector('.login-rock-15');
+if (loginRock1 || loginRock2 || loginRock3 || loginRock4 || loginRock5 || loginRock6 || loginRock7 || loginRock8 || loginRock9 || loginRock10 || loginRock11 || loginRock12 || loginRock13 || loginRock14 || loginRock15) {
+  gsap.from(loginRock1, {
+    duration: 1,
+    opacity: 0,
+    y: -200,
+    x: -200
+  });
+  gsap.from(loginRock2, {
+    duration: 1,
+    opacity: 0,
+    x: -200
+  });
+  gsap.from(loginRock3, {
+    duration: 1,
+    opacity: 0,
+    x: -200
+  });
+  gsap.from(loginRock4, {
+    duration: 1,
+    opacity: 0,
+    x: -200,
+    y: 200
+  });
+  gsap.from(loginRock5, {
+    duration: 1,
+    opacity: 0,
+    x: -100,
+    y: 200
+  });
+  gsap.from(loginRock6, {
+    duration: 1,
+    opacity: 0,
+    y: -200,
+    x: -100
+  });
+  gsap.from(loginRock7, {
+    duration: 1,
+    opacity: 0,
+    y: -200
+  });
+  gsap.from(loginRock8, {
+    duration: 1,
+    opacity: 0,
+    y: -200
+  });
+  gsap.from(loginRock9, {
+    duration: 1,
+    opacity: 0,
+    y: -200,
+    x: 100
+  });
+  gsap.from(loginRock10, {
+    duration: 1,
+    opacity: 0,
+    y: -200,
+    x: 200
+  });
+  gsap.from(loginRock11, {
+    duration: 1,
+    opacity: 0,
+    y: 200
+  });
+  gsap.from(loginRock12, {
+    duration: 1,
+    opacity: 0,
+    y: 200,
+    x: 100
+  });
+  gsap.from(loginRock13, {
+    duration: 1,
+    opacity: 0,
+    y: 200,
+    x: 200
+  });
+  gsap.from(loginRock14, {
+    duration: 1,
+    opacity: 0,
+    x: 200
+  });
+  gsap.from(loginRock15, {
+    duration: 1,
+    opacity: 0,
+    y: 100,
+    x: 200
+  });
+}
+
+// climber
+var loginClimber1 = document.querySelector('.login-climber-1');
+var loginClimber2 = document.querySelector('.login-climber-2');
+var loginClimber3 = document.querySelector('.login-climber-3');
+var loginClimber4 = document.querySelector('.login-climber-4');
+var loginClimber5 = document.querySelector('.login-climber-5');
+if (loginClimber1 || loginClimber2 || loginClimber3 || loginClimber4 || loginClimber5) {
+  gsap.from(loginClimber1, {
+    duration: 1,
+    opacity: 0,
+    delay: 0.5,
+    y: 50
+  });
+  gsap.from(loginClimber2, {
+    duration: 1,
+    opacity: 0,
+    delay: 1,
+    y: -50
+  });
+  gsap.from(loginClimber3, {
+    duration: 1,
+    opacity: 0,
+    delay: 1.5,
+    y: 50
+  });
+  gsap.from(loginClimber4, {
+    duration: 1,
+    opacity: 0,
+    delay: 2,
+    y: -50
+  });
+  gsap.from(loginClimber5, {
+    duration: 1,
+    opacity: 0,
+    delay: 2.5,
+    x: -50
+  });
+}
+"use strict";
+
+// eslint-disable-next-line no-undef
+Cocoen.parse(document.body);
 "use strict";
 
 /* eslint-disable no-undef */
@@ -1429,7 +1665,7 @@ function removeUserFromLocal() {
 function renderVisitorNavMenu() {
   var navMenu = document.querySelector('.nav-menu');
   var str = '';
-  str = "\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u5834\u9928\u8CC7\u8A0A</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./courses-index.html\">\u8AB2\u7A0B\u4ECB\u7D39</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u5718\u9AD4\u8AB2\u7A0B</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u6703\u54E1\u65B9\u6848</a></li>\n  <li class=\"nav-menu-login\"><a class=\"nav-menu-login-btn text-gray hover-decoBorder-bottom-gradient position-relative py-2 ms-8 pe-0\" href=\"./member-login.html\">\u767B\u5165</a></li>\n  ";
+  str = "\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./gym-info.html\">\u5834\u9928\u8CC7\u8A0A</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./courses-index.html\">\u8AB2\u7A0B\u4ECB\u7D39</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./group-lessons.html\">\u5718\u9AD4\u8AB2\u7A0B</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u5546\u54C1\u5C08\u5340</a></li>\n  <li class=\"nav-menu-login\"><a class=\"nav-menu-login-btn text-gray hover-decoBorder-bottom-gradient position-relative py-2 ms-8 pe-0\" href=\"./member-login.html\">\u767B\u5165</a></li>\n  ";
   if (navMenu) {
     navMenu.innerHTML = str;
   }
@@ -1439,7 +1675,7 @@ function renderVisitorNavMenu() {
 function renderLoginRenderNavMenu() {
   var navMenu = document.querySelector('.nav-menu');
   var str = '';
-  str = "\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u5834\u9928\u8CC7\u8A0A</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./courses-index.html\">\u8AB2\u7A0B\u4ECB\u7D39</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./group-lessons.html\">\u5718\u9AD4\u8AB2\u7A0B</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u6703\u54E1\u65B9\u6848</a></li>\n  <li class=\"nav-menu-member position-relative\">\n    <a class=\"nav-menu-member-btn position-relative text-gray d-flex align-items-center py-2 ms-8 pe-0\" href=\"#\">\n      <img class=\"rounded-3\" src=\"./assets/images/Avatar/anonymous.jpg\" alt=\"anonymous\">\n      <span class=\"nav-menu-member-btn-expand  fs-3 material-symbols-outlined\">\n        expand_more\n        </span>\n    </a>\n    <ul class=\"nav-menu-member-panel list-unstyled position-absolute\">\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-information.html\">\u6703\u54E1\u8CC7\u6599</a>\n      </li>\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-course.html\">\u8AB2\u7A0B\u7BA1\u7406</a>\n      </li>\n      <li>\n      <a class=\"nav-menu-logout-btn text-white position-relative hover-decoBorder-bottom-gradient py-1\" href=\"#\">\u767B\u51FA</a>\n      </li>\n    </ul>\n  </li>\n  ";
+  str = "\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./gym-info.html\">\u5834\u9928\u8CC7\u8A0A</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./courses-index.html\">\u8AB2\u7A0B\u4ECB\u7D39</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./group-lessons.html\">\u5718\u9AD4\u8AB2\u7A0B</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u5546\u54C1\u5C08\u5340</a></li>\n  <li class=\"nav-menu-member position-relative\">\n    <a class=\"nav-menu-member-btn position-relative text-gray d-flex align-items-center py-2 ms-8 pe-0\" href=\"#\">\n      <img class=\"rounded-3\" src=\"./assets/images/Avatar/anonymous.jpg\" alt=\"anonymous\">\n      <span class=\"nav-menu-member-btn-expand  fs-3 material-symbols-outlined\">\n        expand_more\n        </span>\n    </a>\n    <ul class=\"nav-menu-member-panel list-unstyled position-absolute\">\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-information.html\">\u6703\u54E1\u8CC7\u6599</a>\n      </li>\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-course.html\">\u8AB2\u7A0B\u7BA1\u7406</a>\n      </li>\n      <li>\n      <a class=\"nav-menu-logout-btn text-white position-relative hover-decoBorder-bottom-gradient py-1\" href=\"#\">\u767B\u51FA</a>\n      </li>\n    </ul>\n  </li>\n  ";
   if (navMenu) {
     navMenu.innerHTML = str;
   }
@@ -1449,7 +1685,7 @@ function renderLoginRenderNavMenu() {
 function renderLoginNavMenuAAdmin() {
   var navMenu = document.querySelector('.nav-menu');
   var str = '';
-  str = "\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u5834\u9928\u8CC7\u8A0A</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./courses-index.html\">\u8AB2\u7A0B\u4ECB\u7D39</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./group-lessons.html\">\u5718\u9AD4\u8AB2\u7A0B</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u6703\u54E1\u65B9\u6848</a></li>\n  <li class=\"nav-menu-member position-relative\">\n    <a class=\"nav-menu-member-btn position-relative text-gray d-flex align-items-center py-2 ms-8 pe-0\" href=\"#\">\n      <img class=\"rounded-3\" src=\"./assets/images/Avatar/anonymous.jpg\" alt=\"anonymous\">\n      <span class=\"nav-menu-member-btn-expand  fs-3 material-symbols-outlined\">\n        expand_more\n        </span>\n    </a>\n    <ul class=\"nav-menu-member-panel list-unstyled position-absolute\">\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-information.html\">\u6703\u54E1\u8CC7\u6599</a>\n      </li>\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-course.html\">\u8AB2\u7A0B\u7BA1\u7406</a>\n      </li>\n      <li>\n      <a class=\"nav-menu-logout-btn text-white position-relative hover-decoBorder-bottom-gradient py-1\" href=\"#\">\u767B\u51FA</a>\n      </li>\n    </ul>\n  </li>\n  <li><a class=\"btn btn-gray-c1 text-gray py-2 px-6 ms-8\" href=\"./admin-course.html\">\u5F8C\u53F0</a></li>\n  ";
+  str = "\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./gym-info.html\">\u5834\u9928\u8CC7\u8A0A</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./courses-index.html\">\u8AB2\u7A0B\u4ECB\u7D39</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./group-lessons.html\">\u5718\u9AD4\u8AB2\u7A0B</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u5546\u54C1\u5C08\u5340</a></li>\n  <li class=\"nav-menu-member position-relative\">\n    <a class=\"nav-menu-member-btn position-relative text-gray d-flex align-items-center py-2 ms-8 pe-0\" href=\"#\">\n      <img class=\"rounded-3\" src=\"./assets/images/Avatar/anonymous.jpg\" alt=\"anonymous\">\n      <span class=\"nav-menu-member-btn-expand  fs-3 material-symbols-outlined\">\n        expand_more\n        </span>\n    </a>\n    <ul class=\"nav-menu-member-panel list-unstyled position-absolute\">\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-information.html\">\u6703\u54E1\u8CC7\u6599</a>\n      </li>\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-course.html\">\u8AB2\u7A0B\u7BA1\u7406</a>\n      </li>\n      <li>\n      <a class=\"nav-menu-logout-btn text-white position-relative hover-decoBorder-bottom-gradient py-1\" href=\"#\">\u767B\u51FA</a>\n      </li>\n    </ul>\n  </li>\n  <li><a class=\"btn btn-gray-c1 text-gray py-2 px-6 ms-8\" href=\"./admin-course.html\">\u5F8C\u53F0</a></li>\n  ";
   if (navMenu) {
     navMenu.innerHTML = str;
   }
