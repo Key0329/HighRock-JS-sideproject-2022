@@ -13,15 +13,6 @@
 
 // --------------------- banner ---------------------
 .index {
-  // &-banner {
-  //   background-image: url(../images/Hero/hero-sm-new.png);
-  //   background-position: center center;
-  //   background-size: cover;
-  //   background-repeat: no-repeat;
-  //   @include pad {
-  //     background-image: url(../images/Hero/hero-lg-new.png);
-  //   }
-  // }
   &-slogan {
     position: absolute;
     z-index: 10;
@@ -55,22 +46,13 @@
     }
   }
   &-2 {
-    background-image: url(../images/Hero/hero-sm-new.png);
-    @include pad {
-      background-image: url(../images/Hero/hero-lg-3.png);
-    }
+    background-image: url(../images/Hero/hero-lg-3.png);
   }
   &-3 {
-    background-image: url(../images/Hero/hero-sm-new.png);
-    @include pad {
-      background-image: url(../images/Hero/hero-lg-2.png);
-    }
+    background-image: url(../images/Hero/hero-lg-2.png);
   }
   &-4 {
-    background-image: url(../images/Hero/hero-sm-new.png);
-    @include pad {
-      background-image: url(../images/Hero/hero-lg-4.png);
-    }
+    background-image: url(../images/Hero/hero-lg-4.png);
   }
 }
 

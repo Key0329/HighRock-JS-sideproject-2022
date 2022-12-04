@@ -1,0 +1,154 @@
+---
+title: HighRock-gym
+layout: ./app/layout.ejs
+engine: ejs
+current: gym-info
+---
+
+<main class="gym">
+  <!-- banner -->
+  <section class="gym-banner vh-50">
+    <div
+      class="container d-flex align-items-center justify-content-center justify-content-lg-end h-100"
+    >
+      <div class="gym-slogan py-10 px-7 py-lg-15 px-lg-12 rounded-3 d-flex flex-column">
+        <h1
+          class="text-gray-c1 text-center text-lg-start fw-bold fs-1 display-size-lg-5 mb-1 mb-lg-4"
+        >
+          HighRock 攀岩館
+        </h1>
+        <p class="text-center text-lg-start fs-lg-1">Rock Climbing Gym</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ticket price -->
+  <section class="py-15 py-lg-30 bg-primary-light">
+    <div class="container">
+      <h2 class="text-center mb-20">入場資訊</h2>
+      <div class="row row-cols-1 row-cols-lg-4">
+        <div class="col">
+          <div
+            class="text-in-border bg-primary-light border border-gray-c1 rounded-3 p-12 mb-13 mb-lg-0 h-lg-100 position-relative"
+            title="一般門票"
+          >
+            <h4 class="fw-bold fs-2 mb-4">NT$ 300</h4>
+            <p class="display-9 mb-0">
+              持安檢卡購買一般門票入館攀岩至當日營業時間結束。<br />(抱石區不須準備安檢卡)
+            </p>
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="text-in-border bg-primary-light border border-gray-c1 rounded-3 p-12 mb-13 mb-lg-0 h-lg-100 position-relative"
+            title="學生/兒童"
+          >
+            <h4 class="fw-bold fs-2 mb-4">NT$ 150</h4>
+            <p class="display-9 mb-0">
+              在學學生(須出示學生證)與 12 歲以下兒童(需家長陪同)入館享有優惠。
+            </p>
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="text-in-border bg-primary-light border border-gray-c1 rounded-3 p-12 mb-13 mb-lg-0 h-lg-100 position-relative"
+            title="淑女之夜"
+          >
+            <h4 class="fw-bold fs-2 mb-4">NT$ 150</h4>
+            <p class="display-9 mb-0">
+              Ladies’ Night <br />
+              每周四女性岩友攀岩可購買優惠門票入館。
+            </p>
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="text-in-border bg-primary-light border border-gray-c1 rounded-3 p-12 h-lg-100 position-relative"
+            title="裝備租借"
+          >
+            <h4 class="fw-bold fs-3 mb-4">
+              岩鞋租借 (NT$ 100) <br />
+              粉袋 (NT$ 60)
+            </h4>
+            <p class="display-9 mb-0">館內提供岩鞋及粉袋租借，以次計費。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact us -->
+  <section class="py-15 py-lg-30">
+    <div class="container">
+      <h2 class="mb-20">在都市叢林中也能享受攀岩樂趣</h2>
+      <div class="row justify-content-between">
+        <div class="col-4">
+          <div class="gym-img cocoen">
+            <img
+              class="img-before max-width-none"
+              src="./assets/images/gym/gym-lg-1.png"
+              alt="gym"
+            />
+            <img class="img-after" src="./assets/images/gym/gym-lg-2.png" alt="gym" />
+          </div>
+        </div>
+        <div class="col-7">
+          <div class="row row-cols-2 mb-20">
+            <div class="col">
+              <h2 class="mb-4">大安館</h2>
+              <div class="d-flex mb-2">
+                <span class="material-symbols-outlined me-1"> location_on </span>
+                <p>台北市大安區 復興南路 10 段 243 號 1F</p>
+              </div>
+              <div class="d-flex mb-2">
+                <span class="material-symbols-outlined me-1"> directions_subway </span>
+                <p>科技大樓捷運站</p>
+              </div>
+              <div class="d-flex mb-2">
+                <span class="material-symbols-outlined me-1"> call </span>
+                <p>(02)7756-8548</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="gym-img cocoen">
+                <img
+                  class="img-before max-width-none"
+                  src="./assets/images/gym/gym-lg-5.jpg"
+                  alt="gym"
+                />
+                <img class="img-after" src="./assets/images/gym/gym-lg-7.jpg" alt="gym" />
+              </div>
+            </div>
+          </div>
+          <div class="row row-cols-2 mb-20">
+            <div class="col">
+              <h2 class="mb-4">新莊館</h2>
+              <div class="d-flex mb-2">
+                <span class="material-symbols-outlined me-1"> location_on </span>
+                <p>新北市新莊區 自由大道十段 887 號</p>
+              </div>
+              <div class="d-flex mb-2">
+                <span class="material-symbols-outlined me-1"> directions_subway </span>
+                <p>新莊副都心捷運站</p>
+              </div>
+              <div class="d-flex mb-2">
+                <span class="material-symbols-outlined me-1"> call </span>
+                <p>(02)2901-7642</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="gym-img cocoen">
+                <img
+                  class="img-before max-width-none"
+                  src="./assets/images/gym/gym-lg-6.jpg"
+                  alt="gym"
+                />
+                <img class="img-after" src="./assets/images/gym/gym-lg-8.jpg" alt="gym" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

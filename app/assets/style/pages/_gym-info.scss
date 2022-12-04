@@ -1,0 +1,35 @@
+// courses index
+.gym {
+  &-banner {
+    background-image: url(../images/Hero/hero-lg-gym.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  &-slogan {
+    width: 295px;
+    height: 136px;
+    @include pc {
+      width: 507px;
+      height: 236px;
+    }
+    background: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.text-in-border {
+  border-color: #4d4d4d !important;
+  &::before {
+    content: attr(title);
+    position: absolute;
+    left: 79px;
+    top: 0;
+    padding: 0 8px;
+    transform: translateX(-50%);
+    -webkit-transform: translate(-50%, -50%);
+    background-color: $primary-light;
+    font-size: 24px;
+    color: #4d4d4d;
+    font-weight: bold;
+  }
+}

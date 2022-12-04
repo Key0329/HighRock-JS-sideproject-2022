@@ -3,19 +3,10 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
 // preloader
 // const preLoader = document.querySelector('.preloader-img');
 
-// gsap.fromTo(
-//   preLoader,
-//   0,
-//   {
-//     visibility: 'hidden',
-//   },
-//   {
-//     visibility: 'visible',
-//     repeat: -1,
-//     yoyo: true,
-//     repeatDelay: 0.3,
-//   },
-// );
+// gsap.from(preLoader, {
+//   opacity: 0,
+//   duration: 1,
+// });
 
 // experience
 const experienceImg = document.querySelector('.experience-img');

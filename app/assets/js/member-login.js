@@ -21,7 +21,7 @@ function renderVisitorNavMenu() {
   let str = '';
 
   str = `
-  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">場館資訊</a></li>
+  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./gym-info.html">場館資訊</a></li>
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./courses-index.html">課程介紹</a></li>
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./group-lessons.html">團體課程</a></li>
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">會員方案</a></li>
@@ -39,7 +39,7 @@ function renderLoginRenderNavMenu() {
   let str = '';
 
   str = `
-  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">場館資訊</a></li>
+  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./gym-info.html">場館資訊</a></li>
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./courses-index.html">課程介紹</a></li>
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./group-lessons.html">團體課程</a></li>
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">會員方案</a></li>
@@ -75,7 +75,7 @@ function renderLoginNavMenuAAdmin() {
   let str = '';
 
   str = `
-  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">場館資訊</a></li>
+  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./gym-info.html">場館資訊</a></li>
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./courses-index.html">課程介紹</a></li>
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./group-lessons.html">團體課程</a></li>
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">會員方案</a></li>
