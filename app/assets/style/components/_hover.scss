@@ -72,3 +72,10 @@
     color: orange;
   }
 }
+
+.hover-shadow-lg {
+  &:hover::after {
+    transition: all 0.3s;
+    box-shadow: 0 1rem 2rem rgba($black, 0.175);
+  }
+}

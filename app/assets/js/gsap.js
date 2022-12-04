@@ -444,54 +444,55 @@ if (
 ) {
   gsap.from(registerRock1, {
     duration: 1,
+    delay: 1,
     opacity: 0,
     x: -200,
   });
   gsap.from(registerRock2, {
     duration: 1,
-    delay: 1,
+    delay: 2,
     opacity: 0,
     x: -200,
   });
   gsap.from(registerRock3, {
     duration: 1,
-    delay: 1.5,
+    delay: 2.5,
     opacity: 0,
     x: -200,
   });
   gsap.from(registerRock4, {
     duration: 1,
-    delay: 2.5,
+    delay: 3.5,
     opacity: 0,
     x: -200,
   });
   gsap.from(registerRock5, {
     duration: 1,
-    delay: 3,
+    delay: 4,
     opacity: 0,
     x: -200,
   });
   gsap.from(registerRock6, {
     duration: 1,
-    delay: 4,
+    delay: 5,
     opacity: 0,
     x: -200,
   });
   gsap.from(registerRock7, {
     duration: 1,
-    delay: 4.5,
+    delay: 5.5,
     opacity: 0,
     x: -200,
   });
   gsap.from(registerRock8, {
     duration: 1,
-    delay: 5,
+    delay: 6,
     opacity: 0,
     x: -200,
   });
   gsap.from(registerRock9, {
     duration: 1,
-    delay: 6,
+    delay: 7,
     opacity: 0,
     x: -200,
   });
@@ -513,31 +514,31 @@ if (
 ) {
   gsap.from(registerClimber1, {
     duration: 1,
-    delay: 3.5,
+    delay: 4.5,
     opacity: 0,
     y: 50,
   });
   gsap.from(registerClimber2, {
     duration: 1,
-    delay: 6.5,
+    delay: 7.5,
     opacity: 0,
     y: -50,
   });
   gsap.from(registerClimber3, {
     duration: 1,
-    delay: 5.5,
+    delay: 6.5,
     opacity: 0,
     y: 50,
   });
   gsap.from(registerClimber4, {
     duration: 1,
-    delay: 0.5,
+    delay: 1.5,
     opacity: 0,
     y: 50,
   });
   gsap.from(registerClimber5, {
     duration: 1,
-    delay: 2,
+    delay: 3,
     opacity: 0,
     x: -50,
   });

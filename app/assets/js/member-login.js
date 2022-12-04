@@ -24,7 +24,7 @@ function renderVisitorNavMenu() {
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./gym-info.html">場館資訊</a></li>
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./courses-index.html">課程介紹</a></li>
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./group-lessons.html">團體課程</a></li>
-  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">會員方案</a></li>
+  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">商品專區</a></li>
   <li class="nav-menu-login"><a class="nav-menu-login-btn text-gray hover-decoBorder-bottom-gradient position-relative py-2 ms-8 pe-0" href="./member-login.html">登入</a></li>
   `;
 
@@ -42,7 +42,7 @@ function renderLoginRenderNavMenu() {
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./gym-info.html">場館資訊</a></li>
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./courses-index.html">課程介紹</a></li>
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./group-lessons.html">團體課程</a></li>
-  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">會員方案</a></li>
+  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">商品專區</a></li>
   <li class="nav-menu-member position-relative">
     <a class="nav-menu-member-btn position-relative text-gray d-flex align-items-center py-2 ms-8 pe-0" href="#">
       <img class="rounded-3" src="./assets/images/Avatar/anonymous.jpg" alt="anonymous">
@@ -78,7 +78,7 @@ function renderLoginNavMenuAAdmin() {
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./gym-info.html">場館資訊</a></li>
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./courses-index.html">課程介紹</a></li>
   <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="./group-lessons.html">團體課程</a></li>
-  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">會員方案</a></li>
+  <li><a class="text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8" href="#">商品專區</a></li>
   <li class="nav-menu-member position-relative">
     <a class="nav-menu-member-btn position-relative text-gray d-flex align-items-center py-2 ms-8 pe-0" href="#">
       <img class="rounded-3" src="./assets/images/Avatar/anonymous.jpg" alt="anonymous">
