@@ -53,6 +53,15 @@
       "role": "user",
       "photo": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/Icon/climber.png?raw=true",
       "id": 6
+    },
+    {
+      "email": "springfield0329@gmail.com",
+      "password": "$2a$10$rpWIRHzXkoheM88/4Wjpdu5SeXTQ5NHc4rpa2xhlrz4GVGbRNfjIO",
+      "name": "Jack",
+      "contactNumber": "0912345",
+      "role": "user",
+      "photo": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/Icon/climber.png?raw=true",
+      "id": 7
     }
   ],
   "branches": [
@@ -488,6 +497,36 @@
       "name": "石頭",
       "email": "yoyoyo@gmail.com",
       "contactNumber": "0955-666-565"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "imgUrl": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/gym/gym-sm-6.jpg?raw=true",
+      "title": "那些八千的故事",
+      "description": "3 年來陸續征服了 7 座 8000 公尺以上的高峰，全球只有 14 個 8000公尺的高峰他已完成了一半，本周末 '8000er' Wilson 將要來 HighRock分享他在征服八千呎高峰旅途中的故事。",
+      "createTime": "1670433246562"
+    },
+    {
+      "id": 2,
+      "imgUrl": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/gym/gym-sm-7.jpg?raw=true",
+      "title": "12/21(三) 淑女之夜",
+      "description": "每周三的淑女之夜又將到來！<br />女性岩友進場半價！",
+      "createTime": "1670433246562"
+    },
+    {
+      "id": 3,
+      "imgUrl": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/gym/gym-sm-5.jpg?raw=true",
+      "title": "新款岩鞋開放訂購",
+      "description": "最新款岩鞋開放訂購，數量有限，盡快前往商品專區選購，過了這個村就沒這個店！",
+      "createTime": "1670433246562"
+    },
+    {
+      "id": 4,
+      "imgUrl": "https://github.com/Key0329/HighRock-JS-sideproject-2022/blob/main/app/assets/images/gym/gym-sm-3.jpg?raw=true",
+      "title": "冬季兒童抱石第三期開課囉！",
+      "description": "HighRock 冬季兒童抱石第三期開課囉！本梯次將會於 2023 年 1 月 7 日 與 1 月 8 日(周末) 在 HighRock 攀岩館 大安館 舉辦，即日起開放報名。",
+      "createTime": "1670433246562"
     }
   ]
 }
