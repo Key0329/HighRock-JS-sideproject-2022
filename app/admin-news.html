@@ -1,0 +1,89 @@
+---
+title: HighRock - admin-news
+layout: ./app/admin.ejs
+engine: ejs
+current: admin-news
+---
+
+<!-- layout -->
+<section
+  class="admin-layout position-fixed d-flex flex-column align-items-center bg-primary-light h-100"
+>
+  <h1 class="admin-logo mt-6 mb-20"><a href="#">HighRock</a></h1>
+  <!-- nav -->
+  <nav class="navigation">
+    <ul class="admin-panel list-unstyled">
+      <li class="mb-20">
+        <a class="hover-orange fw-bold fs-4 fs-lg-2 mb-4" href="./admin-course.html">課程管理</a>
+        <ul class="list-unstyled ms-4">
+          <li class="mb-4">
+            <a class="hover-orange fs-5 fs-lg-3" href="./admin-course.html">活動課程管理</a>
+          </li>
+          <li class="mb-8">
+            <a class="hover-orange fs-5 fs-lg-3" href="./admin-course-registered.html"
+              >活動報名學生資訊</a
+            >
+          </li>
+          <li>
+            <a class="hover-orange fs-5 fs-lg-3" href="./admin-groupLesson.html">團體課程管理</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="hover-orange fw-bold fs-4 fs-lg-2 mb-10" href="./admin-member.html">會員管理</a>
+      </li>
+      <li>
+        <a class="hover-orange fw-bold fs-4 fs-lg-2 mb-10 active" href="./admin-news.html"
+          >最新消息</a
+        >
+      </li>
+      <li>
+        <a class="hover-orange fw-bold fs-4 fs-lg-2" href="./index.html">前台首頁</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- account -->
+  <div
+    class="d-flex align-self-start align-items-center justify-content-between mt-auto px-4 w-100"
+  >
+    <a href="#" class="d-flex align-items-center mb-6 hover-orange">
+      <div class="admin-account-avatar me-2">
+        <img class="rounded-circle" src="./assets/images/Avatar/Avatar-1.jpg" alt="avatar" />
+      </div>
+      <div>
+        <p>Jack</p>
+        <p class="fs-6">jack7788@gmail.com</p>
+      </div>
+    </a>
+    <a class="admin-logout-btn ms-auto hover-orange" href="#">登出</a>
+  </div>
+</section>
+
+<main class="ms-80 p-20">
+  <div class="container">
+    <h2 class="py-5">新增最新消息</h2>
+
+    <form action="POST" class="js-form-editor d-flex flex-column">
+      <label for="create-news-title">標題：</label>
+      <input
+        class="mb-10 w-25"
+        type="text"
+        id="create-news-title"
+        name="title"
+        placeholder="請輸入標題"
+        required
+      />
+
+      <div id="createEditor">
+        <p>請輸入內文</p>
+      </div>
+
+      <input
+        type="button"
+        value="送出"
+        class="js-send-to-set-editor btn btn-primary mt-10 ms-auto"
+      />
+    </form>
+  </div>
+</main>

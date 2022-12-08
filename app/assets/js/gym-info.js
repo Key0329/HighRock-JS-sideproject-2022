@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// eslint-disable-next-line no-undef
 Cocoen.parse(document.body);
 
 // 渲染最新消息
@@ -21,9 +20,9 @@ function renderLatestNews(data) {
         <img src=${item.imgUrl} class="card-img-top" alt="gym-sm-6" />
         <div class="card-body d-flex flex-column">
           <h5 class="card-title fw-bold fs-2">${item.title}</h5>
-          <p class="card-text">
+          <div class=card-text>
           ${item.description}
-          </p>
+          </div>
         </div>
         <div class="card-footer text-end">
           <small class="text-muted">建立於 ${createPostDate}</small>
@@ -33,7 +32,9 @@ function renderLatestNews(data) {
     `;
   });
 
-  gymLatestNews.innerHTML = str;
+  if (gymLatestNews) {
+    gymLatestNews.innerHTML = str;
+  }
 }
 
 function getNewsData() {
