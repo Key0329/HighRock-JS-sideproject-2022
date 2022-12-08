@@ -3,20 +3,16 @@ const Url = 'http://localhost:3000';
 
 const form = document.querySelector('.js-form-editor');
 const btnSendEditor = document.querySelector('.js-send-to-set-editor');
-
 const createEditor = document.querySelector('#createEditor');
 
+// 新增最新消息到資料庫
 function submitPost(articleData, dataText) {
-  // const userId = localStorage.getItem('userId');
-  // const AUTH = `Bearer ${localStorage.getItem('token')}`;
-  // axios.defaults.headers.common.Authorization = AUTH;
-
   const data = {
     imgUrl: 'https://picsum.photos/400',
     title: form.title.value,
-    description: dataText,
+    text: dataText,
     createTime: `${Date.now()}`,
-    body: articleData,
+    description: articleData,
   };
 
   if (data.title === '' || data.description === '' || data.body === '') {
@@ -34,13 +30,15 @@ function submitPost(articleData, dataText) {
     .then((res) => {
       const isOK = res.status === 201 || res.status === 200;
       if (isOK) {
-        //   window.location.replace('/admin/desk.html');
         Swal.fire({
           icon: 'success',
           title: '新增成功',
           showConfirmButton: false,
           timer: 3000,
         });
+        setTimeout(() => {
+          window.location.replace('./admin-news-list.html');
+        }, 1000);
       }
     })
     .catch((error) => {
@@ -49,6 +47,7 @@ function submitPost(articleData, dataText) {
     });
 }
 
+// 取得 editor 內的資料
 function getEditorData(editor) {
   const articleData = editor.getData();
 
@@ -57,11 +56,13 @@ function getEditorData(editor) {
   return submitPost(articleData, dataText);
 }
 
+// po文按鈕監聽
 function editorHandler(editor) {
   btnSendEditor.addEventListener('click', () => getEditorData(editor));
 }
 
-function adminNewsInit() {
+// 初始化
+function adminCreateInit() {
   if (createEditor) {
     // eslint-disable-next-line no-undef
     ClassicEditor.create(createEditor)
@@ -75,4 +76,4 @@ function adminNewsInit() {
   }
 }
 
-adminNewsInit();
+adminCreateInit();

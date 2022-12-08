@@ -1,8 +1,8 @@
 ---
-title: HighRock - admin-news
+title: HighRock - admin-edit
 layout: ./app/admin.ejs
 engine: ejs
-current: admin-news
+current: admin-edit
 ---
 
 <!-- layout -->
@@ -62,28 +62,29 @@ current: admin-news
 
 <main class="ms-80 p-20">
   <div class="container">
-    <h2 class="py-5">新增最新消息</h2>
+    <h2 class="py-5">編輯：最新消息</h2>
 
-    <form action="POST" class="js-form-editor d-flex flex-column">
-      <label for="create-news-title">標題：</label>
+    <form action="POST" class="js-form-editor-edit d-flex flex-column">
+      <label for="edit-news-title">標題：</label>
       <input
-        class="mb-10 w-25"
+        class="mb-10 w-50"
         type="text"
-        id="create-news-title"
+        id="edit-news-title"
         name="title"
         placeholder="請輸入標題"
         required
       />
 
-      <div id="createEditor">
+      <div id="editEditor">
         <p>請輸入內文</p>
       </div>
 
       <input
         type="button"
         value="送出"
-        class="js-send-to-set-editor btn btn-primary mt-10 ms-auto"
+        class="js-send-to-edit-editor btn btn-primary mt-10 ms-auto"
       />
+      <a href="./admin-news-list.html" class="btn btn-danger mt-4 ms-auto">取消</a>
     </form>
   </div>
 </main>
