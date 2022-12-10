@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-return */
 /* eslint-disable no-undef */
-const Url = 'http://localhost:3000';
+const Url = 'https://high-rock-server.vercel.app';
 const id = localStorage.getItem('userId');
 
 // 渲染會員資訊

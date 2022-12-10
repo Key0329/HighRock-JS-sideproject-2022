@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const Url = 'http://localhost:3000';
+const Url = 'https://high-rock-server.vercel.app';
 
 const form = document.querySelector('.js-form-editor');
 const btnSendEditor = document.querySelector('.js-send-to-set-editor');

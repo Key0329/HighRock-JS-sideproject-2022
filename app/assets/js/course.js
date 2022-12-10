@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 
-const Url = 'http://localhost:3000';
+const Url = 'https://high-rock-server.vercel.app';
 let toggleList = 'information';
 
 // ---------------------- 報名課程 彈跳視窗 ----------------------

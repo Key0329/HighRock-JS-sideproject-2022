@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const Url = 'http://localhost:3000';
+const Url = 'https://high-rock-server.vercel.app';
 
 // 渲染後臺會員列表
 function renderAdminMember(arr) {

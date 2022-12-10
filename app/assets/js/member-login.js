@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const Url = 'http://localhost:3000';
+const Url = 'https://high-rock-server.vercel.app';
 
 // 將登入資訊存入 LocalStorage
 function saveUserToLocal({ accessToken, user }) {
