@@ -1,7 +1,7 @@
 "use strict";
 
 /* eslint-disable no-undef */
-var Url = 'http://localhost:3000';
+var Url = 'https://high-rock-server.vercel.app';
 
 // ---------------------- 後台-活動課程管理 ----------------------
 
@@ -141,7 +141,7 @@ prevPage();
 "use strict";
 
 /* eslint-disable no-undef */
-var Url = 'http://localhost:3000';
+var Url = 'https://high-rock-server.vercel.app';
 
 // 渲染後臺會員列表
 function renderAdminMember(arr) {
@@ -184,6 +184,240 @@ axios.get("".concat(Url, "/users")).then(function (res) {
 });
 "use strict";
 
+/* eslint-disable no-undef */
+var Url = 'https://high-rock-server.vercel.app';
+var form = document.querySelector('.js-form-editor');
+var btnSendEditor = document.querySelector('.js-send-to-set-editor');
+var createEditor = document.querySelector('#createEditor');
+
+// 新增最新消息到資料庫
+function submitPost(articleData, dataText) {
+  var data = {
+    imgUrl: 'https://picsum.photos/400',
+    title: form.title.value,
+    text: dataText,
+    createTime: "".concat(Date.now()),
+    description: articleData
+  };
+  if (data.title === '' || data.description === '' || data.body === '') {
+    Swal.fire({
+      icon: 'warning',
+      title: '有空欄位未填',
+      showConfirmButton: false,
+      timer: 3000
+    });
+    return;
+  }
+  axios.post("".concat(Url, "/posts"), data).then(function (res) {
+    var isOK = res.status === 201 || res.status === 200;
+    if (isOK) {
+      Swal.fire({
+        icon: 'success',
+        title: '新增成功',
+        showConfirmButton: false,
+        timer: 3000
+      });
+      setTimeout(function () {
+        window.location.replace('./admin-news-list.html');
+      }, 1000);
+    }
+  })["catch"](function (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
+  });
+}
+
+// 取得 editor 內的資料
+function getEditorData(editor) {
+  var articleData = editor.getData();
+  var dataText = editor.ui.view.editable.element.innerText;
+  return submitPost(articleData, dataText);
+}
+
+// po文按鈕監聽
+function editorHandler(editor) {
+  btnSendEditor.addEventListener('click', function () {
+    return getEditorData(editor);
+  });
+}
+
+// 初始化
+function adminCreateInit() {
+  if (createEditor) {
+    // eslint-disable-next-line no-undef
+    ClassicEditor.create(createEditor).then(function (editor) {
+      editorHandler(editor);
+    })["catch"](function (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    });
+  }
+}
+adminCreateInit();
+"use strict";
+
+/* eslint-disable no-undef */
+var Url = 'https://high-rock-server.vercel.app';
+var editForm = document.querySelector('.js-form-editor-edit');
+var btnEditEditor = document.querySelector('.js-send-to-edit-editor');
+var editEditor = document.querySelector('#editEditor');
+var newsId = localStorage.getItem('newsId');
+
+// 修改最新消息
+function submitEdit(articleData, dataText) {
+  var data = {
+    imgUrl: 'https://picsum.photos/400',
+    title: editForm.title.value,
+    text: dataText,
+    createTime: "".concat(Date.now()),
+    description: articleData
+  };
+  if (data.title === '' || data.description === '' || data.body === '') {
+    Swal.fire({
+      icon: 'warning',
+      title: '有空欄位未填',
+      showConfirmButton: false,
+      timer: 3000
+    });
+    return;
+  }
+  axios.put("".concat(Url, "/posts/").concat(newsId), data).then(function (res) {
+    var isOK = res.status === 201 || res.status === 200;
+    if (isOK) {
+      Swal.fire({
+        icon: 'success',
+        title: '編輯成功',
+        showConfirmButton: false,
+        timer: 3000
+      });
+      setTimeout(function () {
+        window.location.replace('./admin-news-list.html');
+      }, 1000);
+    }
+  })["catch"](function (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
+  });
+}
+
+// 取得 editor 內的資料
+function getEditEditorData(editor) {
+  var articleData = editor.getData();
+  var dataText = editor.ui.view.editable.element.innerText;
+  return submitEdit(articleData, dataText);
+}
+
+// 修改按鈕監聽
+function editEditorHandler(editor) {
+  btnEditEditor.addEventListener('click', function () {
+    return getEditEditorData(editor);
+  });
+}
+
+// 取得原有資料內容並帶入編輯器
+function renderOldData(editor) {
+  axios.get("".concat(Url, "/posts/").concat(newsId)).then(function (res) {
+    var data = res.data;
+    var editNewsTitle = document.querySelector('#edit-news-title');
+    editNewsTitle.value = data.title;
+    editor.setData(data.description);
+  })["catch"](function (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
+  });
+}
+
+// 初始化
+function adminEditInit() {
+  if (editEditor) {
+    // eslint-disable-next-line no-undef
+    ClassicEditor.create(editEditor).then(function (editor) {
+      renderOldData(editor);
+      editEditorHandler(editor);
+    })["catch"](function (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    });
+  }
+}
+adminEditInit();
+"use strict";
+
+/* eslint-disable no-undef */
+var Url = 'https://high-rock-server.vercel.app';
+
+// 渲染後臺消息列表
+function renderNewsList(data) {
+  var adminLatestNews = document.querySelector('.admin-latest-news');
+  var str = "\n    <div class=\"col\">\n      <div class=\"card h-100 shadow-sm border-1 border-primary d-flex justify-content-center align-items-center\">\n        <a href=\"./admin-news-create.html\" class=\"stretched-link d-flex flex-column justify-content-center align-content-center hover-orange\">\n        <span class=\"d-block fs-1\">\u65B0\u589E</span>\n        <span class=\"material-symbols-outlined fs-1 text-center\">\n        add_circle\n        </span></a>\n      </div>\n    </div>\n    ";
+  data.forEach(function (item) {
+    str += "\n    <div class=\"col\">\n      <div class=\"card h-100 shadow-sm\">\n        <img src=".concat(item.imgUrl, " class=\"card-img-top\" alt=\"gym-sm-6\" />\n        <div class=\"card-body d-flex flex-column\">\n          <h5 class=\"card-title fw-bold fs-2\">").concat(item.title, "</h5>\n          <div class=card-text>\n          ").concat(item.description, "\n          </div>\n        </div>\n        <div class=\"card-footer text-end\">\n          <button class=\"news-edit-btn btn btn-warning\" data-id=").concat(item.id, ">\u7DE8\u8F2F</button>\n          <button class=\"news-delete-btn btn btn-danger\" data-id=").concat(item.id, ">\u522A\u9664</button>\n        </div>\n      </div>\n    </div>\n    ");
+  });
+  if (adminLatestNews) {
+    adminLatestNews.innerHTML = str;
+  }
+}
+
+// 刪除消息列表
+function deleteNews() {
+  var newsDeleteBtn = document.querySelectorAll('.news-delete-btn');
+  newsDeleteBtn.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      var dataId = e.target.dataset.id;
+      Swal.fire({
+        title: '確定要刪除該文章?',
+        text: '該文章將無法回復',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '繼續刪除'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          axios["delete"]("".concat(Url, "/posts/").concat(dataId)).then(function () {
+            // eslint-disable-next-line no-use-before-define
+            getNewsListData();
+          })["catch"](function (error) {
+            // eslint-disable-next-line no-console
+            console.log(error);
+          });
+          Swal.fire('已刪除!', '該篇po文已刪除', 'success');
+        }
+      });
+    });
+  });
+}
+
+// 編輯消息列表
+function updateNews() {
+  var newsEditBtn = document.querySelectorAll('.news-edit-btn');
+  newsEditBtn.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      var newsId = e.target.dataset.id;
+      localStorage.setItem('newsId', newsId);
+      window.location.replace('./admin-news-edit.html');
+    });
+  });
+}
+
+// 取得消息列表資料
+function getNewsListData() {
+  axios.get("".concat(Url, "/posts")).then(function (res) {
+    var data = res.data;
+    renderNewsList(data);
+    deleteNews();
+    updateNews();
+  })["catch"](function (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
+  });
+}
+function adminNewsListInit() {
+  getNewsListData();
+}
+adminNewsListInit();
+"use strict";
+
 // ---------------------- preloader ---------------------
 
 window.onload = function () {
@@ -208,7 +442,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 /* eslint-disable no-undef */
 
-var Url = 'http://localhost:3000';
+var Url = 'https://high-rock-server.vercel.app';
 var toggleList = 'information';
 
 // ---------------------- 報名課程 彈跳視窗 ----------------------
@@ -1376,8 +1610,38 @@ if (loginClimber1 || loginClimber2 || loginClimber3 || loginClimber4 || loginCli
 }
 "use strict";
 
-// eslint-disable-next-line no-undef
+/* eslint-disable no-undef */
 Cocoen.parse(document.body);
+
+// 渲染最新消息
+
+function renderLatestNews(data) {
+  var gymLatestNews = document.querySelector('.gym-latest-news');
+  var str = '';
+  data.forEach(function (item) {
+    var createPostTime = new Date(+item.createTime);
+    var createPostDate = "".concat(createPostTime.getFullYear(), " / ").concat(createPostTime.getMonth() + 1, " / ").concat(createPostTime.getDate());
+    str += "\n    <div class=\"col\">\n      <div class=\"card h-100 shadow-sm\">\n        <img src=".concat(item.imgUrl, " class=\"card-img-top\" alt=\"gym-sm-6\" />\n        <div class=\"card-body d-flex flex-column\">\n          <h5 class=\"card-title fw-bold fs-2\">").concat(item.title, "</h5>\n          <div class=card-text>\n          ").concat(item.description, "\n          </div>\n        </div>\n        <div class=\"card-footer text-end\">\n          <small class=\"text-muted\">\u5EFA\u7ACB\u65BC ").concat(createPostDate, "</small>\n        </div>\n      </div>\n    </div>\n    ");
+  });
+  if (gymLatestNews) {
+    gymLatestNews.innerHTML = str;
+  }
+}
+function getNewsData() {
+  axios.get("".concat(Url, "/posts")).then(function (res) {
+    var data = res.data;
+    renderLatestNews(data);
+  })["catch"](function (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
+  });
+}
+
+// 初始化
+function gymInfoInit() {
+  getNewsData();
+}
+gymInfoInit();
 "use strict";
 
 /* eslint-disable no-undef */
@@ -1457,7 +1721,7 @@ memberCourseInit();
 
 /* eslint-disable no-useless-return */
 /* eslint-disable no-undef */
-var Url = 'http://localhost:3000';
+var Url = 'https://high-rock-server.vercel.app';
 var id = localStorage.getItem('userId');
 
 // 渲染會員資訊
@@ -1643,7 +1907,7 @@ if (id) {
 "use strict";
 
 /* eslint-disable no-undef */
-var Url = 'http://localhost:3000';
+var Url = 'https://high-rock-server.vercel.app';
 
 // 將登入資訊存入 LocalStorage
 function saveUserToLocal(_ref) {
@@ -1934,7 +2198,7 @@ loginInit();
 "use strict";
 
 /* eslint-disable no-undef */
-var Url = 'http://localhost:3000';
+var Url = 'https://high-rock-server.vercel.app';
 
 // 註冊
 function signUp() {

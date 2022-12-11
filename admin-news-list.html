@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HighRock - admin-member</title>
+    <title>HighRock - admin-news</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
@@ -42,8 +42,11 @@
         </ul>
       </li>
       <li>
-        <a class="hover-orange fw-bold fs-4 fs-lg-2 mb-10 active" href="./admin-member.html"
-          >會員管理</a
+        <a class="hover-orange fw-bold fs-4 fs-lg-2 mb-10" href="./admin-member.html">會員管理</a>
+      </li>
+      <li>
+        <a class="hover-orange fw-bold fs-4 fs-lg-2 mb-10 active" href="./admin-news.html"
+          >最新消息</a
         >
       </li>
       <li>
@@ -70,42 +73,10 @@
 </section>
 
 <main class="ms-80 p-20">
-  <section>
-    <!-- filter -->
-    <div class="mb-10 d-flex align-items-center justify-content-end">
-      <label class="me-2" for="admin-member-filter">關鍵字搜尋</label>
-      <input
-        type="text"
-        name="admin-member-filter"
-        id="admin-member-filter"
-        class="rounded-2 me-2 p-1"
-        placeholder="請輸入要搜尋的文字"
-      />
-      <!-- <button type="button" class="admin-member-filter-btn btn btn-outline-gray-c1">
-            搜尋
-          </button> -->
-    </div>
-    <!-- table -->
-    <div class="table-responsive mb-10">
-      <table class="table table-striped table-hover text-nowrap">
-        <thead>
-          <tr>
-            <th scope="col">會員編號</th>
-            <th scope="col">頭像</th>
-            <th scope="col">姓名</th>
-            <th scope="col">電話</th>
-            <th scope="col">信箱</th>
-          </tr>
-        </thead>
-        <tbody class="admin-member-table"></tbody>
-      </table>
-    </div>
-    <!-- add course -->
-    <!-- <div class="d-flex flex-column">
-      <a href="#" class="btn btn-primary px-4 py-1 rounded-pill ms-auto mb-4">+ 新增會員</a>
-      <a href="#" class="btn btn-danger px-4 py-1 rounded-pill ms-auto">- 刪除會員</a>
-    </div> -->
-  </section>
+  <div class="container">
+    <h2 class="py-5">最新消息列表</h2>
+    <div class="admin-latest-news row row-cols-1 row-cols-md-3 g-8"></div>
+  </div>
 </main>
 
 
