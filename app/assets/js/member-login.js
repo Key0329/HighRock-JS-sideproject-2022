@@ -168,7 +168,7 @@ function login() {
           LoginPanel.innerHTML = str;
           saveUserToLocal(res.data);
           setTimeout(() => {
-            window.location.replace('/index.html');
+            window.location.replace('./index.html');
             // window.history.go(-1);
           }, '3000');
           renderLoginRenderNavMenu();
@@ -183,7 +183,7 @@ function login() {
           LoginPanel.innerHTML = error.response.data || error;
         }
         setTimeout(() => {
-          window.location.replace('/member-login.html');
+          window.location.replace('./member-login.html');
         }, '2000');
       });
   } else {
@@ -321,7 +321,7 @@ function frontLogout() {
         timer: 1500,
       });
       setTimeout(() => {
-        window.location.replace('/member-login.html');
+        window.location.replace('./member-login.html');
       }, '3000');
     });
   }
@@ -342,7 +342,7 @@ function adminLogout() {
         timer: 1500,
       });
       setTimeout(() => {
-        window.location.replace('/member-login.html');
+        window.location.replace('./member-login.html');
       }, '3000');
     });
   }

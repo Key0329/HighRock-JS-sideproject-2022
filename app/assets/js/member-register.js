@@ -32,7 +32,7 @@ function signUp() {
           const str = '<h1 class="text-gray-c1 fw-bold mb-8">註冊成功</h1><p>正在返回登入頁</p>';
           registerPanel.innerHTML = str;
           setTimeout(() => {
-            window.location.replace('/member-login.html');
+            window.location.replace('./member-login.html');
           }, '3000');
         }
       })
@@ -45,7 +45,7 @@ function signUp() {
           registerPanel.innerHTML = error.response.data || error;
         }
         setTimeout(() => {
-          window.location.replace('/member-login.html');
+          window.location.replace('./member-login.html');
         }, '3000');
       });
   } else {
