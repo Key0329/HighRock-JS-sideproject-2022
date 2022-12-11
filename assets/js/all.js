@@ -2012,7 +2012,7 @@ function login() {
         LoginPanel.innerHTML = str;
         saveUserToLocal(res.data);
         setTimeout(function () {
-          window.location.replace('/index.html');
+          window.location.replace('./index.html');
           // window.history.go(-1);
         }, '3000');
         renderLoginRenderNavMenu();
@@ -2026,7 +2026,7 @@ function login() {
         LoginPanel.innerHTML = error.response.data || error;
       }
       setTimeout(function () {
-        window.location.replace('/member-login.html');
+        window.location.replace('./member-login.html');
       }, '2000');
     });
   } else {
@@ -2157,7 +2157,7 @@ function frontLogout() {
         timer: 1500
       });
       setTimeout(function () {
-        window.location.replace('/member-login.html');
+        window.location.replace('./member-login.html');
       }, '3000');
     });
   }
@@ -2178,7 +2178,7 @@ function adminLogout() {
         timer: 1500
       });
       setTimeout(function () {
-        window.location.replace('/member-login.html');
+        window.location.replace('./member-login.html');
       }, '3000');
     });
   }
@@ -2225,7 +2225,7 @@ function signUp() {
         var str = '<h1 class="text-gray-c1 fw-bold mb-8">註冊成功</h1><p>正在返回登入頁</p>';
         registerPanel.innerHTML = str;
         setTimeout(function () {
-          window.location.replace('/member-login.html');
+          window.location.replace('./member-login.html');
         }, '3000');
       }
     })["catch"](function (error) {
@@ -2237,7 +2237,7 @@ function signUp() {
         registerPanel.innerHTML = error.response.data || error;
       }
       setTimeout(function () {
-        window.location.replace('/member-login.html');
+        window.location.replace('./member-login.html');
       }, '3000');
     });
   } else {
