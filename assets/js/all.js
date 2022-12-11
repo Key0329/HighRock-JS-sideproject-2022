@@ -1,7 +1,8 @@
 "use strict";
 
 /* eslint-disable no-undef */
-var Url = 'https://high-rock-server.vercel.app';
+var Url = 'https://highrock-server-render.onrender.com/';
+// const Url = 'https://high-rock-server.vercel.app';
 
 // ---------------------- 後台-活動課程管理 ----------------------
 
@@ -141,7 +142,8 @@ prevPage();
 "use strict";
 
 /* eslint-disable no-undef */
-var Url = 'https://high-rock-server.vercel.app';
+// const Url = 'https://high-rock-server.vercel.app';
+var Url = 'https://highrock-server-render.onrender.com/';
 
 // 渲染後臺會員列表
 function renderAdminMember(arr) {
@@ -185,7 +187,8 @@ axios.get("".concat(Url, "/users")).then(function (res) {
 "use strict";
 
 /* eslint-disable no-undef */
-var Url = 'https://high-rock-server.vercel.app';
+// const Url = 'https://high-rock-server.vercel.app';
+var Url = 'https://highrock-server-render.onrender.com/';
 var form = document.querySelector('.js-form-editor');
 var btnSendEditor = document.querySelector('.js-send-to-set-editor');
 var createEditor = document.querySelector('#createEditor');
@@ -257,7 +260,8 @@ adminCreateInit();
 "use strict";
 
 /* eslint-disable no-undef */
-var Url = 'https://high-rock-server.vercel.app';
+// const Url = 'https://high-rock-server.vercel.app';
+var Url = 'https://highrock-server-render.onrender.com/';
 var editForm = document.querySelector('.js-form-editor-edit');
 var btnEditEditor = document.querySelector('.js-send-to-edit-editor');
 var editEditor = document.querySelector('#editEditor');
@@ -344,7 +348,8 @@ adminEditInit();
 "use strict";
 
 /* eslint-disable no-undef */
-var Url = 'https://high-rock-server.vercel.app';
+// const Url = 'https://high-rock-server.vercel.app';
+var Url = 'https://highrock-server-render.onrender.com/';
 
 // 渲染後臺消息列表
 function renderNewsList(data) {
@@ -442,7 +447,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 /* eslint-disable no-undef */
 
-var Url = 'https://high-rock-server.vercel.app';
+// const Url = 'https://high-rock-server.vercel.app';
+var Url = 'https://highrock-server-render.onrender.com/';
 var toggleList = 'information';
 
 // ---------------------- 報名課程 彈跳視窗 ----------------------
@@ -1721,7 +1727,8 @@ memberCourseInit();
 
 /* eslint-disable no-useless-return */
 /* eslint-disable no-undef */
-var Url = 'https://high-rock-server.vercel.app';
+// const Url = 'https://high-rock-server.vercel.app';
+var Url = 'https://highrock-server-render.onrender.com/';
 var id = localStorage.getItem('userId');
 
 // 渲染會員資訊
@@ -1907,7 +1914,8 @@ if (id) {
 "use strict";
 
 /* eslint-disable no-undef */
-var Url = 'https://high-rock-server.vercel.app';
+// const Url = 'https://high-rock-server.vercel.app';
+var Url = 'https://highrock-server-render.onrender.com/';
 
 // 將登入資訊存入 LocalStorage
 function saveUserToLocal(_ref) {
@@ -2198,7 +2206,8 @@ loginInit();
 "use strict";
 
 /* eslint-disable no-undef */
-var Url = 'https://high-rock-server.vercel.app';
+// const Url = 'https://high-rock-server.vercel.app';
+var Url = 'https://highrock-server-render.onrender.com/';
 
 // 註冊
 function signUp() {
