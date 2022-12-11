@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 // const Url = 'https://high-rock-server.vercel.app';
-const Url = 'https://highrock-server-render.onrender.com/';
+const Url = 'https://highrock-server-render.onrender.com';
 
 // 將登入資訊存入 LocalStorage
 function saveUserToLocal({ accessToken, user }) {

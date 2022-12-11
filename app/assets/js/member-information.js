@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-return */
 /* eslint-disable no-undef */
 // const Url = 'https://high-rock-server.vercel.app';
-const Url = 'https://highrock-server-render.onrender.com/';
+const Url = 'https://highrock-server-render.onrender.com';
 
 const id = localStorage.getItem('userId');
 
