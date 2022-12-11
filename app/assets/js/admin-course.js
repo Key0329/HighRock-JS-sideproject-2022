@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
-const Url = 'https://high-rock-server.vercel.app';
+const Url = 'https://highrock-server-render.onrender.com/';
+// const Url = 'https://high-rock-server.vercel.app';
 
 // ---------------------- 後台-活動課程管理 ----------------------
 
