@@ -32,7 +32,7 @@
     width: 14.28%; // (100/7)
     height: 7rem;
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     transition: background-color 0.2s;
     border: 0.2rem solid transparent;
     &:hover:not(.today) {
@@ -46,4 +46,9 @@
 .prev-date,
 .next-date {
   opacity: 0.5;
+}
+
+.calendar-today {
+  width: 30px;
+  height: 30px;
 }
