@@ -211,9 +211,6 @@
       "name": "頂繩攀登 初階",
       "branch": "HighRock 攀岩館 大安館",
       "coach": "艾斯",
-      "status": "尚有名額",
-      "maximumSignUp": 8,
-      "nowSignUp": 1,
       "lessonDate": ["2022-12-5", "2022-12-19"],
       "color": "yellow-c1"
     },
@@ -223,9 +220,6 @@
       "name": "頂繩攀登 中階",
       "branch": "HighRock 攀岩館 大安館",
       "coach": "史傑克",
-      "status": "尚有名額",
-      "maximumSignUp": 8,
-      "nowSignUp": 1,
       "lessonDate": ["2022-12-13", "2022-12-27"],
       "color": "yellow-c2"
     },
@@ -235,9 +229,6 @@
       "name": "抱石 LV1",
       "branch": "HighRock 攀岩館 大安館",
       "coach": "愛德華",
-      "status": "尚有名額",
-      "maximumSignUp": 8,
-      "nowSignUp": 1,
       "lessonDate": ["2022-12-2", "2022-12-16", "2022-12-30"],
       "color": "blue-c1"
     },
@@ -247,9 +238,6 @@
       "name": "抱石 LV2",
       "branch": "HighRock 攀岩館 大安館",
       "coach": "艾利克",
-      "status": "尚有名額",
-      "maximumSignUp": 8,
-      "nowSignUp": 1,
       "lessonDate": ["2022-12-9", "2022-12-23"],
       "color": "blue-c2"
     }
@@ -275,12 +263,12 @@
     },
     {
       "userId": "4",
-      "lessonId": "1",
-      "name": "頂繩攀登 初階",
+      "lessonId": "2",
+      "name": "頂繩攀登 中階",
       "time": "19:00 ~ 20:00",
       "branch": "HighRock 攀岩館 大安館",
-      "date": "2022 年 12 月 5 日",
-      "id": 4
+      "date": "2022 年 12 月 13 日",
+      "id": 3
     }
   ],
   "batches": [

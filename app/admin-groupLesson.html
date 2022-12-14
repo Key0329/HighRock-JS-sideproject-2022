@@ -65,7 +65,7 @@ current: admin-groupLesson
 <main class="ms-80 p-20">
   <section>
     <!-- filter -->
-    <div class="mb-10 d-flex align-items-center justify-content-end">
+    <!-- <div class="mb-10 d-flex align-items-center justify-content-end">
       <label class="me-2" for="admin-groupLesson-filter">課程篩選</label>
       <select
         class="p-2 rounded-3 text-gray-c2"
@@ -79,15 +79,16 @@ current: admin-groupLesson
         <option value="梯次">日期</option>
         <option value="狀態">狀態</option>
       </select>
-    </div>
+    </div> -->
     <!-- table -->
-    <div class="table-responsive mb-10">
+    <div class="table-responsive my-10">
       <table class="table table-striped table-hover text-nowrap">
         <thead>
           <tr>
-            <th width="20%" scope="col">課程編號</th>
-            <th width="30%" scope="col">課程名稱</th>
-            <th width="30%" scope="col">分館</th>
+            <th width="15%" scope="col">課程編號</th>
+            <th width="20%" scope="col">課程名稱</th>
+            <th width="25%" scope="col">開課日期</th>
+            <th width="20%" scope="col">分館</th>
             <th width="10%" scope="col">教練</th>
             <th width="10%" scope="col"></th>
             <!-- <th scope="col">預約 人數</th>
@@ -99,7 +100,131 @@ current: admin-groupLesson
     </div>
     <!-- add course -->
     <div class="d-flex">
-      <a href="#" class="btn btn-primary px-4 py-1 rounded-pill ms-auto mb-4">+ 開設新課程</a>
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary px-4 py-1 rounded-pill ms-auto mb-4"
+        data-bs-toggle="modal"
+        data-bs-target="#createGroupLesson"
+      >
+        + 開設新課程
+      </button>
     </div>
   </section>
+
+  <!-- Modal -->
+  <!-- 新增已有團體課程日期 -->
+  <div
+    class="modal fade"
+    id="addGroupLessonDate"
+    tabindex="-1"
+    aria-labelledby="addGroupLessonDateLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="addGroupLessonDateLabel">新增上課日期</h3>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body py-10">
+          <form>
+            <div class="row mb-4">
+              <label class="col-4 col-form-label text-center" for="admin-group-lesson-name"
+                >課程名稱
+                <p class="d-none">id: <span class="admin-group-lesson-id"></span></p
+              ></label>
+              <div class="col-8">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="admin-group-lesson"
+                  id="admin-group-lesson-name"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <label class="col-4 col-form-label text-center" for="admin-group-lesson-id"
+                >課程編號</label
+              >
+              <div class="col-8">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="admin-group-lesson"
+                  id="admin-group-lesson-id"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="row mb-12">
+              <label class="col-4 col-form-label text-center" for="admin-group-lesson-branch"
+                >課程館別</label
+              >
+              <div class="col-8">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="admin-group-lesson"
+                  id="admin-group-lesson-branch"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-4 col-form-label text-center" for="admin-group-lesson-date"
+                >請選擇課程日期</label
+              >
+              <div class="col-8">
+                <input
+                  class="admin-group-lesson-date form-control"
+                  type="text"
+                  name="admin-group-lesson-date"
+                  id="datepicker"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">取消</button>
+          <button type="button" class="add-new-group-lesson-btn btn btn-primary">確認</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 新增團體課程類別 -->
+  <div
+    class="modal fade"
+    id="createGroupLesson"
+    tabindex="-1"
+    aria-labelledby="createGroupLessonLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createGroupLessonLabel">Modal title</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>

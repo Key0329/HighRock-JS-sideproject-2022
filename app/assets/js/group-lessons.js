@@ -31,13 +31,15 @@ function renderLesson(data) {
         )}][data-date=${CSS.escape(lessonDateObj.date)}]`,
       );
 
-      lessons.innerHTML = `
-        <p class="align-self-start mb-1">${lessonDateObj.date}</p>
-        <div class="d-flex flex-column align-items-center w-100">
-        <p class="text-center bg-${item.color} mb-1 p-1 rounded-1">${item.name}</p>
-        <button type="button" data-id=${item.id} data-bs-toggle="modal" data-bs-target="#reserveModal" class="group-lesson-reserve-btn btn btn-outline-gray-c1 w-50 fs-5 p-1">預約</button>
-        </div>
-        `;
+      if (lessons) {
+        lessons.innerHTML = `
+          <p class="align-self-start mb-1">${lessonDateObj.date}</p>
+          <div class="d-flex flex-column align-items-center w-100">
+          <p class="text-center bg-${item.color} mb-1 p-1 rounded-1">${item.name}</p>
+          <button type="button" data-id=${item.id} data-bs-toggle="modal" data-bs-target="#reserveModal" class="group-lesson-reserve-btn btn btn-outline-gray-c1 w-50 fs-5 p-1">預約</button>
+          </div>
+          `;
+      }
     });
   });
 
@@ -120,7 +122,8 @@ const prevMonth = document.querySelector('.prev');
 if (prevMonth) {
   prevMonth.addEventListener('click', () => {
     date.setMonth(date.getMonth() - 1);
-    renderCalendar();
+    // eslint-disable-next-line no-use-before-define
+    groupLessonInit();
   });
 }
 
@@ -129,7 +132,8 @@ const nextMonth = document.querySelector('.next');
 if (nextMonth) {
   nextMonth.addEventListener('click', () => {
     date.setMonth(date.getMonth() + 1);
-    renderCalendar();
+    // eslint-disable-next-line no-use-before-define
+    groupLessonInit();
   });
 }
 const groupLessonName = document.querySelector('#group-lesson-name');
@@ -205,27 +209,50 @@ function postReservation() {
               showConfirmButton: false,
               timer: 1500,
             });
+
             return;
           }
 
-          // eslint-disable-next-line consistent-return
-          return axios.post('http://localhost:3000/groupLessonStudents', data);
-        })
-        .then(() => {
-          const reserveModal = document.getElementById('reserveModal');
-          $(reserveModal).modal('hide');
+          axios
+            .post('http://localhost:3000/groupLessonStudents', data)
+            .then(() => {
+              const reserveModal = document.getElementById('reserveModal');
+              $(reserveModal).modal('hide');
 
-          Swal.fire({
-            icon: 'success',
-            title: '預約成功',
-            showConfirmButton: false,
-            timer: 1500,
-          });
+              Swal.fire({
+                icon: 'success',
+                title: '預約成功',
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            })
+            .catch((error) => {
+              // eslint-disable-next-line no-console
+              console.log(error);
+            });
+
+          // eslint-disable-next-line consistent-return
+          // return axios.post('http://localhost:3000/groupLessonStudents', data);
         })
         .catch((error) => {
           // eslint-disable-next-line no-console
           console.log(error);
         });
+      // .then(() => {
+      //   const reserveModal = document.getElementById('reserveModal');
+      //   $(reserveModal).modal('hide');
+
+      //   Swal.fire({
+      //     icon: 'success',
+      //     title: '預約成功',
+      //     showConfirmButton: false,
+      //     timer: 1500,
+      //   });
+      // })
+      // .catch((error) => {
+      //   // eslint-disable-next-line no-console
+      //   console.log(error);
+      // });
 
       // axios
       //   .post('http://localhost:3000/groupLessonStudents', data)
@@ -266,9 +293,8 @@ function getLessonData() {
 
 // 團體課程初始化
 function groupLessonInit() {
-  getLessonData();
   renderCalendar();
-  takeDataToReserveForm();
+  getLessonData();
   postReservation();
 }
 
