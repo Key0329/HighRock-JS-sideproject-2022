@@ -85,50 +85,21 @@ current: admin-groupLesson
       <table class="table table-striped table-hover text-nowrap">
         <thead>
           <tr>
-            <th scope="col">課程編號</th>
-            <th scope="col">課程名稱</th>
-            <th scope="col">分館</th>
-            <th scope="col">教練</th>
-            <th scope="col">日期</th>
-            <th scope="col">預約 人數</th>
-            <th scope="col">狀態</th>
+            <th width="20%" scope="col">課程編號</th>
+            <th width="30%" scope="col">課程名稱</th>
+            <th width="30%" scope="col">分館</th>
+            <th width="10%" scope="col">教練</th>
+            <th width="10%" scope="col"></th>
+            <!-- <th scope="col">預約 人數</th>
+            <th scope="col">狀態</th> -->
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">GRP120222</th>
-            <td>抱石 LV 1</td>
-            <td>大安館</td>
-            <td>史傑克</td>
-            <td>2022-1-9</td>
-            <td>5 / 8 位</td>
-            <td class="text-success">已開課</td>
-          </tr>
-          <tr>
-            <th scope="row">GRP120223</th>
-            <td>上攀 初階</td>
-            <td>新莊館</td>
-            <td>史傑克</td>
-            <td>2022-1-13</td>
-            <td>1 / 8 位</td>
-            <td class="text-danger">尚未開課</td>
-          </tr>
-          <tr>
-            <th scope="row">GRP120224</th>
-            <td>抱石 LV 2</td>
-            <td>大安館</td>
-            <td>史傑克</td>
-            <td>2022-1-16</td>
-            <td>3 / 8 位</td>
-            <td class="text-success">已開課</td>
-          </tr>
-        </tbody>
+        <tbody class="admin-group-lesson-table"></tbody>
       </table>
     </div>
     <!-- add course -->
-    <div class="d-flex flex-column">
+    <div class="d-flex">
       <a href="#" class="btn btn-primary px-4 py-1 rounded-pill ms-auto mb-4">+ 開設新課程</a>
-      <a href="#" class="btn btn-danger px-4 py-1 rounded-pill ms-auto">- 刪除課程</a>
     </div>
   </section>
 </main>

@@ -230,7 +230,7 @@ function getGroupLessonData() {
     .get(`http://localhost:3000/users/${id}/groupLessonStudents?_expand=lesson`)
     .then((res) => {
       const { data } = res;
-      console.log(data);
+
       renderMemberGroupLesson(data);
       deleteGroupLesson();
     })

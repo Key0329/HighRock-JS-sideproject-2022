@@ -1,9 +1,51 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-plusplus */
 // const Url = 'https://highrock-server-render.onrender.com';
-// const Url = 'http://localhost:3000';
+
 const date = new Date();
 
+// 渲染預約課程
+function renderLesson(data) {
+  data.forEach((item) => {
+    // console.log(item);
+    // console.log(item.lessonDate);
+    const lessonDataArr = item.lessonDate;
+
+    lessonDataArr.forEach((i) => {
+      // console.log(i);
+      const lessonDateArrDetail = i.split('-');
+      // console.log(lessonDateArrDetail);
+      const lessonDateObj = {
+        year: lessonDateArrDetail[0],
+        month: lessonDateArrDetail[1],
+        date: lessonDateArrDetail[2],
+      };
+      // console.log(lessonDateObj);
+
+      // const lessons = document.querySelector(
+      //   "div[data-year='2022'][data-month='12'][data-date='15']",
+      // );
+      const lessons = document.querySelector(
+        `div[data-year=${CSS.escape(lessonDateObj.year)}][data-month=${CSS.escape(
+          lessonDateObj.month,
+        )}][data-date=${CSS.escape(lessonDateObj.date)}]`,
+      );
+
+      lessons.innerHTML = `
+        <p class="align-self-start mb-1">${lessonDateObj.date}</p>
+        <div class="d-flex flex-column align-items-center w-100">
+        <p class="text-center bg-${item.color} mb-1 p-1 rounded-1">${item.name}</p>
+        <button type="button" data-id=${item.id} data-bs-toggle="modal" data-bs-target="#reserveModal" class="group-lesson-reserve-btn btn btn-outline-gray-c1 w-50 fs-5 p-1">預約</button>
+        </div>
+        `;
+    });
+  });
+
+  // eslint-disable-next-line no-use-before-define
+  takeDataToReserveForm();
+}
+
+// 渲染月曆
 const renderCalendar = () => {
   date.setDate(1);
 
@@ -39,7 +81,7 @@ const renderCalendar = () => {
 
   // 上個月日期
   for (let x = firstDayIndex; x > 0; x--) {
-    days += `<div class="prev-date" data-month=${date.getMonth()} data-date=${
+    days += `<div class="prev-date" data-year=${date.getFullYear()} data-month=${date.getMonth()} data-date=${
       prevLastDay - x + 1
     }>${prevLastDay - x + 1}</div>`;
   }
@@ -48,62 +90,14 @@ const renderCalendar = () => {
   for (let i = 1; i <= lastDate; i++) {
     if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
       days += `
-      <div class="today class="today flex-column border-1 border-primary-lightest" h-100" data-month=${
+      <div class="today flex-column border-1 border-primary-lightest" h-100" data-year=${date.getFullYear()} data-month=${
   date.getMonth() + 1
 } data-date=${i}>
       <p class="calendar-today rounded-3 bg-primary p-1">${i}</p>
       </div>
       `;
-    } else if ((i === 5 || i === 19) && date.getMonth() === new Date().getMonth()) {
-      days += `
-      <div class="flex-column border-1 border-primary-lightest" data-month=${
-  date.getMonth() + 1
-} data-date=${i}>
-            <p class="align-self-start mb-1">${i}</p>
-            <div class="d-flex flex-column align-items-center w-100">
-            <p class="text-center bg-yellow-c1 mb-1 p-1 rounded-1">頂繩攀登 初階</p>
-            <button type="button" data-id=1 data-bs-toggle="modal" data-bs-target="#reserveModal" class="group-lesson-reserve-btn btn btn-outline-gray-c1 w-50 fs-5 p-1">預約</button>
-            </div>
-            </div>
-      `;
-    } else if ((i === 13 || i === 27) && date.getMonth() === new Date().getMonth()) {
-      days += `
-      <div class="flex-column border-1 border-primary-lightest" data-month=${
-  date.getMonth() + 1
-} data-date=${i}>
-            <p class="align-self-start mb-1">${i}</p>
-            <div class="d-flex flex-column align-items-center w-100">
-            <p class="text-center bg-yellow-c2 mb-1 p-1 rounded-1">頂繩攀登 中階</p>
-            <button type="button" data-id=2 data-bs-toggle="modal" data-bs-target="#reserveModal" class="group-lesson-reserve-btn btn btn-outline-gray-c1 w-50 fs-5 p-1">預約</button>
-            </div>
-            </div>
-      `;
-    } else if ((i === 2 || i === 16 || i === 30) && date.getMonth() === new Date().getMonth()) {
-      days += `
-      <div class="flex-column border-1 border-primary-lightest" data-month=${
-  date.getMonth() + 1
-} data-date=${i}>
-      <p class="align-self-start mb-1">${i}</p>
-      <div class="d-flex flex-column align-items-center w-100">
-      <p class="text-center bg-blue-c1 mb-1 p-1 rounded-1">抱石 LV1</p>
-      <button type="button" data-id=3 data-bs-toggle="modal" data-bs-target="#reserveModal" class="group-lesson-reserve-btn btn btn-outline-gray-c1 w-50 fs-5 p-1">預約</button>
-      </div>
-      </div>
-      `;
-    } else if ((i === 9 || i === 23) && date.getMonth() === new Date().getMonth()) {
-      days += `
-      <div class="flex-column border-1 border-primary-lightest" data-month=${
-  date.getMonth() + 1
-} data-date=${i}>
-      <p class="align-self-start mb-1">${i}</p>
-      <div class="d-flex flex-column align-items-center w-100">
-      <p class="text-center bg-blue-c2 mb-1 p-1 rounded-1">抱石 LV2</p>
-      <button type="button" data-id=4 data-bs-toggle="modal" data-bs-target="#reserveModal" class="group-lesson-reserve-btn btn btn-outline-gray-c1 w-50 fs-5 p-1">預約</button>
-      </div>
-      </div>
-      `;
     } else {
-      days += `<div class="flex-column border-1 border-primary-lightest" data-month=${
+      days += `<div class="flex-column border-1 border-primary-lightest" data-year=${date.getFullYear()} data-month=${
         date.getMonth() + 1
       } data-date=${i}>${i}</div>`;
     }
@@ -111,21 +105,14 @@ const renderCalendar = () => {
 
   // 下個月日期
   for (let j = 1; j <= nextDays; j++) {
-    days += `<div class="next-date" data-month=${date.getMonth() + 2} data-date=${j}>${j}</div>`;
+    days += `<div class="next-date" data-year=${date.getFullYear()} data-month=${
+      date.getMonth() + 2
+    } data-date=${j}>${j}</div>`;
   }
 
   if (monthDays) {
     monthDays.innerHTML = days;
   }
-
-  // const nn = document.querySelector("div[data-month='12'][data-date='13']");
-  // nn.innerHTML = `
-  //       <p class="align-self-start mb-1">12</p>
-  //       <div class="d-flex flex-column align-items-center w-100">
-  //       <p class="text-center bg-blue-c1 mb-1 p-1 rounded-1">抱石 LV1</p>
-  //       <button type="button" class="btn btn-outline-gray-c1 w-50 fs-5 p-1">預約</button>
-  //       </div>
-  // `;
 };
 
 // 切換上個月
@@ -263,7 +250,23 @@ function postReservation() {
   }
 }
 
+function getLessonData() {
+  axios
+    .get('http://localhost:3000/lessons')
+    .then((res) => {
+      const { data } = res;
+      // console.log(data);
+      renderLesson(data);
+    })
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error);
+    });
+}
+
+// 團體課程初始化
 function groupLessonInit() {
+  getLessonData();
   renderCalendar();
   takeDataToReserveForm();
   postReservation();
