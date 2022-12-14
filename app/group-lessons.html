@@ -31,4 +31,94 @@ current: group-lessons
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="reserveModal"
+    tabindex="-1"
+    aria-labelledby="reserveModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reserveModalLabel">預約資訊</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body py-8">
+          <form>
+            <div class="row mb-4">
+              <label class="col-3 col-form-label text-center" for="group-lesson-name"
+                >課程名稱
+                <p class="d-none">id: <span class="group-lesson-id"></span></p
+              ></label>
+              <div class="col-9">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="group-lesson"
+                  id="group-lesson-name"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <label class="col-3 col-form-label text-center" for="group-lesson-time"
+                >課程時間</label
+              >
+              <div class="col-9">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="group-lesson"
+                  id="group-lesson-time"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <label class="col-3 col-form-label text-center" for="group-lesson-branch"
+                >課程館別</label
+              >
+              <div class="col-9">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="group-lesson"
+                  id="group-lesson-branch"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-3 col-form-label text-center" for="group-lesson-date"
+                >課程日期</label
+              >
+              <div class="col-9">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="group-lesson"
+                  id="group-lesson-date"
+                  readonly
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">取消</button>
+          <button type="button" class="group-lesson-reservation-confirm-btn btn btn-primary">
+            確認預約
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>

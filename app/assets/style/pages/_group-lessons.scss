@@ -37,7 +37,7 @@
     border: 0.2rem solid transparent;
     &:hover:not(.today) {
       background-color: $primary;
-      border: 0.2rem solid $primary-lightest;
+      // border: 0.2rem solid $primary-lightest;
       cursor: pointer;
     }
   }

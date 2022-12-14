@@ -215,19 +215,75 @@
       }
     }
   ],
-  "groupLessons": [
+  "lessons": [
     {
       "id": 1,
-      "groupCourseId": "grp001 ",
-      "name": "上攀 (初階)",
-      "branch": "新莊館",
-      "date": "2022-1-9 ",
-      "startTime": "19:00",
-      "endTime": "20:00",
+      "groupLessonId": "grp001",
+      "name": "頂繩攀登 初階",
+      "branch": "HighRock 攀岩館 大安館",
       "coach": "史傑克",
       "status": "尚有名額",
       "maximumSignUp": 8,
       "nowSignUp": 1
+    },
+    {
+      "id": 2,
+      "groupLessonId": "grp002",
+      "name": "頂繩攀登 中階",
+      "branch": "HighRock 攀岩館 大安館",
+      "coach": "史傑克",
+      "status": "尚有名額",
+      "maximumSignUp": 8,
+      "nowSignUp": 1
+    },
+    {
+      "id": 3,
+      "groupLessonId": "grp003",
+      "name": "抱石 LV1",
+      "branch": "HighRock 攀岩館 大安館",
+      "coach": "史傑克",
+      "status": "尚有名額",
+      "maximumSignUp": 8,
+      "nowSignUp": 1
+    },
+    {
+      "id": 4,
+      "groupLessonId": "grp004",
+      "name": "抱石 LV2",
+      "branch": "HighRock 攀岩館 大安館",
+      "coach": "史傑克",
+      "status": "尚有名額",
+      "maximumSignUp": 8,
+      "nowSignUp": 1
+    }
+  ],
+  "groupLessonStudents": [
+    {
+      "id": 1,
+      "userId": "1",
+      "lessonId": "1",
+      "name": "頂繩攀登 初階",
+      "time": "19:00 ~ 20:00",
+      "branch": "HighRock 攀岩館 大安館",
+      "date": "2023 年 12 月 19 日"
+    },
+    {
+      "userId": "4",
+      "lessonId": "3",
+      "name": "抱石 LV1",
+      "time": "19:00 ~ 20:00",
+      "branch": "HighRock 攀岩館 大安館",
+      "date": "2022 年 12 月 2 日",
+      "id": 2
+    },
+    {
+      "userId": "4",
+      "lessonId": "1",
+      "name": "頂繩攀登 初階",
+      "time": "19:00 ~ 20:00",
+      "branch": "HighRock 攀岩館 大安館",
+      "date": "2022 年 12 月 5 日",
+      "id": 4
     }
   ],
   "batches": [
