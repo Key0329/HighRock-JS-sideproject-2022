@@ -169,7 +169,7 @@ function takeDataToAddLessonForm() {
   adminAddLessonBtn.forEach(function (item) {
     item.addEventListener('click', function (e) {
       var targetId = e.target.dataset.id;
-      axios.get("http://localhost:3000/lessons/".concat(targetId)).then(function (res) {
+      axios.get("".concat(Url, "/lessons/").concat(targetId)).then(function (res) {
         var data = res.data;
         adminGroupLessonName.value = data.name;
         adminGroupLessonId.value = targetId;
@@ -190,14 +190,14 @@ function addNewGroupLessonDate() {
     addNewGroupLessonBtn.addEventListener('click', function () {
       var id = adminGroupLessonId.value;
       var newDate = adminGroupLessonDate.value;
-      axios.get("http://localhost:3000/lessons/".concat(id)).then(function (res) {
+      axios.get("".concat(Url, "/lessons/").concat(id)).then(function (res) {
         var data = res.data;
         var dateArr = data.lessonDate;
         dateArr.push(newDate);
         var newDateData = {
           lessonDate: dateArr
         };
-        return axios.patch("http://localhost:3000/lessons/".concat(id), newDateData);
+        return axios.patch("".concat(Url, "/lessons/").concat(id), newDateData);
       }).then(function () {
         var addGroupLessonDateModal = document.getElementById('addGroupLessonDate');
         var modalBackDrop = document.querySelector('.modal-backdrop');
@@ -255,7 +255,7 @@ function addGroupLessonType() {
         // eslint-disable-next-line no-useless-return
         return;
       }
-      axios.post('http://localhost:3000/lessons', data).then(function () {
+      axios.post("".concat(Url, "/lessons"), data).then(function () {
         var createGroupLesson = document.getElementById('createGroupLesson');
         var modalBackDrop = document.querySelector('.modal-backdrop');
         document.body.style.overflow = 'auto';
@@ -302,7 +302,7 @@ function deleteGroupLessonType() {
         cancelButtonText: '取消'
       }).then(function (result) {
         if (result.isConfirmed) {
-          axios["delete"]("http://localhost:3000/lessons/".concat(id)).then(function () {
+          axios["delete"]("".concat(Url, "/lessons/").concat(id)).then(function () {
             // eslint-disable-next-line no-use-before-define
             adminGroupLessonInit();
             Swal.fire('已刪除！', '該類別已刪除', 'success');
@@ -318,7 +318,7 @@ function deleteGroupLessonType() {
 
 // 取得團體課程遠端資料
 function getAdminGroupLessonData() {
-  axios.get('http://localhost:3000/lessons').then(function (res) {
+  axios.get("".concat(Url, "/lessons")).then(function (res) {
     var data = res.data;
     renderAdminGroupLessonTable(data);
     takeDataToAddLessonForm();
@@ -1330,7 +1330,7 @@ function postReservation() {
         branch: branch,
         date: lessonDate
       };
-      axios.get("http://localhost:3000/users/".concat(userId, "/groupLessonStudents")).then(function (res) {
+      axios.get("".concat(Url, "/users/").concat(userId, "/groupLessonStudents")).then(function (res) {
         var userData = res.data;
         var hadReserved = false;
         userData.forEach(function (i) {
@@ -1347,7 +1347,7 @@ function postReservation() {
           });
           return;
         }
-        axios.post('http://localhost:3000/groupLessonStudents', data).then(function () {
+        axios.post("".concat(Url, "/groupLessonStudents"), data).then(function () {
           var reserveModal = document.getElementById('reserveModal');
           $(reserveModal).modal('hide');
           Swal.fire({
@@ -1407,7 +1407,7 @@ function postReservation() {
 }
 
 function getLessonData() {
-  axios.get('http://localhost:3000/lessons').then(function (res) {
+  axios.get("".concat(Url, "/lessons")).then(function (res) {
     var data = res.data;
     // console.log(data);
     renderLesson(data);
@@ -2142,7 +2142,7 @@ function deleteGroupLesson() {
         confirmButtonText: '確認'
       }).then(function (result) {
         if (result.isConfirmed) {
-          axios["delete"]("http://localhost:3000/groupLessonStudents/".concat(deleteId)).then(function () {
+          axios["delete"]("".concat(Url, "/groupLessonStudents/").concat(deleteId)).then(function () {
             // eslint-disable-next-line no-use-before-define
             getGroupLessonData();
           })["catch"](function (error) {
@@ -2190,7 +2190,7 @@ function getCourseData() {
 // 獲取團體課程預約資訊
 function getGroupLessonData() {
   var id = localStorage.getItem('userId');
-  axios.get("http://localhost:3000/users/".concat(id, "/groupLessonStudents?_expand=lesson")).then(function (res) {
+  axios.get("".concat(Url, "/users/").concat(id, "/groupLessonStudents?_expand=lesson")).then(function (res) {
     var data = res.data;
     renderMemberGroupLesson(data);
     deleteGroupLesson();
