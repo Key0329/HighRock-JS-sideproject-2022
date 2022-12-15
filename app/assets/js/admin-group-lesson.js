@@ -15,14 +15,20 @@ function renderAdminGroupLessonTable(arr) {
 
     str += `
     <tr>
-      <th scope="row">${item.groupLessonId}</th>
+      <th class="bg-${item.color}" scope="row">${item.groupLessonId}</th>
       <td>${item.name}</td>
       <td>${dateStr}</td>
+      <td>
+        <button type="button" class="admin-add-lesson-btn btn btn-${item.color}" data-bs-toggle="modal"
+        data-bs-target="#addGroupLessonDate" data-id=${item.id}>新增上課日</button>
+      </td>
       <td>${item.branch}</td>
       <td>${item.coach}</td>
       <td>
-        <button type="button" class="admin-add-lesson-btn btn btn-warning" data-bs-toggle="modal"
-        data-bs-target="#addGroupLessonDate" data-id=${item.id}>新增上課日期</button>
+      <a class="deleteGroupLessonBtn" href="#" data-id=${item.id}>
+      <span class="material-symbols-outlined">
+      delete</span>
+      </a>
       </td>
     </tr>
     `;
@@ -88,12 +94,15 @@ function addNewGroupLessonDate() {
           const addGroupLessonDateModal = document.getElementById('addGroupLessonDate');
           const modalBackDrop = document.querySelector('.modal-backdrop');
 
+          document.body.style.overflow = 'auto';
           addGroupLessonDateModal.classList.remove('show');
           addGroupLessonDateModal.setAttribute('style', 'display: none;');
           addGroupLessonDateModal.setAttribute('aria-hidden', 'true');
           addGroupLessonDateModal.removeAttribute('aria-modal');
           addGroupLessonDateModal.removeAttribute('role');
-          modalBackDrop.remove();
+          if (modalBackDrop) {
+            modalBackDrop.remove();
+          }
 
           Swal.fire({
             icon: 'success',
@@ -101,6 +110,9 @@ function addNewGroupLessonDate() {
             showConfirmButton: false,
             timer: 1500,
           });
+
+          // eslint-disable-next-line no-use-before-define
+          getAdminGroupLessonData();
         })
         .catch((error) => {
           // eslint-disable-next-line no-console
@@ -108,6 +120,115 @@ function addNewGroupLessonDate() {
         });
     });
   }
+}
+
+// 新增團體課程類別
+function addGroupLessonType() {
+  const adminGroupLessonCreateName = document.querySelector('#admin-group-lesson-create-name');
+  const adminGroupLessonCreateId = document.querySelector('#admin-group-lesson-create-id');
+  const adminGroupLessonCreateBranch = document.querySelector('#admin-group-lesson-create-branch');
+  const adminGroupLessonCreateCoach = document.querySelector('.admin-group-lesson-create-coach');
+  const adminGroupLessonCreateSelect = document.querySelector('.admin-group-lesson-create-select');
+
+  const createNewGroupLessonBtn = document.querySelector('.create-new-group-lesson-btn');
+  if (createNewGroupLessonBtn) {
+    createNewGroupLessonBtn.addEventListener('click', () => {
+      const data = {
+        name: adminGroupLessonCreateName.value,
+        groupLessonId: adminGroupLessonCreateId.value,
+        branch: adminGroupLessonCreateBranch.value,
+        coach: adminGroupLessonCreateCoach.value,
+        color: adminGroupLessonCreateSelect.value,
+        lessonDate: [],
+      };
+
+      if (
+        adminGroupLessonCreateName.value === ''
+        || adminGroupLessonCreateId.value === ''
+        || adminGroupLessonCreateBranch.value === ''
+        || adminGroupLessonCreateCoach.value === '選擇教練'
+        || adminGroupLessonCreateSelect.value === '選擇主題顏色'
+      ) {
+        Swal.fire({
+          icon: 'warning',
+          title: '有空欄位未填',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        // eslint-disable-next-line no-useless-return
+        return;
+      }
+
+      axios
+        .post('http://localhost:3000/lessons', data)
+        .then(() => {
+          const createGroupLesson = document.getElementById('createGroupLesson');
+          const modalBackDrop = document.querySelector('.modal-backdrop');
+
+          document.body.style.overflow = 'auto';
+          createGroupLesson.classList.remove('show');
+          createGroupLesson.setAttribute('style', 'display: none;');
+          createGroupLesson.setAttribute('aria-hidden', 'true');
+          createGroupLesson.removeAttribute('aria-modal');
+          createGroupLesson.removeAttribute('role');
+
+          if (modalBackDrop) {
+            modalBackDrop.remove();
+          }
+
+          Swal.fire({
+            icon: 'success',
+            title: '開設成功',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+
+          // eslint-disable-next-line no-use-before-define
+          getAdminGroupLessonData();
+        })
+        .catch((error) => {
+          // eslint-disable-next-line no-console
+          console.log(error);
+        });
+    });
+  }
+}
+
+// 刪除團體課程類別
+function deleteGroupLessonType() {
+  const deleteGroupLessonBtn = document.querySelectorAll('.deleteGroupLessonBtn');
+  deleteGroupLessonBtn.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const { id } = e.target.closest('a').dataset;
+
+      Swal.fire({
+        title: '確定要刪除此課程類別嗎?',
+        text: '刪除後將無法復原',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '確定刪除',
+        cancelButtonText: '取消',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axios
+            .delete(`http://localhost:3000/lessons/${id}`)
+            .then(() => {
+              // eslint-disable-next-line no-use-before-define
+              adminGroupLessonInit();
+
+              Swal.fire('已刪除！', '該類別已刪除', 'success');
+            })
+            .catch((error) => {
+              // eslint-disable-next-line no-console
+              console.log(error);
+            });
+        }
+      });
+    });
+  });
 }
 
 // 取得團體課程遠端資料
@@ -119,6 +240,7 @@ function getAdminGroupLessonData() {
       renderAdminGroupLessonTable(data);
       takeDataToAddLessonForm();
       addNewGroupLessonDate();
+      deleteGroupLessonType();
     })
     .catch((error) => {
       // eslint-disable-next-line no-console
@@ -138,9 +260,22 @@ if (datepicker) {
   });
 }
 
+// select color
+const adminGroupLessonCreateSelect = document.querySelector('.admin-group-lesson-create-select');
+let previousValue = '';
+
+if (adminGroupLessonCreateSelect) {
+  adminGroupLessonCreateSelect.addEventListener('change', (e) => {
+    adminGroupLessonCreateSelect.classList.remove(`bg-${previousValue}`);
+    adminGroupLessonCreateSelect.classList.add(`bg-${e.target.value}`);
+    previousValue = e.target.value;
+  });
+}
+
 // 後臺團體課程管理頁面初始化
 function adminGroupLessonInit() {
   getAdminGroupLessonData();
+  addGroupLessonType();
 }
 
 adminGroupLessonInit();

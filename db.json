@@ -211,7 +211,7 @@
       "name": "頂繩攀登 初階",
       "branch": "HighRock 攀岩館 大安館",
       "coach": "艾斯",
-      "lessonDate": ["2022-12-5", "2022-12-19"],
+      "lessonDate": ["2022-12-4", "2022-12-18", "2023-1-8", "2023-1-22"],
       "color": "yellow-c1"
     },
     {
@@ -220,7 +220,7 @@
       "name": "頂繩攀登 中階",
       "branch": "HighRock 攀岩館 大安館",
       "coach": "史傑克",
-      "lessonDate": ["2022-12-13", "2022-12-27"],
+      "lessonDate": ["2022-11-30", "2022-12-14", "2022-12-28", "2023-1-11", "2023-1-25"],
       "color": "yellow-c2"
     },
     {
@@ -229,7 +229,7 @@
       "name": "抱石 LV1",
       "branch": "HighRock 攀岩館 大安館",
       "coach": "愛德華",
-      "lessonDate": ["2022-12-2", "2022-12-16", "2022-12-30"],
+      "lessonDate": ["2022-12-11", "2022-12-25", "2023-1-15", "2023-1-29"],
       "color": "blue-c1"
     },
     {
@@ -238,8 +238,26 @@
       "name": "抱石 LV2",
       "branch": "HighRock 攀岩館 大安館",
       "coach": "艾利克",
-      "lessonDate": ["2022-12-9", "2022-12-23"],
+      "lessonDate": ["2022-12-7", "2022-12-21", "2023-1-4", "2023-1-18", "2023-2-1"],
       "color": "blue-c2"
+    },
+    {
+      "name": "兒童抱石",
+      "groupLessonId": "GRP-005",
+      "branch": "HighRock 攀岩館 大安館",
+      "coach": "艾斯",
+      "color": "purple",
+      "lessonDate": ["2022-12-3", "2022-12-17", "2022-12-31"],
+      "id": 5
+    },
+    {
+      "name": "兒童攀登",
+      "groupLessonId": "GRP-006",
+      "branch": "HighRock 攀岩館 大安館",
+      "coach": "愛德華",
+      "color": "blue",
+      "lessonDate": ["2022-12-10", "2022-12-24"],
+      "id": 6
     }
   ],
   "groupLessonStudents": [
@@ -260,15 +278,6 @@
       "branch": "HighRock 攀岩館 大安館",
       "date": "2022 年 12 月 2 日",
       "id": 2
-    },
-    {
-      "userId": "4",
-      "lessonId": "2",
-      "name": "頂繩攀登 中階",
-      "time": "19:00 ~ 20:00",
-      "branch": "HighRock 攀岩館 大安館",
-      "date": "2022 年 12 月 13 日",
-      "id": 3
     }
   ],
   "batches": [

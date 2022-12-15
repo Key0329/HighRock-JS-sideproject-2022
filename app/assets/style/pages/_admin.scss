@@ -28,3 +28,9 @@
     }
   }
 }
+
+/* CKEditor 編輯區塊 */
+.ck-editor__editable_inline {
+  /* 設定最低高度 */
+  min-height: 500px;
+}
