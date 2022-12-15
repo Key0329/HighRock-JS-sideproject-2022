@@ -173,7 +173,7 @@ function deleteGroupLesson() {
       }).then((result) => {
         if (result.isConfirmed) {
           axios
-            .delete(`http://localhost:3000/groupLessonStudents/${deleteId}`)
+            .delete(`${Url}/groupLessonStudents/${deleteId}`)
             .then(() => {
               // eslint-disable-next-line no-use-before-define
               getGroupLessonData();
@@ -227,7 +227,7 @@ function getCourseData() {
 function getGroupLessonData() {
   const id = localStorage.getItem('userId');
   axios
-    .get(`http://localhost:3000/users/${id}/groupLessonStudents?_expand=lesson`)
+    .get(`${Url}/users/${id}/groupLessonStudents?_expand=lesson`)
     .then((res) => {
       const { data } = res;
 

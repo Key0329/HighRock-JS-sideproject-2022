@@ -190,7 +190,7 @@ function postReservation() {
       };
 
       axios
-        .get(`http://localhost:3000/users/${userId}/groupLessonStudents`)
+        .get(`${Url}/users/${userId}/groupLessonStudents`)
         .then((res) => {
           const userData = res.data;
 
@@ -214,7 +214,7 @@ function postReservation() {
           }
 
           axios
-            .post('http://localhost:3000/groupLessonStudents', data)
+            .post(`${Url}/groupLessonStudents`, data)
             .then(() => {
               const reserveModal = document.getElementById('reserveModal');
               $(reserveModal).modal('hide');
@@ -279,7 +279,7 @@ function postReservation() {
 
 function getLessonData() {
   axios
-    .get('http://localhost:3000/lessons')
+    .get(`${Url}/lessons`)
     .then((res) => {
       const { data } = res;
       // console.log(data);

@@ -52,7 +52,7 @@ function takeDataToAddLessonForm() {
       const targetId = e.target.dataset.id;
 
       axios
-        .get(`http://localhost:3000/lessons/${targetId}`)
+        .get(`${Url}/lessons/${targetId}`)
         .then((res) => {
           const { data } = res;
 
@@ -79,7 +79,7 @@ function addNewGroupLessonDate() {
       const newDate = adminGroupLessonDate.value;
 
       axios
-        .get(`http://localhost:3000/lessons/${id}`)
+        .get(`${Url}/lessons/${id}`)
         .then((res) => {
           const { data } = res;
           const dateArr = data.lessonDate;
@@ -88,7 +88,7 @@ function addNewGroupLessonDate() {
             lessonDate: dateArr,
           };
 
-          return axios.patch(`http://localhost:3000/lessons/${id}`, newDateData);
+          return axios.patch(`${Url}/lessons/${id}`, newDateData);
         })
         .then(() => {
           const addGroupLessonDateModal = document.getElementById('addGroupLessonDate');
@@ -160,7 +160,7 @@ function addGroupLessonType() {
       }
 
       axios
-        .post('http://localhost:3000/lessons', data)
+        .post(`${Url}/lessons`, data)
         .then(() => {
           const createGroupLesson = document.getElementById('createGroupLesson');
           const modalBackDrop = document.querySelector('.modal-backdrop');
@@ -214,7 +214,7 @@ function deleteGroupLessonType() {
       }).then((result) => {
         if (result.isConfirmed) {
           axios
-            .delete(`http://localhost:3000/lessons/${id}`)
+            .delete(`${Url}/lessons/${id}`)
             .then(() => {
               // eslint-disable-next-line no-use-before-define
               adminGroupLessonInit();
@@ -234,7 +234,7 @@ function deleteGroupLessonType() {
 // 取得團體課程遠端資料
 function getAdminGroupLessonData() {
   axios
-    .get('http://localhost:3000/lessons')
+    .get(`${Url}/lessons`)
     .then((res) => {
       const { data } = res;
       renderAdminGroupLessonTable(data);
