@@ -142,6 +142,226 @@ prevPage();
 "use strict";
 
 /* eslint-disable no-undef */
+
+// 渲染後臺團體課程頁面表格
+function renderAdminGroupLessonTable(arr) {
+  var adminGroupLessonTable = document.querySelector('.admin-group-lesson-table');
+  var str = '';
+  arr.forEach(function (item) {
+    var dateArr = item.lessonDate;
+    var dateStr = '';
+    dateArr.forEach(function (i) {
+      dateStr += "".concat(i, " <br />");
+    });
+    str += "\n    <tr>\n      <th class=\"bg-".concat(item.color, "\" scope=\"row\">").concat(item.groupLessonId, "</th>\n      <td>").concat(item.name, "</td>\n      <td>").concat(dateStr, "</td>\n      <td>\n        <button type=\"button\" class=\"admin-add-lesson-btn btn btn-").concat(item.color, "\" data-bs-toggle=\"modal\"\n        data-bs-target=\"#addGroupLessonDate\" data-id=").concat(item.id, ">\u65B0\u589E\u4E0A\u8AB2\u65E5</button>\n      </td>\n      <td>").concat(item.branch, "</td>\n      <td>").concat(item.coach, "</td>\n      <td>\n      <a class=\"deleteGroupLessonBtn\" href=\"#\" data-id=").concat(item.id, ">\n      <span class=\"material-symbols-outlined\">\n      delete</span>\n      </a>\n      </td>\n    </tr>\n    ");
+  });
+  if (adminGroupLessonTable) {
+    adminGroupLessonTable.innerHTML = str;
+  }
+}
+var adminGroupLessonName = document.querySelector('#admin-group-lesson-name');
+var adminGroupLessonId = document.querySelector('#admin-group-lesson-id');
+var adminGroupLessonBranch = document.querySelector('#admin-group-lesson-branch');
+
+// 將資料帶到新增上課日期表單
+function takeDataToAddLessonForm() {
+  var adminAddLessonBtn = document.querySelectorAll('.admin-add-lesson-btn');
+  adminAddLessonBtn.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      var targetId = e.target.dataset.id;
+      axios.get("http://localhost:3000/lessons/".concat(targetId)).then(function (res) {
+        var data = res.data;
+        adminGroupLessonName.value = data.name;
+        adminGroupLessonId.value = targetId;
+        adminGroupLessonBranch.value = data.branch;
+      })["catch"](function (error) {
+        // eslint-disable-next-line no-console
+        console.log(error);
+      });
+    });
+  });
+}
+
+// 新增團體課上課日期
+function addNewGroupLessonDate() {
+  var addNewGroupLessonBtn = document.querySelector('.add-new-group-lesson-btn');
+  var adminGroupLessonDate = document.querySelector('.admin-group-lesson-date');
+  if (addNewGroupLessonBtn) {
+    addNewGroupLessonBtn.addEventListener('click', function () {
+      var id = adminGroupLessonId.value;
+      var newDate = adminGroupLessonDate.value;
+      axios.get("http://localhost:3000/lessons/".concat(id)).then(function (res) {
+        var data = res.data;
+        var dateArr = data.lessonDate;
+        dateArr.push(newDate);
+        var newDateData = {
+          lessonDate: dateArr
+        };
+        return axios.patch("http://localhost:3000/lessons/".concat(id), newDateData);
+      }).then(function () {
+        var addGroupLessonDateModal = document.getElementById('addGroupLessonDate');
+        var modalBackDrop = document.querySelector('.modal-backdrop');
+        document.body.style.overflow = 'auto';
+        addGroupLessonDateModal.classList.remove('show');
+        addGroupLessonDateModal.setAttribute('style', 'display: none;');
+        addGroupLessonDateModal.setAttribute('aria-hidden', 'true');
+        addGroupLessonDateModal.removeAttribute('aria-modal');
+        addGroupLessonDateModal.removeAttribute('role');
+        if (modalBackDrop) {
+          modalBackDrop.remove();
+        }
+        Swal.fire({
+          icon: 'success',
+          title: '新增成功',
+          showConfirmButton: false,
+          timer: 1500
+        });
+
+        // eslint-disable-next-line no-use-before-define
+        getAdminGroupLessonData();
+      })["catch"](function (error) {
+        // eslint-disable-next-line no-console
+        console.log(error);
+      });
+    });
+  }
+}
+
+// 新增團體課程類別
+function addGroupLessonType() {
+  var adminGroupLessonCreateName = document.querySelector('#admin-group-lesson-create-name');
+  var adminGroupLessonCreateId = document.querySelector('#admin-group-lesson-create-id');
+  var adminGroupLessonCreateBranch = document.querySelector('#admin-group-lesson-create-branch');
+  var adminGroupLessonCreateCoach = document.querySelector('.admin-group-lesson-create-coach');
+  var adminGroupLessonCreateSelect = document.querySelector('.admin-group-lesson-create-select');
+  var createNewGroupLessonBtn = document.querySelector('.create-new-group-lesson-btn');
+  if (createNewGroupLessonBtn) {
+    createNewGroupLessonBtn.addEventListener('click', function () {
+      var data = {
+        name: adminGroupLessonCreateName.value,
+        groupLessonId: adminGroupLessonCreateId.value,
+        branch: adminGroupLessonCreateBranch.value,
+        coach: adminGroupLessonCreateCoach.value,
+        color: adminGroupLessonCreateSelect.value,
+        lessonDate: []
+      };
+      if (adminGroupLessonCreateName.value === '' || adminGroupLessonCreateId.value === '' || adminGroupLessonCreateBranch.value === '' || adminGroupLessonCreateCoach.value === '選擇教練' || adminGroupLessonCreateSelect.value === '選擇主題顏色') {
+        Swal.fire({
+          icon: 'warning',
+          title: '有空欄位未填',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        // eslint-disable-next-line no-useless-return
+        return;
+      }
+      axios.post('http://localhost:3000/lessons', data).then(function () {
+        var createGroupLesson = document.getElementById('createGroupLesson');
+        var modalBackDrop = document.querySelector('.modal-backdrop');
+        document.body.style.overflow = 'auto';
+        createGroupLesson.classList.remove('show');
+        createGroupLesson.setAttribute('style', 'display: none;');
+        createGroupLesson.setAttribute('aria-hidden', 'true');
+        createGroupLesson.removeAttribute('aria-modal');
+        createGroupLesson.removeAttribute('role');
+        if (modalBackDrop) {
+          modalBackDrop.remove();
+        }
+        Swal.fire({
+          icon: 'success',
+          title: '開設成功',
+          showConfirmButton: false,
+          timer: 1500
+        });
+
+        // eslint-disable-next-line no-use-before-define
+        getAdminGroupLessonData();
+      })["catch"](function (error) {
+        // eslint-disable-next-line no-console
+        console.log(error);
+      });
+    });
+  }
+}
+
+// 刪除團體課程類別
+function deleteGroupLessonType() {
+  var deleteGroupLessonBtn = document.querySelectorAll('.deleteGroupLessonBtn');
+  deleteGroupLessonBtn.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      var id = e.target.closest('a').dataset.id;
+      Swal.fire({
+        title: '確定要刪除此課程類別嗎?',
+        text: '刪除後將無法復原',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '確定刪除',
+        cancelButtonText: '取消'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          axios["delete"]("http://localhost:3000/lessons/".concat(id)).then(function () {
+            // eslint-disable-next-line no-use-before-define
+            adminGroupLessonInit();
+            Swal.fire('已刪除！', '該類別已刪除', 'success');
+          })["catch"](function (error) {
+            // eslint-disable-next-line no-console
+            console.log(error);
+          });
+        }
+      });
+    });
+  });
+}
+
+// 取得團體課程遠端資料
+function getAdminGroupLessonData() {
+  axios.get('http://localhost:3000/lessons').then(function (res) {
+    var data = res.data;
+    renderAdminGroupLessonTable(data);
+    takeDataToAddLessonForm();
+    addNewGroupLessonDate();
+    deleteGroupLessonType();
+  })["catch"](function (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
+  });
+}
+
+// datepicker
+var datepicker = document.querySelector('#datepicker');
+if (datepicker) {
+  // eslint-disable-next-line no-unused-vars
+  var $j = jQuery.noConflict();
+  $(function () {
+    $('#datepicker').datepicker({
+      dateFormat: 'yy-m-d' // 修改顯示順序
+    });
+  });
+}
+
+// select color
+var adminGroupLessonCreateSelect = document.querySelector('.admin-group-lesson-create-select');
+var previousValue = '';
+if (adminGroupLessonCreateSelect) {
+  adminGroupLessonCreateSelect.addEventListener('change', function (e) {
+    adminGroupLessonCreateSelect.classList.remove("bg-".concat(previousValue));
+    adminGroupLessonCreateSelect.classList.add("bg-".concat(e.target.value));
+    previousValue = e.target.value;
+  });
+}
+
+// 後臺團體課程管理頁面初始化
+function adminGroupLessonInit() {
+  getAdminGroupLessonData();
+  addGroupLessonType();
+}
+adminGroupLessonInit();
+"use strict";
+
+/* eslint-disable no-undef */
 // const Url = 'https://high-rock-server.vercel.app';
 var Url = 'https://highrock-server-render.onrender.com';
 
@@ -969,8 +1189,44 @@ function courseInit() {
 courseInit();
 "use strict";
 
+/* eslint-disable no-undef */
 /* eslint-disable no-plusplus */
+// const Url = 'https://highrock-server-render.onrender.com';
+
 var date = new Date();
+
+// 渲染預約課程
+function renderLesson(data) {
+  data.forEach(function (item) {
+    // console.log(item);
+    // console.log(item.lessonDate);
+    var lessonDataArr = item.lessonDate;
+    lessonDataArr.forEach(function (i) {
+      // console.log(i);
+      var lessonDateArrDetail = i.split('-');
+      // console.log(lessonDateArrDetail);
+      var lessonDateObj = {
+        year: lessonDateArrDetail[0],
+        month: lessonDateArrDetail[1],
+        date: lessonDateArrDetail[2]
+      };
+      // console.log(lessonDateObj);
+
+      // const lessons = document.querySelector(
+      //   "div[data-year='2022'][data-month='12'][data-date='15']",
+      // );
+      var lessons = document.querySelector("div[data-year=".concat(CSS.escape(lessonDateObj.year), "][data-month=").concat(CSS.escape(lessonDateObj.month), "][data-date=").concat(CSS.escape(lessonDateObj.date), "]"));
+      if (lessons) {
+        lessons.innerHTML = "\n          <p class=\"align-self-start mb-1\">".concat(lessonDateObj.date, "</p>\n          <div class=\"d-flex flex-column align-items-center w-100\">\n          <p class=\"text-center bg-").concat(item.color, " mb-1 p-1 rounded-1\">").concat(item.name, "</p>\n          <button type=\"button\" data-id=").concat(item.id, " data-bs-toggle=\"modal\" data-bs-target=\"#reserveModal\" class=\"group-lesson-reserve-btn btn btn-outline-gray-c1 w-50 fs-5 p-1\">\u9810\u7D04</button>\n          </div>\n          ");
+      }
+    });
+  });
+
+  // eslint-disable-next-line no-use-before-define
+  takeDataToReserveForm();
+}
+
+// 渲染月曆
 var renderCalendar = function renderCalendar() {
   date.setDate(1);
   var monthDays = document.querySelector('.days');
@@ -979,44 +1235,195 @@ var renderCalendar = function renderCalendar() {
   var firstDayIndex = date.getDay();
   var lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay();
   var nextDays = 7 - lastDayIndex - 1;
-  var months = ['一月課表', '二月課表', '三月課表', '四月課表', '五月課表', '六月課表', '七月課表', '八月課表', '九月課表', '十月課表', '十一月課表', '十二月課表'];
+  var months = ['大安館 一月課表', '大安館 二月課表', '大安館 三月課表', '大安館 四月課表', '大安館 五月課表', '大安館 六月課表', '大安館 七月課表', '大安館 八月課表', '大安館 九月課表', '大安館 十月課表', '大安館 十一月課表', '大安館 十二月課表'];
+
+  // 本月
   var currentMonth = document.querySelector('.current-month');
   if (currentMonth) {
     currentMonth.innerHTML = months[date.getMonth()];
   }
   var days = '';
+
+  // 上個月日期
   for (var x = firstDayIndex; x > 0; x--) {
-    days += "<div class=\"prev-date\">".concat(prevLastDay - x + 1, "</div>");
+    days += "<div class=\"prev-date\" data-year=".concat(date.getFullYear(), " data-month=").concat(date.getMonth(), " data-date=").concat(prevLastDay - x + 1, ">").concat(prevLastDay - x + 1, "</div>");
   }
+
+  // 本月日期
   for (var i = 1; i <= lastDate; i++) {
     if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
-      days += "<div class=\"today bg-yellow-c1\">".concat(i, "</div>");
+      days += "\n      <div class=\"today flex-column border-1 border-primary-lightest\" h-100\" data-year=".concat(date.getFullYear(), " data-month=").concat(date.getMonth() + 1, " data-date=").concat(i, ">\n      <p class=\"calendar-today rounded-3 bg-primary p-1\">").concat(i, "</p>\n      </div>\n      ");
     } else {
-      days += "<div>".concat(i, "</div>");
+      days += "<div class=\"flex-column border-1 border-primary-lightest\" data-year=".concat(date.getFullYear(), " data-month=").concat(date.getMonth() + 1, " data-date=").concat(i, ">").concat(i, "</div>");
     }
   }
+
+  // 下個月日期
   for (var j = 1; j <= nextDays; j++) {
-    days += "<div class=\"next-date\">".concat(j, "</div>");
+    days += "<div class=\"next-date\" data-year=".concat(date.getFullYear(), " data-month=").concat(date.getMonth() + 2, " data-date=").concat(j, ">").concat(j, "</div>");
   }
   if (monthDays) {
     monthDays.innerHTML = days;
   }
 };
+
+// 切換上個月
 var prevMonth = document.querySelector('.prev');
 if (prevMonth) {
   prevMonth.addEventListener('click', function () {
     date.setMonth(date.getMonth() - 1);
-    renderCalendar();
+    // eslint-disable-next-line no-use-before-define
+    groupLessonInit();
   });
 }
+
+// 切換下個月
 var nextMonth = document.querySelector('.next');
 if (nextMonth) {
   nextMonth.addEventListener('click', function () {
     date.setMonth(date.getMonth() + 1);
-    renderCalendar();
+    // eslint-disable-next-line no-use-before-define
+    groupLessonInit();
   });
 }
-renderCalendar();
+var groupLessonName = document.querySelector('#group-lesson-name');
+var groupLessonTime = document.querySelector('#group-lesson-time');
+var groupLessonBranch = document.querySelector('#group-lesson-branch');
+var groupLessonDate = document.querySelector('#group-lesson-date');
+var groupLessonId = document.querySelector('.group-lesson-id');
+var userId = localStorage.getItem('userId');
+
+// 帶入課程資訊到預約表單
+function takeDataToReserveForm() {
+  var groupLessonReserveBtn = document.querySelectorAll('.group-lesson-reserve-btn');
+  groupLessonReserveBtn.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      var targetId = e.target.dataset.id;
+      var targetName = e.target.previousElementSibling.textContent;
+      var targetTime = '19:00 ~ 20:00';
+      var targetBranch = 'HighRock 攀岩館 大安館';
+      var targetDate = "".concat(date.getFullYear(), " \u5E74 ").concat(e.target.parentNode.parentNode.dataset.month, " \u6708 ").concat(e.target.parentNode.parentNode.dataset.date, " \u65E5");
+      groupLessonId.textContent = targetId;
+      groupLessonName.value = targetName;
+      groupLessonTime.value = targetTime;
+      groupLessonBranch.value = targetBranch;
+      groupLessonDate.value = targetDate;
+    });
+  });
+}
+
+// 傳送團體課程預約資訊到資料庫
+function postReservation() {
+  var groupLessonReservationConfirmBtn = document.querySelector('.group-lesson-reservation-confirm-btn');
+  if (groupLessonReservationConfirmBtn) {
+    groupLessonReservationConfirmBtn.addEventListener('click', function () {
+      var lessonId = groupLessonId.textContent;
+      var name = groupLessonName.value;
+      var time = groupLessonTime.value;
+      var branch = groupLessonBranch.value;
+      var lessonDate = groupLessonDate.value;
+      var data = {
+        userId: userId,
+        lessonId: lessonId,
+        name: name,
+        time: time,
+        branch: branch,
+        date: lessonDate
+      };
+      axios.get("http://localhost:3000/users/".concat(userId, "/groupLessonStudents")).then(function (res) {
+        var userData = res.data;
+        var hadReserved = false;
+        userData.forEach(function (i) {
+          if (i.date === lessonDate) {
+            hadReserved = true;
+          }
+        });
+        if (hadReserved) {
+          Swal.fire({
+            icon: 'warning',
+            title: '已預約該課程',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          return;
+        }
+        axios.post('http://localhost:3000/groupLessonStudents', data).then(function () {
+          var reserveModal = document.getElementById('reserveModal');
+          $(reserveModal).modal('hide');
+          Swal.fire({
+            icon: 'success',
+            title: '預約成功',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        })["catch"](function (error) {
+          // eslint-disable-next-line no-console
+          console.log(error);
+        });
+
+        // eslint-disable-next-line consistent-return
+        // return axios.post('http://localhost:3000/groupLessonStudents', data);
+      })["catch"](function (error) {
+        // eslint-disable-next-line no-console
+        console.log(error);
+      });
+      // .then(() => {
+      //   const reserveModal = document.getElementById('reserveModal');
+      //   $(reserveModal).modal('hide');
+
+      //   Swal.fire({
+      //     icon: 'success',
+      //     title: '預約成功',
+      //     showConfirmButton: false,
+      //     timer: 1500,
+      //   });
+      // })
+      // .catch((error) => {
+      //   // eslint-disable-next-line no-console
+      //   console.log(error);
+      // });
+
+      // axios
+      //   .post('http://localhost:3000/groupLessonStudents', data)
+      //   .then((res) => {
+      //     console.log(res.data);
+
+      //     const reserveModal = document.getElementById('reserveModal');
+      //     $(reserveModal).modal('hide');
+
+      //     Swal.fire({
+      //       icon: 'success',
+      //       title: '預約成功',
+      //       showConfirmButton: false,
+      //       timer: 1500,
+      //     });
+      //   })
+      //   .catch((error) => {
+      //     // eslint-disable-next-line no-console
+      //     console.log(error);
+      //   });
+    });
+  }
+}
+
+function getLessonData() {
+  axios.get('http://localhost:3000/lessons').then(function (res) {
+    var data = res.data;
+    // console.log(data);
+    renderLesson(data);
+  })["catch"](function (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
+  });
+}
+
+// 團體課程初始化
+function groupLessonInit() {
+  renderCalendar();
+  getLessonData();
+  postReservation();
+}
+groupLessonInit();
 "use strict";
 
 /* eslint-disable no-undef */
@@ -1665,6 +2072,18 @@ function renderMemberCourse(arr) {
   }
 }
 
+// 渲染會員已預約團體課程
+function renderMemberGroupLesson(arr) {
+  var memberCourseGroupLessonDetail = document.querySelector('.member-course-group-lesson-detail');
+  var str = '';
+  arr.forEach(function (item) {
+    str += "\n    <li class=\"mb-4\">\n    <div class=\"row\">\n    <div class=\"col-11\">\n      <ul class=\"row row-cols-lg-2 px-6 py-8 bg-opacity-c1 list-unstyled\">\n        <li class=\"col mb-4\">\n          <p class=\"fs-4 fs-lg-3 fw-bold\">\n            \u8AB2\u7A0B\u540D\u7A31\uFF1A<span class=\"fs-5 fs-lg-4 fw-normal\">".concat(item.name, "</span>\n          </p>\n        </li>\n        <li class=\"col mb-4\">\n          <p class=\"fs-4 fs-lg-3 fw-bold\">\n            \u8AB2\u7A0B\u6642\u9593\uFF1A<span class=\"fs-5 fs-lg-4 fw-normal\">").concat(item.time, "</span>\n          </p>\n        </li>\n        <li class=\"col\">\n          <p class=\"fs-4 fs-lg-3 fw-bold\">\n            \u8AB2\u7A0B\u9928\u5225\uFF1A<span class=\"fs-5 fs-lg-4 fw-normal\">").concat(item.branch, "</span>\n          </p>\n        </li>\n        <li class=\"col\">\n          <p class=\"fs-4 fs-lg-3 fw-bold\">\n            \u8AB2\u7A0B\u65E5\u671F\uFF1A<span class=\"fs-5 fw-normal\"\n              >").concat(item.date, "\n            </span>\n          </p>\n        </li>\n      </ul>\n    </div>\n    <div class=\"col-1 d-flex align-items-center\">\n      <button type=\"button\" class=\"cancel-group-lesson-btn btn btn-danger\" data-lessonid=").concat(item.lesson.id, " data-id=").concat(item.id, ">\u53D6\u6D88\u9810\u7D04</button>\n    </div>\n    </div>\n      \n    </li>\n    ");
+  });
+  if (memberCourseGroupLessonDetail) {
+    memberCourseGroupLessonDetail.innerHTML = str;
+  }
+}
+
 // 刪除已報名課程
 function deleteCourse() {
   var cancelCourseBtns = document.querySelectorAll('.cancel-course-btn');
@@ -1705,6 +2124,56 @@ function deleteCourse() {
   });
 }
 
+// 刪除已預約團體課程
+function deleteGroupLesson() {
+  var cancelGroupLessonBtns = document.querySelectorAll('.cancel-group-lesson-btn');
+  cancelGroupLessonBtns.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      var deleteId = e.target.dataset.id;
+      // const lessonId = e.target.dataset.lessonid;
+
+      Swal.fire({
+        title: '確定刪除此課程?',
+        text: '點擊確認後將為您取消該課程報名',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '確認'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          axios["delete"]("http://localhost:3000/groupLessonStudents/".concat(deleteId)).then(function () {
+            // eslint-disable-next-line no-use-before-define
+            getGroupLessonData();
+          })["catch"](function (error) {
+            // eslint-disable-next-line no-console
+            console.log(error);
+          });
+
+          // axios
+          //   .get(`${Url}/batches/${batchId}`)
+          //   .then((res) => {
+          //     const newSignUpNum = res.data.nowSignUp - 1;
+          //     return axios.patch(`${Url}/batches/${batchId}`, {
+          //       nowSignUp: newSignUpNum,
+          //     });
+          //   })
+          //   .then(() => {
+          //     // eslint-disable-next-line no-use-before-define
+          //     getCourseData();
+          //   })
+
+          //   .catch((error) => {
+          //     // eslint-disable-next-line no-console
+          //     console.log(error);
+          //   });
+          Swal.fire('已取消！', '您的課程已取消！', 'success');
+        }
+      });
+    });
+  });
+}
+
 // 獲取報名課程資訊
 function getCourseData() {
   var id = localStorage.getItem('userId');
@@ -1718,9 +2187,23 @@ function getCourseData() {
   });
 }
 
+// 獲取團體課程預約資訊
+function getGroupLessonData() {
+  var id = localStorage.getItem('userId');
+  axios.get("http://localhost:3000/users/".concat(id, "/groupLessonStudents?_expand=lesson")).then(function (res) {
+    var data = res.data;
+    renderMemberGroupLesson(data);
+    deleteGroupLesson();
+  })["catch"](function (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
+  });
+}
+
 // 會員課程頁面初始化
 function memberCourseInit() {
   getCourseData();
+  getGroupLessonData();
 }
 memberCourseInit();
 "use strict";
@@ -1937,7 +2420,7 @@ function removeUserFromLocal() {
 function renderVisitorNavMenu() {
   var navMenu = document.querySelector('.nav-menu');
   var str = '';
-  str = "\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./gym-info.html\">\u5834\u9928\u8CC7\u8A0A</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./courses-index.html\">\u8AB2\u7A0B\u4ECB\u7D39</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./group-lessons.html\">\u5718\u9AD4\u8AB2\u7A0B</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u5546\u54C1\u5C08\u5340</a></li>\n  <li class=\"nav-menu-login\"><a class=\"nav-menu-login-btn text-gray hover-decoBorder-bottom-gradient position-relative py-2 ms-8 pe-0\" href=\"./member-login.html\">\u767B\u5165</a></li>\n  ";
+  str = "\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./gym-info.html\">\u5834\u9928\u8CC7\u8A0A</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./courses-index.html\">\u8AB2\u7A0B\u4ECB\u7D39</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./group-lessons.html\">\u5718\u9AD4\u8AB2\u7A0B</a></li>\n  <li class=\"nav-menu-login\"><a class=\"nav-menu-login-btn text-gray hover-decoBorder-bottom-gradient position-relative py-2 ms-8 pe-0\" href=\"./member-login.html\">\u767B\u5165</a></li>\n  ";
   if (navMenu) {
     navMenu.innerHTML = str;
   }
@@ -1947,7 +2430,7 @@ function renderVisitorNavMenu() {
 function renderLoginRenderNavMenu() {
   var navMenu = document.querySelector('.nav-menu');
   var str = '';
-  str = "\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./gym-info.html\">\u5834\u9928\u8CC7\u8A0A</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./courses-index.html\">\u8AB2\u7A0B\u4ECB\u7D39</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./group-lessons.html\">\u5718\u9AD4\u8AB2\u7A0B</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u5546\u54C1\u5C08\u5340</a></li>\n  <li class=\"nav-menu-member position-relative\">\n    <a class=\"nav-menu-member-btn position-relative text-gray d-flex align-items-center py-2 ms-8 pe-0\" href=\"#\">\n      <img class=\"rounded-3\" src=\"./assets/images/Avatar/anonymous.jpg\" alt=\"anonymous\">\n      <span class=\"nav-menu-member-btn-expand  fs-3 material-symbols-outlined\">\n        expand_more\n        </span>\n    </a>\n    <ul class=\"nav-menu-member-panel list-unstyled position-absolute\">\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-information.html\">\u6703\u54E1\u8CC7\u6599</a>\n      </li>\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-course.html\">\u8AB2\u7A0B\u7BA1\u7406</a>\n      </li>\n      <li>\n      <a class=\"nav-menu-logout-btn text-white position-relative hover-decoBorder-bottom-gradient py-1\" href=\"#\">\u767B\u51FA</a>\n      </li>\n    </ul>\n  </li>\n  ";
+  str = "\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./gym-info.html\">\u5834\u9928\u8CC7\u8A0A</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./courses-index.html\">\u8AB2\u7A0B\u4ECB\u7D39</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./group-lessons.html\">\u5718\u9AD4\u8AB2\u7A0B</a></li>\n  <li class=\"nav-menu-member position-relative\">\n    <a class=\"nav-menu-member-btn position-relative text-gray d-flex align-items-center py-2 ms-8 pe-0\" href=\"#\">\n      <img class=\"rounded-3\" src=\"./assets/images/Avatar/anonymous.jpg\" alt=\"anonymous\">\n      <span class=\"nav-menu-member-btn-expand  fs-3 material-symbols-outlined\">\n        expand_more\n        </span>\n    </a>\n    <ul class=\"nav-menu-member-panel list-unstyled position-absolute\">\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-information.html\">\u6703\u54E1\u8CC7\u6599</a>\n      </li>\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-course.html\">\u8AB2\u7A0B\u7BA1\u7406</a>\n      </li>\n      <li>\n      <a class=\"nav-menu-logout-btn text-white position-relative hover-decoBorder-bottom-gradient py-1\" href=\"#\">\u767B\u51FA</a>\n      </li>\n    </ul>\n  </li>\n  ";
   if (navMenu) {
     navMenu.innerHTML = str;
   }
@@ -1957,7 +2440,7 @@ function renderLoginRenderNavMenu() {
 function renderLoginNavMenuAAdmin() {
   var navMenu = document.querySelector('.nav-menu');
   var str = '';
-  str = "\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./gym-info.html\">\u5834\u9928\u8CC7\u8A0A</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./courses-index.html\">\u8AB2\u7A0B\u4ECB\u7D39</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./group-lessons.html\">\u5718\u9AD4\u8AB2\u7A0B</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"#\">\u5546\u54C1\u5C08\u5340</a></li>\n  <li class=\"nav-menu-member position-relative\">\n    <a class=\"nav-menu-member-btn position-relative text-gray d-flex align-items-center py-2 ms-8 pe-0\" href=\"#\">\n      <img class=\"rounded-3\" src=\"./assets/images/Avatar/anonymous.jpg\" alt=\"anonymous\">\n      <span class=\"nav-menu-member-btn-expand  fs-3 material-symbols-outlined\">\n        expand_more\n        </span>\n    </a>\n    <ul class=\"nav-menu-member-panel list-unstyled position-absolute\">\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-information.html\">\u6703\u54E1\u8CC7\u6599</a>\n      </li>\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-course.html\">\u8AB2\u7A0B\u7BA1\u7406</a>\n      </li>\n      <li>\n      <a class=\"nav-menu-logout-btn text-white position-relative hover-decoBorder-bottom-gradient py-1\" href=\"#\">\u767B\u51FA</a>\n      </li>\n    </ul>\n  </li>\n  <li><a class=\"btn btn-gray-c1 text-gray py-2 px-6 ms-8\" href=\"./admin-course.html\">\u5F8C\u53F0</a></li>\n  ";
+  str = "\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./gym-info.html\">\u5834\u9928\u8CC7\u8A0A</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./courses-index.html\">\u8AB2\u7A0B\u4ECB\u7D39</a></li>\n  <li><a class=\"text-gray hover-decoBorder-bottom-gradient position-relative py-2 px-0 ms-8\" href=\"./group-lessons.html\">\u5718\u9AD4\u8AB2\u7A0B</a></li>\n  <li class=\"nav-menu-member position-relative\">\n    <a class=\"nav-menu-member-btn position-relative text-gray d-flex align-items-center py-2 ms-8 pe-0\" href=\"#\">\n      <img class=\"rounded-3\" src=\"./assets/images/Avatar/anonymous.jpg\" alt=\"anonymous\">\n      <span class=\"nav-menu-member-btn-expand  fs-3 material-symbols-outlined\">\n        expand_more\n        </span>\n    </a>\n    <ul class=\"nav-menu-member-panel list-unstyled position-absolute\">\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-information.html\">\u6703\u54E1\u8CC7\u6599</a>\n      </li>\n      <li>\n      <a class=\"text-white position-relative hover-decoBorder-bottom-gradient py-1 mb-2\" href=\"./member-course.html\">\u8AB2\u7A0B\u7BA1\u7406</a>\n      </li>\n      <li>\n      <a class=\"nav-menu-logout-btn text-white position-relative hover-decoBorder-bottom-gradient py-1\" href=\"#\">\u767B\u51FA</a>\n      </li>\n    </ul>\n  </li>\n  <li><a class=\"btn btn-gray-c1 text-gray py-2 px-6 ms-8\" href=\"./admin-course.html\">\u5F8C\u53F0</a></li>\n  ";
   if (navMenu) {
     navMenu.innerHTML = str;
   }

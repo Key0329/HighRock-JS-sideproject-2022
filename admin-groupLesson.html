@@ -10,7 +10,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
     <link rel="stylesheet" href="./assets/style/all.css" />
   </head>
   <body>
@@ -25,15 +27,18 @@
   <!-- nav -->
   <nav class="navigation">
     <ul class="admin-panel list-unstyled">
-      <li class="mb-20">
-        <a class="hover-orange fw-bold fs-4 fs-lg-2 mb-4" href="./admin-course.html">課程管理</a>
-        <ul class="list-unstyled ms-4">
+      <li class="mb-10">
+        <a class="hover-orange fw-bold fs-4 fs-lg-2 mb-4" href="./admin-course.html"
+          ><span class="material-symbols-outlined fs-2 vertical-middle me-2"> menu_book </span
+          >課程管理</a
+        >
+        <ul class="list-unstyled ms-8">
           <li class="mb-4">
             <a class="hover-orange fs-5 fs-lg-3" href="./admin-course.html">活動課程管理</a>
           </li>
-          <li class="mb-8">
+          <li class="mb-4">
             <a class="hover-orange fs-5 fs-lg-3" href="./admin-course-registered.html"
-              >活動報名學生資訊</a
+              >活動已報名學生資訊</a
             >
           </li>
           <li>
@@ -44,10 +49,22 @@
         </ul>
       </li>
       <li>
-        <a class="hover-orange fw-bold fs-4 fs-lg-2 mb-10" href="./admin-member.html">會員管理</a>
+        <a class="hover-orange fw-bold fs-4 fs-lg-2 mb-10" href="./admin-member.html"
+          ><span class="material-symbols-outlined fs-2 vertical-middle me-2"> group </span
+          >會員管理</a
+        >
       </li>
       <li>
-        <a class="hover-orange fw-bold fs-4 fs-lg-2" href="./index.html">前台首頁</a>
+        <a class="hover-orange fw-bold fs-4 fs-lg-2 mb-10" href="./admin-news-list.html"
+          ><span class="material-symbols-outlined fs-2 vertical-middle me-2"> public </span
+          >最新消息列表</a
+        >
+      </li>
+      <li>
+        <a class="hover-orange fw-bold fs-4 fs-lg-2" href="./index.html"
+          ><span class="material-symbols-outlined fs-2 vertical-middle me-2"> home </span
+          >前台首頁</a
+        >
       </li>
     </ul>
   </nav>
@@ -65,14 +82,16 @@
         <p class="fs-6">jack7788@gmail.com</p>
       </div>
     </a>
-    <a class="admin-logout-btn ms-auto hover-orange" href="#">登出</a>
+    <a class="admin-logout-btn ms-auto hover-orange" href="#"
+      >登出<span class="material-symbols-outlined fs-3 vertical-middle ms-1"> logout </span></a
+    >
   </div>
 </section>
 
 <main class="ms-80 p-20">
   <section>
     <!-- filter -->
-    <div class="mb-10 d-flex align-items-center justify-content-end">
+    <!-- <div class="mb-10 d-flex align-items-center justify-content-end">
       <label class="me-2" for="admin-groupLesson-filter">課程篩選</label>
       <select
         class="p-2 rounded-3 text-gray-c2"
@@ -86,59 +105,241 @@
         <option value="梯次">日期</option>
         <option value="狀態">狀態</option>
       </select>
-    </div>
+    </div> -->
     <!-- table -->
-    <div class="table-responsive mb-10">
+    <div class="table-responsive my-10">
       <table class="table table-striped table-hover text-nowrap">
         <thead>
           <tr>
-            <th scope="col">課程編號</th>
-            <th scope="col">課程名稱</th>
-            <th scope="col">分館</th>
-            <th scope="col">教練</th>
-            <th scope="col">日期</th>
-            <th scope="col">預約 人數</th>
-            <th scope="col">狀態</th>
+            <th width="15%" scope="col">課程編號</th>
+            <th width="15%" scope="col">課程名稱</th>
+            <th width="15%" scope="col">開課日期</th>
+            <th width="15%" scope="col"></th>
+            <th width="20%" scope="col">分館</th>
+            <th width="10%" scope="col">教練</th>
+            <th width="10%" scope="col"></th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">GRP120222</th>
-            <td>抱石 LV 1</td>
-            <td>大安館</td>
-            <td>史傑克</td>
-            <td>2022-1-9</td>
-            <td>5 / 8 位</td>
-            <td class="text-success">已開課</td>
-          </tr>
-          <tr>
-            <th scope="row">GRP120223</th>
-            <td>上攀 初階</td>
-            <td>新莊館</td>
-            <td>史傑克</td>
-            <td>2022-1-13</td>
-            <td>1 / 8 位</td>
-            <td class="text-danger">尚未開課</td>
-          </tr>
-          <tr>
-            <th scope="row">GRP120224</th>
-            <td>抱石 LV 2</td>
-            <td>大安館</td>
-            <td>史傑克</td>
-            <td>2022-1-16</td>
-            <td>3 / 8 位</td>
-            <td class="text-success">已開課</td>
-          </tr>
-        </tbody>
+        <tbody class="admin-group-lesson-table"></tbody>
       </table>
     </div>
     <!-- add course -->
-    <div class="d-flex flex-column">
-      <a href="#" class="btn btn-primary px-4 py-1 rounded-pill ms-auto mb-4">+ 開設新課程</a>
-      <a href="#" class="btn btn-danger px-4 py-1 rounded-pill ms-auto">- 刪除課程</a>
+    <div class="d-flex">
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary px-4 py-1 rounded-pill ms-auto mb-4"
+        data-bs-toggle="modal"
+        data-bs-target="#createGroupLesson"
+      >
+        + 開設新課程
+      </button>
     </div>
   </section>
+
+  <!-- Modal -->
+  <!-- 新增已有團體課程日期 -->
+  <div
+    class="modal fade"
+    id="addGroupLessonDate"
+    tabindex="-1"
+    aria-labelledby="addGroupLessonDateLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="addGroupLessonDateLabel">新增上課日期</h3>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body py-10">
+          <form>
+            <div class="row mb-4">
+              <label class="col-4 col-form-label text-center" for="admin-group-lesson-name"
+                >課程名稱
+                <p class="d-none">id: <span class="admin-group-lesson-id"></span></p
+              ></label>
+              <div class="col-8">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="admin-group-lesson"
+                  id="admin-group-lesson-name"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <label class="col-4 col-form-label text-center" for="admin-group-lesson-id"
+                >課程編號</label
+              >
+              <div class="col-8">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="admin-group-lesson"
+                  id="admin-group-lesson-id"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="row mb-12">
+              <label class="col-4 col-form-label text-center" for="admin-group-lesson-branch"
+                >課程館別</label
+              >
+              <div class="col-8">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="admin-group-lesson"
+                  id="admin-group-lesson-branch"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-4 col-form-label text-center" for="admin-group-lesson-date"
+                >請選擇課程日期</label
+              >
+              <div class="col-8">
+                <input
+                  class="admin-group-lesson-date form-control"
+                  type="text"
+                  name="admin-group-lesson-date"
+                  id="datepicker"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">取消</button>
+          <button type="button" class="add-new-group-lesson-btn btn btn-primary">確認</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 新增團體課程類別 -->
+  <div
+    class="modal fade"
+    id="createGroupLesson"
+    tabindex="-1"
+    aria-labelledby="createGroupLessonLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="createGroupLessonLabel">開設新課程類別</h3>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body py-10">
+          <form>
+            <div class="row mb-4">
+              <label class="col-4 col-form-label text-center" for="admin-group-lesson-create-name"
+                >課程名稱</label
+              >
+              <div class="col-8">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="admin-group-lesson-create"
+                  id="admin-group-lesson-create-name"
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <label class="col-4 col-form-label text-center" for="admin-group-lesson-create-id"
+                >課程編號</label
+              >
+              <div class="col-8">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="admin-group-lesson-create"
+                  id="admin-group-lesson-create-id"
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <label class="col-4 col-form-label text-center" for="admin-group-lesson-create-branch"
+                >課程館別</label
+              >
+              <div class="col-8">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="admin-group-lesson-create"
+                  id="admin-group-lesson-create-branch"
+                  value="HighRock 攀岩館 大安館"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <label class="col-4 col-form-label text-center" for="admin-group-lesson-create-coach"
+                >課程教練</label
+              >
+              <div class="col-8">
+                <select
+                  class="form-select admin-group-lesson-create-coach"
+                  aria-label="Default select"
+                >
+                  <option selected disabled>選擇教練</option>
+                  <option value="愛德華">愛德華</option>
+                  <option value="艾利克">艾利克</option>
+                  <option value="艾斯">艾斯</option>
+                  <option value="史傑克">史傑克</option>
+                  <option value="梅西">梅西</option>
+                  <option value="C.羅">C.羅</option>
+                  <option value="姆巴佩">姆巴佩</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8 offset-4">
+                <select
+                  class="form-select admin-group-lesson-create-select"
+                  aria-label="Default select"
+                >
+                  <option selected disabled>選擇主題顏色</option>
+                  <option class="text-gray-c1 bg-danger" value="danger">紅色三倍速紅</option>
+                  <option class="text-gray-c1 bg-orange" value="orange">橘子橘</option>
+                  <option class="text-gray-c1 bg-yellow" value="yellow">兄弟黃</option>
+                  <option class="text-gray-c1 bg-green" value="green">青花菜綠</option>
+                  <option class="text-gray-c1 bg-blue" value="blue">海洋藍</option>
+                  <option class="text-gray-c1 bg-blue-c3" value="blue-c3">憂鬱藍</option>
+                  <option class="text-gray-c1 bg-purple" value="purple">薇爾莉特紫</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">取消</button>
+          <button type="button" class="create-new-group-lesson-btn btn btn-primary">
+            開設課程
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 
     <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
