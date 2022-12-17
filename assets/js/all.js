@@ -1,8 +1,8 @@
 "use strict";
 
 /* eslint-disable no-undef */
-var Url = 'https://highrock-server-render.onrender.com';
-// const Url = 'https://high-rock-server.vercel.app';
+// const Url = 'https://highrock-server-render.onrender.com';
+var Url = 'http://localhost:3000';
 
 // ---------------------- 後台-活動課程管理 ----------------------
 
@@ -363,7 +363,7 @@ adminGroupLessonInit();
 
 /* eslint-disable no-undef */
 // const Url = 'https://high-rock-server.vercel.app';
-var Url = 'https://highrock-server-render.onrender.com';
+// const Url = 'https://highrock-server-render.onrender.com';
 
 // 渲染後臺會員列表
 function renderAdminMember(arr) {
@@ -407,8 +407,8 @@ axios.get("".concat(Url, "/users")).then(function (res) {
 "use strict";
 
 /* eslint-disable no-undef */
-// const Url = 'https://high-rock-server.vercel.app';
-var Url = 'https://highrock-server-render.onrender.com';
+// const Url = 'https://highrock-server-render.onrender.com';
+
 var form = document.querySelector('.js-form-editor');
 var btnSendEditor = document.querySelector('.js-send-to-set-editor');
 var createEditor = document.querySelector('#createEditor');
@@ -480,8 +480,9 @@ adminCreateInit();
 "use strict";
 
 /* eslint-disable no-undef */
-// const Url = 'https://high-rock-server.vercel.app';
-var Url = 'https://highrock-server-render.onrender.com';
+// const Url = 'https://highrock-server-render.onrender.com';
+// const Url = 'http://localhost:3000/';
+
 var editForm = document.querySelector('.js-form-editor-edit');
 var btnEditEditor = document.querySelector('.js-send-to-edit-editor');
 var editEditor = document.querySelector('#editEditor');
@@ -569,7 +570,7 @@ adminEditInit();
 
 /* eslint-disable no-undef */
 // const Url = 'https://high-rock-server.vercel.app';
-var Url = 'https://highrock-server-render.onrender.com';
+// const Url = 'https://highrock-server-render.onrender.com';
 
 // 渲染後臺消息列表
 function renderNewsList(data) {
@@ -668,7 +669,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* eslint-disable no-undef */
 
 // const Url = 'https://high-rock-server.vercel.app';
-var Url = 'https://highrock-server-render.onrender.com';
+// const Url = 'https://highrock-server-render.onrender.com';
+
 var toggleList = 'information';
 
 // ---------------------- 報名課程 彈跳視窗 ----------------------
@@ -1198,19 +1200,14 @@ var date = new Date();
 // 渲染預約課程
 function renderLesson(data) {
   data.forEach(function (item) {
-    // console.log(item);
-    // console.log(item.lessonDate);
     var lessonDataArr = item.lessonDate;
     lessonDataArr.forEach(function (i) {
-      // console.log(i);
       var lessonDateArrDetail = i.split('-');
-      // console.log(lessonDateArrDetail);
       var lessonDateObj = {
         year: lessonDateArrDetail[0],
         month: lessonDateArrDetail[1],
         date: lessonDateArrDetail[2]
       };
-      // console.log(lessonDateObj);
 
       // const lessons = document.querySelector(
       //   "div[data-year='2022'][data-month='12'][data-date='15']",
@@ -2211,7 +2208,8 @@ memberCourseInit();
 /* eslint-disable no-useless-return */
 /* eslint-disable no-undef */
 // const Url = 'https://high-rock-server.vercel.app';
-var Url = 'https://highrock-server-render.onrender.com';
+// const Url = 'https://highrock-server-render.onrender.com';
+
 var id = localStorage.getItem('userId');
 
 // 渲染會員資訊
@@ -2221,18 +2219,12 @@ function renderMemberInfo(obj) {
   var memberName = document.querySelector('#member-name');
   var memberAccount = document.querySelector('#member-account');
   var memberPwd = document.querySelector('#member-pwd');
-  var memberDetail = document.querySelector('.member-detail');
   if (memberEmail || memberTel || memberName || memberAccount || memberPwd) {
     memberEmail.value = obj.email;
     memberTel.value = obj.contactNumber;
     memberName.value = obj.name;
     memberAccount.value = obj.email;
     memberPwd.value = obj.password;
-  }
-  var str = '';
-  str = "\n  <p class=\"fs-4 fs-lg-3 mb-2\">\u6703\u54E1\u7DE8\u865F\uFF1A<span>MEM - ".concat(obj.id, " </span></p>\n  <p class=\"fs-4 fs-lg-3 mb-2\">\u6703\u54E1\u8CC7\u683C\uFF1A<span>\u514D\u8CBB\u6703\u54E1</span></p>\n  <p class=\"fs-4 fs-lg-3\">VIP \u8D77\u8A16\u65E5\uFF1A<span>\u7121</span></p>\n  ");
-  if (memberDetail) {
-    memberDetail.innerHTML = str;
   }
 }
 
@@ -2398,7 +2390,7 @@ if (id) {
 
 /* eslint-disable no-undef */
 // const Url = 'https://high-rock-server.vercel.app';
-var Url = 'https://highrock-server-render.onrender.com';
+// const Url = 'https://highrock-server-render.onrender.com';
 
 // 將登入資訊存入 LocalStorage
 function saveUserToLocal(_ref) {
@@ -2690,7 +2682,7 @@ loginInit();
 
 /* eslint-disable no-undef */
 // const Url = 'https://high-rock-server.vercel.app';
-var Url = 'https://highrock-server-render.onrender.com';
+// const Url = 'https://highrock-server-render.onrender.com';
 
 // 註冊
 function signUp() {
