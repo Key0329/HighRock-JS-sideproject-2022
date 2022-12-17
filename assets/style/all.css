@@ -38052,6 +38052,10 @@ img {
   max-width: none;
 }
 
+.w-c-75 {
+  width: 75px;
+}
+
 .hover-decoBorder-bottom::after {
   content: '';
   position: absolute;
