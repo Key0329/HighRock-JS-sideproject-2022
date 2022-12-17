@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
-// const Url = 'https://high-rock-server.vercel.app';
-const Url = 'https://highrock-server-render.onrender.com';
+// const Url = 'https://highrock-server-render.onrender.com';
 
 const form = document.querySelector('.js-form-editor');
 const btnSendEditor = document.querySelector('.js-send-to-set-editor');

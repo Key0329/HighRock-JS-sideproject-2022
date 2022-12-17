@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-return */
 /* eslint-disable no-undef */
 // const Url = 'https://high-rock-server.vercel.app';
-const Url = 'https://highrock-server-render.onrender.com';
+// const Url = 'https://highrock-server-render.onrender.com';
 
 const id = localStorage.getItem('userId');
 
@@ -12,7 +12,6 @@ function renderMemberInfo(obj) {
   const memberName = document.querySelector('#member-name');
   const memberAccount = document.querySelector('#member-account');
   const memberPwd = document.querySelector('#member-pwd');
-  const memberDetail = document.querySelector('.member-detail');
 
   if (memberEmail || memberTel || memberName || memberAccount || memberPwd) {
     memberEmail.value = obj.email;
@@ -20,18 +19,6 @@ function renderMemberInfo(obj) {
     memberName.value = obj.name;
     memberAccount.value = obj.email;
     memberPwd.value = obj.password;
-  }
-
-  let str = '';
-
-  str = `
-  <p class="fs-4 fs-lg-3 mb-2">會員編號：<span>MEM - ${obj.id} </span></p>
-  <p class="fs-4 fs-lg-3 mb-2">會員資格：<span>免費會員</span></p>
-  <p class="fs-4 fs-lg-3">VIP 起訖日：<span>無</span></p>
-  `;
-
-  if (memberDetail) {
-    memberDetail.innerHTML = str;
   }
 }
 

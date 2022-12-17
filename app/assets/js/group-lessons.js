@@ -7,20 +7,15 @@ const date = new Date();
 // 渲染預約課程
 function renderLesson(data) {
   data.forEach((item) => {
-    // console.log(item);
-    // console.log(item.lessonDate);
     const lessonDataArr = item.lessonDate;
 
     lessonDataArr.forEach((i) => {
-      // console.log(i);
       const lessonDateArrDetail = i.split('-');
-      // console.log(lessonDateArrDetail);
       const lessonDateObj = {
         year: lessonDateArrDetail[0],
         month: lessonDateArrDetail[1],
         date: lessonDateArrDetail[2],
       };
-      // console.log(lessonDateObj);
 
       // const lessons = document.querySelector(
       //   "div[data-year='2022'][data-month='12'][data-date='15']",
