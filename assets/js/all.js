@@ -2095,7 +2095,8 @@ function deleteCourse() {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: '確認'
+        confirmButtonText: '確認',
+        cancelButtonText: '取消'
       }).then(function (result) {
         if (result.isConfirmed) {
           axios["delete"]("".concat(Url, "/students/").concat(deleteId)).then(function () {})["catch"](function (error) {
@@ -2136,7 +2137,8 @@ function deleteGroupLesson() {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: '確認'
+        confirmButtonText: '確認',
+        cancelButtonText: '取消'
       }).then(function (result) {
         if (result.isConfirmed) {
           axios["delete"]("".concat(Url, "/groupLessonStudents/").concat(deleteId)).then(function () {
