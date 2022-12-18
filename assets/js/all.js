@@ -1238,7 +1238,7 @@ var renderCalendar = function renderCalendar() {
   // 本月
   var currentMonth = document.querySelector('.current-month');
   if (currentMonth) {
-    currentMonth.innerHTML = months[date.getMonth()];
+    currentMonth.innerHTML = "".concat(months[date.getMonth()], " ").concat(date.getFullYear());
   }
   var days = '';
 
