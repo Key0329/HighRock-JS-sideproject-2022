@@ -120,6 +120,7 @@ function deleteCourse() {
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: '確認',
+        cancelButtonText: '取消',
       }).then((result) => {
         if (result.isConfirmed) {
           axios
@@ -170,6 +171,7 @@ function deleteGroupLesson() {
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: '確認',
+        cancelButtonText: '取消',
       }).then((result) => {
         if (result.isConfirmed) {
           axios
