@@ -309,24 +309,6 @@
       "time": "19:00 ~ 20:00",
       "branch": "HighRock 攀岩館 大安館",
       "date": "2023 年 12 月 19 日"
-    },
-    {
-      "userId": "4",
-      "lessonId": "3",
-      "name": "抱石 LV1",
-      "time": "19:00 ~ 20:00",
-      "branch": "HighRock 攀岩館 大安館",
-      "date": "2022 年 12 月 2 日",
-      "id": 2
-    },
-    {
-      "userId": "4",
-      "lessonId": "3",
-      "name": "抱石 LV1",
-      "time": "19:00 ~ 20:00",
-      "branch": "HighRock 攀岩館 大安館",
-      "date": "2022 年 12 月 11 日",
-      "id": 3
     }
   ],
   "batches": [
@@ -341,7 +323,7 @@
       "status": "尚有名額 ",
       "isOpened": "已開課",
       "maximumSignUp": 8,
-      "nowSignUp": 2
+      "nowSignUp": 7
     },
     {
       "id": 2,
@@ -607,6 +589,46 @@
       "name": "石頭",
       "email": "yoyoyo@gmail.com",
       "contactNumber": "0955-666-565"
+    },
+    {
+      "id": 16,
+      "userId": "3",
+      "batchId": "1",
+      "name": "石頭",
+      "email": "yoyoyo@gmail.com",
+      "contactNumber": "0955-666-565"
+    },
+    {
+      "id": 17,
+      "userId": "3",
+      "batchId": "1",
+      "name": "馬斯克",
+      "email": "musk@gmail.com",
+      "contactNumber": "0955-666-888"
+    },
+    {
+      "id": 18,
+      "userId": "3",
+      "batchId": "1",
+      "name": "陳金鋒",
+      "email": "taiwanbaseball@gmail.com",
+      "contactNumber": "0987-654-321"
+    },
+    {
+      "id": 19,
+      "userId": "3",
+      "batchId": "1",
+      "name": "Brian",
+      "email": "brian@gmail.com",
+      "contactNumber": "0912-345-678"
+    },
+    {
+      "userId": "4",
+      "batchId": "1",
+      "name": "Jack",
+      "email": "dev@dev.com",
+      "contactNumber": "0912345678",
+      "id": 20
     }
   ],
   "posts": [
