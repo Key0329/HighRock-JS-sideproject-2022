@@ -1,8 +1,8 @@
 "use strict";
 
 /* eslint-disable no-undef */
-// const Url = 'https://highrock-server-render.onrender.com';
-var Url = 'http://localhost:3000';
+var Url = 'https://highrock-server-render.onrender.com';
+// const Url = 'http://localhost:3000';
 
 // ---------------------- 後台-活動課程管理 ----------------------
 
