@@ -597,7 +597,8 @@ function deleteNews() {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: '繼續刪除'
+        confirmButtonText: '繼續刪除',
+        cancelButtonText: '取消'
       }).then(function (result) {
         if (result.isConfirmed) {
           axios["delete"]("".concat(Url, "/posts/").concat(dataId)).then(function () {
