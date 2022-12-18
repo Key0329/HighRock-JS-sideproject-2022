@@ -290,7 +290,6 @@ function getLessonData() {
 function groupLessonInit() {
   renderCalendar();
   getLessonData();
-  postReservation();
 }
-
+postReservation();
 groupLessonInit();

@@ -298,6 +298,17 @@
         "2022-12-24"
       ],
       "id": 6
+    },
+    {
+      "name": "抱石 LV3",
+      "groupLessonId": "123",
+      "branch": "HighRock 攀岩館 大安館",
+      "coach": "梅西",
+      "color": "danger",
+      "lessonDate": [
+        "2023-1-18"
+      ],
+      "id": 7
     }
   ],
   "groupLessonStudents": [
