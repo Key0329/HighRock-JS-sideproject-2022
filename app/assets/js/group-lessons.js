@@ -71,7 +71,7 @@ const renderCalendar = () => {
   // 本月
   const currentMonth = document.querySelector('.current-month');
   if (currentMonth) {
-    currentMonth.innerHTML = months[date.getMonth()];
+    currentMonth.innerHTML = `${months[date.getMonth()]} ${date.getFullYear()}`;
   }
 
   let days = '';
