@@ -1,3 +1,33 @@
+# HighRock JS sideproject
+
+## 線上 DEMO
+
+---
+
+前台 DEMO
+https://key0329.github.io/HighRock-JS-sideproject-2022/
+
+※使用說明：
+歡迎註冊帳號體驗會員功能，或使用下方帳密登入
+帳號: dev@dev.com
+密碼: 123456
+若登入帳號但畫面無反應，請聯繫我（需重新喚醒主機 )
+
+後台 DEMO https://key0329.github.io/HighRock-JS-sideproject-2022/admin-course.html
+網站功能－前台
+◆ 選擇甜點（可多選）或捷運站點後，輕鬆獲取相關店家資訊，也可觀看評價
+◆ 提供會員登入、註冊、收藏、評價、個人資料修改功能
+網站功能－後台
+◆ 會員管理
+◆ 評價管理、圖表統整評價資料
+
+使用技能
+◆ 使用原生 JavaScript 開發
+◆ 畫面切版使用 SCSS 手刻 RWD
+◆ 建立 db.json 資料串接 JSON-server 模擬 RESTful API
+◆ 使用 JSON-server-auth 控制使用者權限
+◆ 使用 Render 部署
+
 # 網頁切版直播班 Gulp 範例 - 加入 Bootstrap 版本
 
 > 使用該專案 Gulp 時，就可以不用使用其他編譯工具編譯 SCSS 或是 JavaScript 囉。
