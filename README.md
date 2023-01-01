@@ -1,6 +1,8 @@
 # HighRock JS sideproject
 
-## 線上 DEMO
+
+
+### 線上 DEMO
 
 線上 demo 的服務器時間僅15分鐘,超過15分鐘自動休眠
 若 demo 時畫面無反應或異常，請聯繫我（需重新喚醒主機 )
@@ -12,24 +14,40 @@ https://key0329.github.io/HighRock-JS-sideproject-2022/
 歡迎註冊帳號體驗會員功能，或使用下方帳密登入
 帳號: dev@dev.com
 密碼: 123456
-後台 DEMO https://key0329.github.io/HighRock-JS-sideproject-2022/admin-course.html
 
-## 功能介紹
+後台 DEMO 
+https://key0329.github.io/HighRock-JS-sideproject-2022/admin-course.html
+
+### 功能介紹
 
 前台
-- 選擇甜點（可多選）或捷運站點後，輕鬆獲取相關店家資訊，也可觀看評價
-- 提供會員登入、註冊、收藏、評價、個人資料修改功能
+- 首頁 => GSAP 動畫效果、輪播
+- 場館資訊 => GSAP、before/after、最新消息列表(可從後台 CRUD)
+- 課程介紹 => 報名課程(需登入)
+- 團體課程 => 手刻月曆 + 預約功能
+- 會員資料 => 會員登入、註冊、個人資料修改、課程管理
 
 後台
-- 會員管理
-- 評價管理、圖表統整評價資料
+- 活動課程管理 => 查看課程及報名學生、關鍵字搜尋
+- 團體課程管理 => 開設新課程、新增上課日 (前台月曆同步新增)
+- 最新消息列表 => CRUD (前台同步新增)
 
-使用技能
-◆ 使用原生 JavaScript 開發
-◆ 畫面切版使用 SCSS 手刻 RWD
-◆ 建立 db.json 資料串接 JSON-server 模擬 RESTful API
-◆ 使用 JSON-server-auth 控制使用者權限
-◆ 使用 Render 部署
+### 使用技能及工具
+
+- Vanilla JavaScript 
+- 切版 BS5、SCSS、RWD
+- 第三方套件：Swiper、axios、gsap、tilt.js、validate.js、CKEditor5...
+- 建立 db.json 資料串接 JSON-server 模擬 RESTful API
+- 使用 JSON-server-auth 控制使用者權限
+- 使用 Render 部署
+
+
+
+
+---
+
+
+
 
 # 網頁切版直播班 Gulp 範例 - 加入 Bootstrap 版本
 
