@@ -1,22 +1,20 @@
 # HighRock JS sideproject
 
-
+![Alt text](https://github.com/Key0329/JoinSport/blob/main/src/assets/images/feature/Frame%206.png?raw=true)
 
 ### 線上 DEMO
 
-線上 demo 的服務器時間僅15分鐘,超過15分鐘自動休眠
+線上 demo 需稍等喚醒約 30 秒，服務器時間僅 15 分鐘,超過 15 分鐘自動休眠
 若 demo 時畫面無反應或異常，請聯繫我（需重新喚醒主機 )
 
-前台 DEMO
-https://key0329.github.io/HighRock-JS-sideproject-2022/
+#### 前台 DEMO https://key0329.github.io/HighRock-JS-sideproject-2022/
 
 ※使用說明：
 歡迎註冊帳號體驗會員功能，或使用下方帳密登入
 帳號: dev@dev.com
 密碼: 123456
 
-後台 DEMO 
-https://key0329.github.io/HighRock-JS-sideproject-2022/admin-course.html
+#### 後台 DEMO https://key0329.github.io/HighRock-JS-sideproject-2022/admin-course.html
 
 ### 功能介紹
 
