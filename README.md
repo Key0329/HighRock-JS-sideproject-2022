@@ -11,7 +11,7 @@
 
 ※使用說明：
 歡迎註冊帳號體驗會員功能，或使用下方帳密登入 </br>
-帳號: dev@dev.com
+帳號: dev@dev.com </br>
 密碼: 123456
 
 #### 後台 DEMO https://key0329.github.io/HighRock-JS-sideproject-2022/admin-course.html
