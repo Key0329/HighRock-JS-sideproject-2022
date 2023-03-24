@@ -10,7 +10,7 @@
 #### 前台 DEMO https://key0329.github.io/HighRock-JS-sideproject-2022/
 
 ※使用說明：
-歡迎註冊帳號體驗會員功能，或使用下方帳密登入
+歡迎註冊帳號體驗會員功能，或使用下方帳密登入 </br>
 帳號: dev@dev.com
 密碼: 123456
 
